@@ -1,2 +1,9 @@
 # VueJs
 For some purpose i'll skip react and start my Vue journey today 25/03/2023. Will use this repo for documentating my skill from novice to pro by God grace
+
+
+|  #  | Project                                                                                                                     | Live Demo                                                                         |
+| :-: | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 01  | [My first Vue app ](https://github.com/imran2975/VueJs/tree/master/Intro%20CDN)                             | [Live Demo](https://vue-intro-cdn.netlify.app/)               |
+| 02  | [Modal](https://github.com/imran2975/VueJs/tree/master/Modal)                             | [Live Demo](https://modal-vuejs.netlify.app) 
+| 03  | [Reaction Timer](https://github.com/imran2975/VueJs/tree/master/Reaction%20Timer)                             | [Live Demo](https://vue-reactions-game.netlify.app)
