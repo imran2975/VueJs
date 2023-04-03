@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Ninja Reaction Timer</h1>
+    <h1>Reaction Timer Game</h1>
+    <p>How fast can you click on the box</p>
     <button @click="start" :disabled="isPlaying">Play</button>
     <Block v-if="isPlaying" :delay="delay" @end="endGame" />
     <Results v-if="showResult" :score="score" />
