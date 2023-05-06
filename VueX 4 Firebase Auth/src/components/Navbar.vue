@@ -57,7 +57,15 @@
           <!-- for logged in users -->
           <div v-if="user" class="nav-item flex-nowrap">
             <span>Logged in as {{ user.email }}</span>
-            <button class="btn btn-danger" @click="handleClick">Logout</button>
+            <button
+              class="btn btn-danger"
+              @click="
+                handleClick();
+                collapseMenu();
+              "
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>
