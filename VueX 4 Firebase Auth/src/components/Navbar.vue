@@ -43,12 +43,19 @@
 
             <!-- for logged out users -->
             <div v-if="!user" class="nav-item">
-              <router-link to="/login" class="nav-link">Login</router-link>
-              <router-link to="/signup" class="nav-link">Signup</router-link>
+              <router-link to="/login" class="nav-link" @click="collapseMenu"
+                >Login</router-link
+              >
+            </div>
+
+            <div class="nav-item" v-if="!user">
+              <router-link to="/signup" class="nav-link" @click="collapseMenu"
+                >Signup</router-link
+              >
             </div>
           </ul>
           <!-- for logged in users -->
-          <div v-if="user" class="nav-item">
+          <div v-if="user" class="nav-item flex-nowrap">
             <span>Logged in as {{ user.email }}</span>
             <button class="btn btn-danger" @click="handleClick">Logout</button>
           </div>
