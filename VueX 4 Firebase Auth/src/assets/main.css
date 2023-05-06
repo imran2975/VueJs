@@ -6,6 +6,7 @@
 body {
   font-family: "Poppins";
 }
+
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -16,22 +17,29 @@ nav {
   display: flex;
   align-items: center;
 }
+
 nav h1 {
   margin-right: auto;
 }
-nav a, nav button, nav span {
+
+nav a,
+nav button,
+nav span {
   margin-left: 20px;
 }
+
 nav a {
   color: #444;
   text-decoration: none;
   font-weight: bold;
 }
+
 nav span {
   color: #777;
 }
+
 button {
-  background:#00dba4;
+  background: #00dba4;
   border: 0;
   padding: 6px 10px;
   border-radius: 20px;
@@ -45,12 +53,15 @@ button {
   margin: 30px 0 20px;
   border-top: 1px dotted #ddd;
 }
+
 .blog p {
   color: #999;
 }
+
 .blog h3 {
   color: #00dba4;
 }
+
 .blog .icons {
   color: #555;
   font-weight: bold;
@@ -58,12 +69,18 @@ button {
   align-items: center;
   font-size: 0.9em;
 }
+
 .blog .icons .material-icons {
   font-size: 1em;
   margin-left: 10px;
   cursor: pointer;
 }
+
 .blog .icons .material-icons:hover {
+  color: #00dba4;
+}
+
+.voted {
   color: #00dba4;
 }
 
@@ -73,6 +90,7 @@ label {
   margin-bottom: 10px;
   margin-top: 20px;
 }
+
 form button {
   display: block;
   margin-top: 20px;
