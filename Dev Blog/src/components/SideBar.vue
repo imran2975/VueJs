@@ -1,6 +1,6 @@
 <template>
   <div class="container bg-dark" :class="{ collapsed: isCollapsed }">
-    <img src="/My Logo.png" alt="" />
+    <img src="/Logo.png" alt="" />
     <p class="text-white">Imran Abubakar</p>
 
     <div class="list-group">

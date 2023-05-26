@@ -45,7 +45,7 @@
 
         <div class="dropdown">
           <img
-            src="/My Logo.png"
+            src="/Logo.png"
             alt=""
             class="dropdown-toggle m-2"
             id="dropdownMenuLink"
@@ -58,7 +58,7 @@
             aria-labelledby="dropdownMenuLink"
           >
             <div class="info">
-              <img src="/My Logo.png" alt="" />
+              <img src="/Logo.png" alt="" />
               <div class="details">
                 <h6>Imran Abubakar</h6>
                 <p>@Imran2975</p>
