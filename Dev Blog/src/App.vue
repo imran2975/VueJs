@@ -9,14 +9,16 @@
         </button>
       </div>
     </nav>
-    <div class="wrap">
+    <div class="wrap d-lg-none">
       <SideBar
         :isCollapsed="isSidebarCollapsed"
         class="side-bar"
         @sidebar-toggle="toggleSidebar"
       />
-      <RouterView />
+      <RouterView id="content" />
     </div>
+    <RouterView id="content" class="d-sm" />
+    <Footer id="footer" />
   </div>
 </template>
 
@@ -24,10 +26,11 @@
 import { ref } from "vue";
 import SideBar from "./components/SideBar.vue";
 import NavBarLarge from "./components/NavBarLarge.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
-  components: { SideBar, NavBarLarge },
+  components: { SideBar, NavBarLarge, Footer },
   setup() {
     const isSidebarCollapsed = ref(false);
 
@@ -49,13 +52,35 @@ export default {
   position: relative;
 }
 
+#content {
+  margin-top: 5rem;
+}
+
+#navbar,
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .toggle-btn {
   z-index: 1;
 }
 
+/* #footer {
+  width: 150%;
+  margin: 0;
+} */
+
 @media (max-width: 576px) {
-  #navbar {
+  #navbar,
+  .d-sm {
     display: none;
+  }
+  #content,
+  .side-bar {
+    margin-top: 3.4rem;
   }
 }
 </style>

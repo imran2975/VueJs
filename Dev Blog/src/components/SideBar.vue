@@ -64,6 +64,7 @@ export default {
   width: 20rem;
   position: fixed;
   transition: all 2s;
+  z-index: 1;
 }
 
 .container.collapsed {

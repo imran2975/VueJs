@@ -21,25 +21,25 @@
         <RouterLink
           to="/"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/' }"
+          :class="{ active: $route.path === '/a' }"
           >Posts</RouterLink
         >
         <RouterLink
-          to="/"
+          to="/about"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/' }"
+          :class="{ active: $route.path === '/about' }"
           >About Us</RouterLink
         >
         <RouterLink
           to="/"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/' }"
+          :class="{ active: $route.path === '/a' }"
           >Blogs</RouterLink
         >
         <RouterLink
           to="/"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/' }"
+          :class="{ active: $route.path === '/a' }"
           >Create</RouterLink
         >
 
@@ -99,6 +99,7 @@ export default {};
 }
 .nav-link.active {
   color: #fdb924;
+  text-shadow: 1px 1px 1px #00000075;
 }
 
 .nav-link:hover {
