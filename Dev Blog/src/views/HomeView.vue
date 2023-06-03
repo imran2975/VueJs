@@ -16,7 +16,7 @@
             </p>
           </div>
         </div>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">Continue reading...</a>
       </div>
       <div class="card-footer text-muted">2 days ago</div>
     </div>
@@ -36,16 +36,17 @@ export default {
       {
         id: 2,
         author: "Ameer",
-        title: "How to create a simple login page using Html & Css",
+        title: "Simple Vue Project",
       },
       {
         id: 3,
-        author: "Musa",
-        title: "How to create a simple login page using Html & Css",
+        author: "Mahmud",
+        title:
+          "How to create a simple login page using React and firebase auth",
       },
       {
-        author: "Abubakar",
-        title: "How to create a simple login page using Html & Css",
+        author: "Johnson",
+        title: "How to create an E-comerce web app using Html & Css",
       },
       {
         author: "Fati",

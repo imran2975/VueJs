@@ -22,25 +22,31 @@
           to="/"
           class="nav-link m-2"
           :class="{ active: $route.path === '/a' }"
-          >Posts</RouterLink
-        >
-        <RouterLink
-          to="/about"
-          class="nav-link m-2"
-          :class="{ active: $route.path === '/about' }"
-          >About Us</RouterLink
-        >
-        <RouterLink
-          to="/"
-          class="nav-link m-2"
-          :class="{ active: $route.path === '/a' }"
           >Blogs</RouterLink
         >
         <RouterLink
           to="/"
           class="nav-link m-2"
           :class="{ active: $route.path === '/a' }"
-          >Create</RouterLink
+          >Create Post</RouterLink
+        >
+        <RouterLink
+          to="/about"
+          class="nav-link m-2"
+          :class="{ active: $route.path === '/about' }"
+          >Books</RouterLink
+        >
+        <RouterLink
+          to="/"
+          class="nav-link m-2"
+          :class="{ active: $route.path === '/a' }"
+          >Portfolio</RouterLink
+        >
+        <RouterLink
+          to="/"
+          class="nav-link m-2"
+          :class="{ active: $route.path === '/a' }"
+          >Contact Us</RouterLink
         >
 
         <div class="dropdown">

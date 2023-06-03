@@ -68,11 +68,6 @@ export default {
   z-index: 1;
 }
 
-/* #footer {
-  width: 150%;
-  margin: 0;
-} */
-
 @media (max-width: 576px) {
   #navbar,
   .d-sm {

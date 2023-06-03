@@ -14,25 +14,37 @@
         to="/about"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/about' }"
-        >About Us</RouterLink
+        >Blogs</RouterLink
       >
       <RouterLink
         to="/"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/post' }"
-        >Post</RouterLink
+        >Create post</RouterLink
       >
       <RouterLink
         to="/"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/product' }"
-        >Product</RouterLink
+        >Books</RouterLink
+      >
+      <RouterLink
+        to="/"
+        class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
+        :class="{ active: $route.path === '/product' }"
+        >Portfolio</RouterLink
       >
       <RouterLink
         to="/"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/contact' }"
         >Contact Us</RouterLink
+      >
+      <RouterLink
+        to="/"
+        class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
+        :class="{ active: $route.path === '/contact' }"
+        >Sign Out</RouterLink
       >
     </div>
   </div>
@@ -65,6 +77,7 @@ export default {
   position: fixed;
   transition: all 2s;
   z-index: 1;
+  line-height: 20px;
 }
 
 .container.collapsed {
