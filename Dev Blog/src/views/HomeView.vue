@@ -12,7 +12,7 @@
         </RouterLink>
       </div>
       <div class="column2">
-        <img src="HomePageTitles1.png" alt="" />
+        <img src="1.png" alt="" />
       </div>
     </div>
     <div class="tiles">
@@ -36,7 +36,7 @@
         </RouterLink>
       </div>
       <div class="column2">
-        <img src="HomePageTitles1.png" alt="" />
+        <img src="1.png" alt="" />
       </div>
     </div>
 
