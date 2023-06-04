@@ -45,7 +45,7 @@
         <h2>View More Recent Blogs</h2>
         <div class="cards">
           <div class="card" style="width: 18rem">
-            <img src="Logo.png" class="card-img-top" alt="..." />
+            <img src="/Logo.png" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">
@@ -56,7 +56,7 @@
             </div>
           </div>
           <div class="card" style="width: 18rem">
-            <img src="Logo.png" class="card-img-top" alt="..." />
+            <img src="/Logo.png" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">
@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="card" style="width: 18rem">
-            <img src="Logo.png" class="card-img-top" alt="..." />
+            <img src="/Logo.png" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">
