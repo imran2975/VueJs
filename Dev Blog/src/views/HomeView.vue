@@ -12,12 +12,12 @@
         </RouterLink>
       </div>
       <div class="column2">
-        <img src="1.png" alt="" />
+        <img src="test.png" alt="" />
       </div>
     </div>
     <div class="tiles">
       <div class="column2">
-        <img src="2.png" alt="" />
+        <img src="test1.png" alt="" />
       </div>
       <div class="column">
         <h1>Dynamic Page Titles With The Vue Router</h1>
@@ -36,7 +36,7 @@
         </RouterLink>
       </div>
       <div class="column2">
-        <img src="1.png" alt="" />
+        <img src="test.png" alt="" />
       </div>
     </div>
 
