@@ -1,90 +1,208 @@
 <template>
   <div>
-    <div class="card mb-1" v-for="post in posts" :key="post.id">
-      <div class="card-header">Posted by {{ post.author }}</div>
-      <div class="card-body">
-        <div class="card-contents">
-          <div class="card-img">
-            <img src="/Logo.png" alt="" />
+    <div class="tiles reverse">
+      <div class="column">
+        <h1>WELCOME!</h1>
+        <p>
+          Weekly blog articles with all things programming including HTML, CSS,
+          JavaScript and more. Register today to never miss a post!
+        </p>
+        <RouterLink to="/login" class="nav-link m-2">
+          LOGIN/REGISTER <i class="fa-solid fa-arrow-right fa-fade"></i>
+        </RouterLink>
+      </div>
+      <div class="column2">
+        <img src="HomePageTitles1.png" alt="" />
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="column2">
+        <img src="2.png" alt="" />
+      </div>
+      <div class="column">
+        <h1>Dynamic Page Titles With The Vue Router</h1>
+        <p>In this video we take a look at creatin</p>
+        <RouterLink to="/login" class="nav-link m-2">
+          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+        </RouterLink>
+      </div>
+    </div>
+    <div class="tiles reverse">
+      <div class="column">
+        <h1>CSS Transform: SkewY | Create A Slanted/Skewed Div</h1>
+        <p>In this video we take a look at creatin</p>
+        <RouterLink to="/login" class="nav-link m-2">
+          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+        </RouterLink>
+      </div>
+      <div class="column2">
+        <img src="HomePageTitles1.png" alt="" />
+      </div>
+    </div>
+
+    <div class="tiles post">
+      <div class="more">
+        <h2>View More Recent Blogs</h2>
+        <div class="cards">
+          <div class="card" style="width: 18rem">
+            <img src="Logo.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
           </div>
-          <div class="cont">
-            <h2 class="card-title">{{ post.title }}</h2>
-            <p class="card-text text-muted">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              cupiditate commodi dolorum nesciunt id deleniti saepe magnam
-              voluptatibus necessitatibus culpa?
-            </p>
+          <div class="card" style="width: 18rem">
+            <img src="Logo.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="Logo.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
           </div>
         </div>
-        <a href="#" class="btn btn-primary">Continue reading...</a>
       </div>
-      <div class="card-footer text-muted">2 days ago</div>
+    </div>
+    <div class="tiles">
+      <h1 class="column">
+        never miss a post. Register for your free account today!
+      </h1>
+      <div class="newsletter">
+        <form>
+          <input type="text" />
+          <button class="btn btn-dark text-white btn-outline-secondary">
+            Subscribe to our newsletter
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "HomeView",
-  setup() {
-    const posts = [
-      {
-        id: 1,
-        author: "Imran",
-        title: "How to create a simple login page using Html & Css",
-      },
-      {
-        id: 2,
-        author: "Ameer",
-        title: "Simple Vue Project",
-      },
-      {
-        id: 3,
-        author: "Mahmud",
-        title:
-          "How to create a simple login page using React and firebase auth",
-      },
-      {
-        author: "Johnson",
-        title: "How to create an E-comerce web app using Html & Css",
-      },
-      {
-        author: "Fati",
-        title: "How to create a simple login page using Html & Css",
-      },
-    ];
-
-    return { posts };
-  },
-};
+export default {};
 </script>
 
 <style scoped>
-.card-contents {
+h1 {
+  text-transform: uppercase;
+}
+
+h2 {
+  margin-left: 1rem;
+}
+.tiles {
   display: flex;
-  gap: 1rem;
-  justify-content: space-around;
-  margin-bottom: 0.5rem;
-  line-height: 2rem;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
-.card-title {
-  text-transform: capitalize;
+.column {
+  padding: 1rem;
+  width: 40%;
 }
 
-.card-img {
-  width: 300px;
-  height: 200px;
+.column2 {
+  width: 60%;
+  height: 100vh;
 }
-.card-img img {
+
+.column2 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.post {
+  background: #ebebeb;
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  margin-left: 1rem;
+}
+
+.cards {
+  display: flex;
+}
+
+.newsletter {
+  width: 60%;
+  padding: 1rem;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+
+button {
+  margin-top: 1rem;
+  border-radius: 50px;
+  padding: 0.5rem;
+}
+
 @media (max-width: 576px) {
-  .card-contents {
-    display: block;
+  .tiles {
+    flex-direction: column;
+    height: inherit;
+  }
+
+  .reverse {
+    flex-direction: column-reverse;
+  }
+
+  .column {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .column2 {
+    width: 100%;
+    height: 30vh;
+  }
+  .column2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .cards {
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }
+  .card {
+    margin: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .newsletter {
+    width: 100%;
+    padding: 1rem;
   }
 }
 </style>

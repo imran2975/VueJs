@@ -19,9 +19,9 @@
           >Home</RouterLink
         >
         <RouterLink
-          to="/"
+          to="/blogs"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/a' }"
+          :class="{ active: $route.path === '/blogs' }"
           >Blogs</RouterLink
         >
         <RouterLink
