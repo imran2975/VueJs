@@ -53,7 +53,7 @@ export default {
 }
 
 #content {
-  margin-top: 6rem;
+  margin-top: 5rem;
 }
 
 #navbar,
