@@ -17,17 +17,12 @@
         >Blogs</RouterLink
       >
       <RouterLink
-        to="/"
+        to="/create-post"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
-        :class="{ active: $route.path === '/post' }"
+        :class="{ active: $route.path === '/create-post' }"
         >Create post</RouterLink
       >
-      <RouterLink
-        to="/"
-        class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
-        :class="{ active: $route.path === '/product' }"
-        >Books</RouterLink
-      >
+
       <RouterLink
         to="/"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
@@ -35,9 +30,9 @@
         >Portfolio</RouterLink
       >
       <RouterLink
-        to="/"
+        to="/contact-us"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
-        :class="{ active: $route.path === '/contact' }"
+        :class="{ active: $route.path === '/contact-us' }"
         >Contact Us</RouterLink
       >
       <RouterLink

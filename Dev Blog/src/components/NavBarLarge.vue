@@ -25,17 +25,12 @@
           >Blogs</RouterLink
         >
         <RouterLink
-          to="/"
+          to="/create-post"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/a' }"
+          :class="{ active: $route.path === '/create-post' }"
           >Create Post</RouterLink
         >
-        <RouterLink
-          to="/about"
-          class="nav-link m-2"
-          :class="{ active: $route.path === '/about' }"
-          >Books</RouterLink
-        >
+
         <RouterLink
           to="/"
           class="nav-link m-2"
@@ -43,9 +38,9 @@
           >Portfolio</RouterLink
         >
         <RouterLink
-          to="/"
+          to="/contact-us"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/a' }"
+          :class="{ active: $route.path === '/acontact-us' }"
           >Contact Us</RouterLink
         >
 
