@@ -40,13 +40,13 @@
         <RouterLink
           to="/contact-us"
           class="nav-link m-2"
-          :class="{ active: $route.path === '/acontact-us' }"
+          :class="{ active: $route.path === '/contact-us' }"
           >Contact Us</RouterLink
         >
 
         <div class="dropdown">
           <img
-            src="/Logo.png"
+            :src="profileImage"
             alt=""
             class="dropdown-toggle m-2"
             id="dropdownMenuLink"
@@ -87,7 +87,17 @@
 </template>
 
 <script>
-export default {};
+import { computed, ref } from "vue";
+
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+    const profileImage = computed(() => store.state.img);
+
+    return { profileImage };
+  },
+};
 </script>
 
 <style scoped>

@@ -1,8 +1,8 @@
 <template>
-  <div id="view-port">
+  <div class="hi">
     <form action="">
       <div class="profile-info">
-        <img src="/Logo.png" alt="" />
+        <img :src="profileImage" alt="" />
         <h2>Imran Abubakar</h2>
       </div>
       <input type="text" name="" id="post-title" placeholder="Heading..." />
@@ -24,14 +24,22 @@
 </template>
 
 <script>
-export default {};
+import { computed, ref } from "vue";
+
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+    const profileImage = computed(() => store.state.img);
+
+    return { profileImage };
+  },
+};
 </script>
 
 <style scoped>
-#view-port {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.hi {
+  background: url("/World Map.svg");
 }
 
 form {
@@ -86,6 +94,9 @@ textarea,
 @media (max-width: 576px) {
   #post-title {
     margin-left: -6rem;
+  }
+  .hi {
+    background: none;
   }
 }
 </style>

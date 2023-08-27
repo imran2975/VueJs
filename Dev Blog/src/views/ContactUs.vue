@@ -1,7 +1,14 @@
 <template>
   <div class="hi">
     <form action="">
-      <h2>
+      <marquee behavior="" direction=""
+        ><h2>
+          Love to hear from you, Get in touch<img
+            src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif"
+            alt=""
+          /></h2
+      ></marquee>
+      <h2 class="custom-marquee-content">
         Love to hear from you, Get in touch<img
           src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif"
           alt=""
@@ -53,6 +60,28 @@ export default {};
 </script>
 
 <style scoped>
+.custom-marquee {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: lightgray;
+  padding: 5px;
+}
+
+.custom-marquee-content {
+  animation: marquee 10s linear infinite;
+  display: none;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 h2 img {
   height: 1.7rem;
   width: 1.7rem;
@@ -61,6 +90,7 @@ form {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  overflow: hidden;
 }
 button {
   font-weight: bold;
@@ -72,7 +102,20 @@ button {
     display: flex;
     justify-content: center;
     background: #ebebeb;
+    background-image: url("/World Map.svg");
   }
+  marquee {
+    display: none;
+  }
+  .custom-marquee-content {
+    display: block;
+  }
+  h2 {
+    color: #fdb924;
+    text-shadow: 2px 2px #000;
+    overflow: hidden;
+  }
+
   form {
     width: 50%;
     border: 1px solid #cac9c9;

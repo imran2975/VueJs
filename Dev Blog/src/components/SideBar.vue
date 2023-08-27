@@ -1,6 +1,6 @@
 <template>
   <div class="container bg-dark" :class="{ collapsed: isCollapsed }">
-    <img src="/Logo.png" alt="" />
+    <img :src="profileImage" alt="" />
     <p class="text-white">Imran Abubakar</p>
 
     <div class="list-group">
@@ -46,8 +46,15 @@
 </template>
 
 <script>
-import { RouterLink } from "vue-router";
+import { computed } from "vue";
+import { useStore } from "vuex";
 export default {
+  setup() {
+    const store = useStore();
+    const profileImage = computed(() => store.state.img);
+
+    return { profileImage };
+  },
   props: {
     isCollapsed: {
       type: Boolean,
