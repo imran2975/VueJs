@@ -1,14 +1,36 @@
 <template>
   <div>
-    <div class="tiles reverse">
+    <div class="tiles reverse big-screen">
       <div class="column">
         <h1>WELCOME!</h1>
         <p>
           Weekly blog articles with all things programming including HTML, CSS,
           JavaScript and more. Register today to never miss a post!
         </p>
-        <RouterLink to="/sign-in" class="nav-link m-2">
-          LOGIN/REGISTER <i class="fa-solid fa-arrow-right fa-fade"></i>
+        <RouterLink to="/" class="nav-link m-2">
+          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+        </RouterLink>
+      </div>
+      <div class="column2">
+        <img src="/test.png" alt="" />
+      </div>
+    </div>
+    <div class="tiles reverse small-screen">
+      <div class="column">
+        <h1>WELCOME!</h1>
+        <p>
+          Weekly blog articles with all things programming including HTML, CSS,
+          JavaScript and more. Register today to never miss a post!
+        </p>
+
+        <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
+          <button class="btn btn-warning">
+            LOGIN/REGISTER
+            <i class="fa-solid fa-arrow-right fa-fade"></i>
+          </button>
+        </RouterLink>
+        <RouterLink to="/" class="nav-link m-2" v-if="user">
+          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
         </RouterLink>
       </div>
       <div class="column2">
@@ -97,12 +119,15 @@
 </template>
 
 <script>
+import { computed } from "vue";
 import { useStore } from "vuex";
 
 export default {
   setup() {
     const store = useStore();
     console.log(store.state.user);
+
+    return { user: computed(() => store.state.user) };
   },
 };
 </script>
@@ -172,6 +197,12 @@ button {
 }
 
 @media (max-width: 576px) {
+  .big-screen {
+    display: none;
+  }
+  /*.small-screen {
+    display: block;
+  } */
   .tiles {
     flex-direction: column;
     height: inherit;
@@ -210,6 +241,12 @@ button {
   .newsletter {
     width: 100%;
     padding: 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .small-screen {
+    display: none;
   }
 }
 </style>

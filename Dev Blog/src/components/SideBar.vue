@@ -1,7 +1,19 @@
 <template>
+  <!-- this component is for small screen view -->
+
   <div class="container bg-dark" :class="{ collapsed: isCollapsed }">
-    <img :src="profileImage" alt="" />
-    <p class="text-white">Imran Abubakar</p>
+    <!-- if user logged in -->
+    <img :src="profileImage" alt="" v-if="user" />
+    <p class="text-white" v-if="user">Imran Abubakar</p>
+
+    <!-- if user not logged in -->
+    <img src="/empty-image.png" alt="" v-if="!user" />
+    <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
+      <button class="btn btn-warning">
+        LOGIN/REGISTER
+        <i class="fa-solid fa-arrow-right fa-fade"></i>
+      </button>
+    </RouterLink>
 
     <div class="list-group">
       <RouterLink
@@ -20,6 +32,7 @@
         to="/create-post"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/create-post' }"
+        v-if="user"
         >Create post</RouterLink
       >
 
@@ -33,12 +46,15 @@
         to="/contact-us"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/contact-us' }"
+        v-if="user"
         >Contact Us</RouterLink
       >
       <RouterLink
         to="/"
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/contact' }"
+        v-if="user"
+        @click="handleClick"
         >Sign Out</RouterLink
       >
     </div>
@@ -53,7 +69,15 @@ export default {
     const store = useStore();
     const profileImage = computed(() => store.state.img);
 
-    return { profileImage };
+    const handleClick = () => {
+      store.dispatch("signout");
+    };
+
+    return {
+      profileImage,
+      handleClick,
+      user: computed(() => store.state.user),
+    };
   },
   props: {
     isCollapsed: {

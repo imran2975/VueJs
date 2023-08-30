@@ -1,4 +1,6 @@
 <template>
+  <!-- this component is for large screen view -->
+
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
       <div class="container-fluid">
@@ -8,7 +10,6 @@
           :class="{ active: $route.path === '/' }"
           >Dev Blog</RouterLink
         >
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav"></ul>
         </div>
@@ -16,18 +17,21 @@
           to="/"
           class="nav-link m-2"
           :class="{ active: $route.path === '/' }"
+          v-if="authIsReady"
           >Home</RouterLink
         >
         <RouterLink
           to="/blogs"
           class="nav-link m-2"
           :class="{ active: $route.path === '/blogs' }"
+          v-if="authIsReady"
           >Blogs</RouterLink
         >
         <RouterLink
           to="/create-post"
           class="nav-link m-2"
           :class="{ active: $route.path === '/create-post' }"
+          v-if="(authIsReady, user)"
           >Create Post</RouterLink
         >
 
@@ -35,16 +39,25 @@
           to="/"
           class="nav-link m-2"
           :class="{ active: $route.path === '/a' }"
+          v-if="authIsReady"
           >Portfolio</RouterLink
         >
         <RouterLink
           to="/contact-us"
           class="nav-link m-2"
           :class="{ active: $route.path === '/contact-us' }"
+          v-if="(authIsReady, user)"
           >Contact Us</RouterLink
         >
 
-        <div class="dropdown">
+        <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
+          <button class="btn btn-warning">
+            SIGN IN
+            <i class="fa-solid fa-arrow-right fa-fade"></i>
+          </button>
+        </RouterLink>
+
+        <div class="dropdown" v-if="user" v-show="authIsReady">
           <img
             :src="profileImage"
             alt=""
@@ -63,7 +76,7 @@
               <div class="details">
                 <h6>Imran Abubakar</h6>
                 <p>@Imran2975</p>
-                <p>imranabubakar@gmail.com</p>
+                <p>{{ user.email }}</p>
               </div>
             </div>
             <RouterLink
@@ -76,6 +89,7 @@
               to="/"
               class="nav-link dropdown-item m-2"
               :class="{ active: $route.path === '/' }"
+              @click="handleClick"
               ><i class="fa-solid fa-arrow-right-from-bracket fa-fade"></i>
               LogOut</RouterLink
             >
@@ -95,7 +109,16 @@ export default {
     const store = useStore();
     const profileImage = computed(() => store.state.img);
 
-    return { profileImage };
+    const handleClick = () => {
+      store.dispatch("signout");
+    };
+
+    return {
+      profileImage,
+      handleClick,
+      user: computed(() => store.state.user),
+      authIsReady: computed(() => store.state.authIsReady),
+    };
   },
 };
 </script>

@@ -16,7 +16,12 @@
             </p>
           </div>
         </div>
-        <a href="#" class="btn btn-primary">Continue reading...</a>
+        <RouterLink to="/blogs" v-if="user">
+          <button class="btn btn-primary">Continue reading...</button>
+        </RouterLink>
+        <RouterLink to="/sign-in" v-if="!user">
+          <button class="btn btn-primary">Sign In to read</button>
+        </RouterLink>
       </div>
       <div class="card-footer text-muted">2 days ago</div>
     </div>
@@ -33,7 +38,7 @@ export default {
     const store = useStore();
     const posts = computed(() => store.state.posts);
 
-    return { posts };
+    return { posts, user: computed(() => store.state.user) };
   },
 };
 </script>

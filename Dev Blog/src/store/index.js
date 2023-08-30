@@ -5,11 +5,14 @@ import { auth } from "../firebase/config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 const store = createStore({
   state: {
     user: null,
+    authIsReady: false,
 
     img: "Logo.png",
     posts: [
@@ -57,6 +60,9 @@ const store = createStore({
       state.user = payload;
       console.log("user state changed:", state.user);
     },
+    setAuthIsReady(state, payload) {
+      state.authIsReady = payload;
+    },
   },
   actions: {
     async signup(context, { email, password }) {
@@ -86,7 +92,18 @@ const store = createStore({
         throw new Error("could not complete signin");
       }
     },
+    async signout(context) {
+      console.log("signout action");
+      await signOut(auth);
+      context.commit("setUser", null);
+    },
   },
+});
+
+const unsubscribe = onAuthStateChanged(auth, (user) => {
+  store.commit("setAuthIsReady", true);
+  store.commit("setUser", user);
+  unsubscribe();
 });
 
 export default store;
