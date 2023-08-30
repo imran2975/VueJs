@@ -7,7 +7,7 @@
           Weekly blog articles with all things programming including HTML, CSS,
           JavaScript and more. Register today to never miss a post!
         </p>
-        <RouterLink to="/login" class="nav-link m-2">
+        <RouterLink to="/sign-in" class="nav-link m-2">
           LOGIN/REGISTER <i class="fa-solid fa-arrow-right fa-fade"></i>
         </RouterLink>
       </div>
@@ -97,7 +97,14 @@
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+
+export default {
+  setup() {
+    const store = useStore();
+    console.log(store.state.user);
+  },
+};
 </script>
 
 <style scoped>

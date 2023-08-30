@@ -1,6 +1,8 @@
 <template>
   <div>
     <NavBarLarge id="navbar" />
+
+    <!-- start small screen sidebar and contents -->
     <nav class="navbar navbar-light bg-light d-lg-none">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Dev Blog</span>
@@ -17,7 +19,12 @@
       />
       <RouterView id="content" />
     </div>
+    <!-- end small screen sidebar and contents -->
+
+    <!-- large screen view -->
     <RouterView id="content" class="d-sm" />
+
+    <!-- footer for all screen size -->
     <Footer id="footer" />
   </div>
 </template>

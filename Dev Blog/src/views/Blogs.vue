@@ -5,7 +5,7 @@
       <div class="card-body">
         <div class="card-contents">
           <div class="card-img">
-            <img src="/Logo.png" alt="" />
+            <img :src="post.img" alt="" />
           </div>
           <div class="cont">
             <h2 class="card-title">{{ post.title }}</h2>
@@ -24,35 +24,14 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { useStore } from "vuex";
+
 export default {
   name: "HomeView",
   setup() {
-    const posts = [
-      {
-        id: 1,
-        author: "Imran",
-        title: "How to create a simple login page using Html & Css",
-      },
-      {
-        id: 2,
-        author: "Ameer",
-        title: "Simple Vue Project",
-      },
-      {
-        id: 3,
-        author: "Mahmud",
-        title:
-          "How to create a simple login page using React and firebase auth",
-      },
-      {
-        author: "Johnson",
-        title: "How to create an E-comerce web app using Html & Css",
-      },
-      {
-        author: "Fati",
-        title: "How to create a simple login page using Html & Css",
-      },
-    ];
+    const store = useStore();
+    const posts = computed(() => store.state.posts);
 
     return { posts };
   },
