@@ -80,7 +80,7 @@
               </div>
             </div>
             <RouterLink
-              to="/"
+              to="/profile"
               class="nav-link dropdown-item m-2"
               :class="{ active: $route.path === '/' }"
               ><i class="fa-regular fa-user fa-fade"></i> Profile</RouterLink

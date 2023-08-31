@@ -3,7 +3,9 @@
 
   <div class="container bg-dark" :class="{ collapsed: isCollapsed }">
     <!-- if user logged in -->
-    <img :src="profileImage" alt="" v-if="user" />
+    <RouterLink to="/profile">
+      <img :src="profileImage" alt="" v-if="user" />
+    </RouterLink>
     <p class="text-white" v-if="user">Imran Abubakar</p>
 
     <!-- if user not logged in -->
@@ -62,10 +64,10 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 export default {
-  setup() {
+  setup(props, { emit }) {
     const store = useStore();
     const profileImage = computed(() => store.state.img);
 
@@ -73,10 +75,17 @@ export default {
       store.dispatch("signout");
     };
 
+    // Emit the sidebar-toggle event on component mount
+    onMounted(() => {
+      emit("sidebar-toggle", props.isCollapsed);
+    });
+
+    const user = computed(() => store.state.user);
+
     return {
       profileImage,
       handleClick,
-      user: computed(() => store.state.user),
+      user,
     };
   },
   props: {
@@ -84,9 +93,6 @@ export default {
       type: Boolean,
       required: true,
     },
-  },
-  mounted() {
-    this.$emit("sidebar-toggle", this.isCollapsed);
   },
 };
 </script>
