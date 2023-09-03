@@ -74,8 +74,10 @@
             <div class="info">
               <img src="/Logo.png" alt="" />
               <div class="details">
-                <h6>Imran Abubakar</h6>
-                <p>@Imran2975</p>
+                <h6>
+                  {{ profileInfos.firstName }} {{ profileInfos.lastName }}
+                </h6>
+                <p>{{ profileInfos.userName }}</p>
                 <p>{{ user.email }}</p>
               </div>
             </div>
@@ -108,6 +110,7 @@ export default {
   setup() {
     const store = useStore();
     const profileImage = computed(() => store.state.img);
+    const profileInfos = computed(() => store.state.userData);
 
     const handleClick = () => {
       store.dispatch("signout");
@@ -115,6 +118,7 @@ export default {
 
     return {
       profileImage,
+      profileInfos,
       handleClick,
       user: computed(() => store.state.user),
       authIsReady: computed(() => store.state.authIsReady),

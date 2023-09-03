@@ -5,7 +5,37 @@
         <h1 class="text-warning">D</h1>
         <h2>ev Blog</h2>
       </div>
-      <div class="email-field">
+      <div class="input-field">
+        <i class="fa-solid fa-user fa-fade" id="icon"></i>
+        <input
+          type="text"
+          name=""
+          placeholder="First Name"
+          v-model="firstName"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <i class="fa-solid fa-user fa-fade" id="icon"></i>
+        <input
+          type="text"
+          name=""
+          placeholder="Last Name"
+          v-model="lastName"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <i class="fa-solid fa-circle-user fa-fade" id="icon"></i>
+        <input
+          type="text"
+          name=""
+          placeholder="Username"
+          v-model="userName"
+          required
+        />
+      </div>
+      <div class="input-field">
         <i class="fa-solid fa-envelope fa-fade" id="icon"></i>
         <input
           type="email"
@@ -13,24 +43,46 @@
           id="email"
           placeholder="Email"
           v-model="email"
+          required
         />
       </div>
-      <div class="password-field">
+      <div class="input-field">
         <i class="fa-solid fa-lock fa-shake" id="icon"></i>
         <input
           type="password"
           name=""
           id="password"
-          placeholder="Password"
+          placeholder="Create Password"
           v-model="password"
+          required
         />
       </div>
-      <button class="btn btn-warning">Sign Up</button>
+      <div v-if="password.length < 8 && password !== ''">
+        <p class="warn">Password must be 8 character long</p>
+      </div>
+      <div class="input-field">
+        <i class="fa-solid fa-lock fa-shake" id="icon"></i>
+        <input
+          type="password"
+          name=""
+          id="confirm-password"
+          placeholder="Confirm Password"
+          v-model="confirmPassword"
+          required
+        />
+      </div>
+      <div v-if="password !== confirmPassword && confirmPassword !== ''">
+        <p class="warn">Password must match</p>
+      </div>
+
+      <button class="btn btn-warning mt-2" :disabled="!termsAndCondition">
+        Sign Up
+      </button>
       <div v-if="error">{{ error }}</div>
       <div class="check-forgot-password">
         <div class="keep-signed-in">
           <label class="custom-checkbox">
-            <input type="checkbox" />
+            <input type="checkbox" v-model="termsAndCondition" required />
             <span class="checkmark"></span>
             Accept T&C
           </label>
@@ -56,8 +108,13 @@ import { useRouter } from "vue-router";
 
 export default {
   setup() {
+    const firstName = ref("");
+    const lastName = ref("");
+    const userName = ref("");
     const email = ref("");
     const password = ref("");
+    const confirmPassword = ref("");
+    const termsAndCondition = ref(false);
     const error = ref("");
 
     const store = useStore();
@@ -68,6 +125,9 @@ export default {
         await store.dispatch("signup", {
           email: email.value,
           password: password.value,
+          firstName: firstName.value,
+          lastName: lastName.value,
+          userName: userName.value,
         });
         router.push("/");
       } catch (err) {
@@ -75,7 +135,17 @@ export default {
       }
     };
 
-    return { email, password, handleSubmit, error };
+    return {
+      email,
+      password,
+      handleSubmit,
+      error,
+      firstName,
+      lastName,
+      userName,
+      termsAndCondition,
+      confirmPassword,
+    };
   },
 };
 </script>
@@ -89,7 +159,6 @@ export default {
 }
 
 form {
-  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,20 +174,18 @@ form {
   font-size: 3rem;
 }
 
-.email-field,
-.password-field {
+.input-field {
   position: relative;
   color: #fff;
   background: #444343b0;
-  margin-bottom: 1rem;
+  margin-top: 0.5rem;
   padding-left: 1rem;
   border-radius: 2rem;
   height: 3rem;
   width: 80%;
 }
 
-.email-field input,
-.password-field input {
+.input-field input {
   position: absolute;
   left: 0;
   top: 0;
@@ -131,14 +198,20 @@ form {
   color: #fff;
 }
 
-.email-field input::placeholder,
-.password-field input::placeholder {
+.input-field input::placeholder {
   color: #ffffff94;
 }
 
 #icon {
   position: absolute;
   top: 1rem;
+}
+
+.warn {
+  color: #ff0062;
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 button {
@@ -222,9 +295,9 @@ button {
   .view {
     height: 100vh;
   }
-  .email-field,
-  .password-field {
+  .input-field {
     width: 30%;
+    margin-bottom: 1rem;
   }
   button,
   .check-forgot-password,

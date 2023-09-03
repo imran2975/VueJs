@@ -1,7 +1,15 @@
 import { createStore } from "vuex";
 
 //firebase imports
-import { auth } from "../firebase/config";
+import {
+  auth,
+  getDocuments,
+  getDocs,
+  addUser,
+  query,
+  where,
+  usersCollection,
+} from "../firebase/config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -12,8 +20,8 @@ import {
 const store = createStore({
   state: {
     user: null,
+    userData: null,
     authIsReady: false,
-
     img: "Logo.png",
     posts: [
       {
@@ -63,22 +71,33 @@ const store = createStore({
     setAuthIsReady(state, payload) {
       state.authIsReady = payload;
     },
+    setUserData(state, payload) {
+      state.userData = payload;
+    },
   },
   actions: {
-    async signup(context, { email, password }) {
-      console.log("signup action");
+    async signup(context, { email, password, firstName, lastName, userName }) {
+      try {
+        console.log("signup action");
 
-      //asyn code
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      if (response) {
-        context.commit("setUser", response.user);
-      } else {
-        throw new Error("could not complete signup");
+        // Async code
+        const response = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+        if (response) {
+          context.commit("setUser", response.user);
+        } else {
+          throw new Error("could not complete signup");
+        }
+      } catch (error) {
+        console.error("Error during signup:", error);
+        throw error;
       }
+      addUser({ firstName, lastName, userName, email });
+      console.log(firstName, lastName, userName, email);
     },
 
     async signin(context, { email, password }) {
@@ -100,10 +119,50 @@ const store = createStore({
   },
 });
 
-const unsubscribe = onAuthStateChanged(auth, (user) => {
+const unsubscribe = onAuthStateChanged(auth, async (user) => {
   store.commit("setAuthIsReady", true);
   store.commit("setUser", user);
   unsubscribe();
+  getDocuments();
+  // if (user) {
+  //   filterUser(user.email)
+  //     .then((userData) => {
+  //       store.commit("setUserData", userData); // Assuming you have a mutation called setUserData
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching user data:", error);
+  //     });
+  // }
+
+  if (user) {
+    // User is signed in
+
+    // Get the UID of the authenticated user
+
+    // Create a reference to the "users" collection
+
+    // Query Firestore to get the document for the current user based on UID
+    const userQuery = query(usersCollection, where("email", "==", user.email));
+
+    try {
+      const querySnapshot = await getDocs(userQuery);
+      if (!querySnapshot.empty) {
+        // The query returned at least one document
+        const userData = querySnapshot.docs[0].data();
+        console.log("User Data:", userData);
+        // You can access specific fields using userData.fieldName
+        store.commit("setUserData", userData);
+      } else {
+        console.log("No user document found for the current user.");
+      }
+    } catch (error) {
+      console.error("Error getting user document:", error);
+    }
+  } else {
+    // User is signed out
+    console.log("User is signed out.");
+  }
+  console.log(store.state.userData);
 });
 
 export default store;

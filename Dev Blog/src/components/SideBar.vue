@@ -3,10 +3,16 @@
 
   <div class="container bg-dark" :class="{ collapsed: isCollapsed }">
     <!-- if user logged in -->
-    <RouterLink to="/profile">
+    <RouterLink to="/profile" class="info">
       <img :src="profileImage" alt="" v-if="user" />
     </RouterLink>
-    <p class="text-white" v-if="user">Imran Abubakar</p>
+
+    <p class="profileName text-white">
+      Welcome {{ profileInfos.firstName }} {{ profileInfos.lastName }}
+    </p>
+    <RouterLink to="/profile">
+      <button class="btn btn-warning" v-if="user">Edit Profile</button>
+    </RouterLink>
 
     <!-- if user not logged in -->
     <img src="/empty-image.png" alt="" v-if="!user" />
@@ -70,6 +76,7 @@ export default {
   setup(props, { emit }) {
     const store = useStore();
     const profileImage = computed(() => store.state.img);
+    const profileInfos = computed(() => store.state.userData);
 
     const handleClick = () => {
       store.dispatch("signout");
@@ -84,6 +91,7 @@ export default {
 
     return {
       profileImage,
+      profileInfos,
       handleClick,
       user,
     };
@@ -116,11 +124,23 @@ export default {
   margin-left: -20rem;
 }
 
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+
 img {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+  margin: 0 0 1rem 1em;
 }
+
+/* .profileName {
+  color: #fff;
+} */
 
 .list-group {
   width: 100%;
