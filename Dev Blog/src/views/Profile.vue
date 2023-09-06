@@ -2,7 +2,7 @@
   <div>
     <div class="view">
       <h1 class="fa-fade">Account Setting</h1>
-      <form>
+      <form @submit.prevent="uploadProfileImage">
         <div class="profile-img">
           <img :src="profileImage" alt="" />
           <input
@@ -10,20 +10,32 @@
             name="image"
             id="imageInput"
             accept="image/jpeg, image/png"
+            ref="profilePic"
+            required
           />
         </div>
-        <div class="form-details">
+        <p class="fa-fade" v-if="!authIsReady && !profileInfos">
+          please wait...
+        </p>
+        <div class="form-details" v-if="authIsReady && profileInfos">
           <label for="first-name">First Name:</label>
-          <input type="text" id="first-name" v-model="firstName" />
+          <input type="text" id="first-name" v-model="profileInfos.firstName" />
           <label for="last-name">Last Name:</label>
-          <input type="text" id="last-name" v-model="lastName" />
+          <input type="text" id="last-name" v-model="profileInfos.lastName" />
           <label for="username">Username:</label>
-          <input type="text" id="username" v-model="userName" />
+          <input type="text" id="username" v-model="profileInfos.userName" />
           <label for="email">Email:</label>
-          <input type="email" id="email" disabled v-model="userEmail" />
+          <input
+            type="email"
+            id="email"
+            disabled
+            v-model="profileInfos.email"
+          />
         </div>
 
-        <button class="btn btn-warning">SAVE CHANGES</button>
+        <button class="btn btn-warning" @click="handleSubmit">
+          SAVE CHANGES
+        </button>
       </form>
     </div>
   </div>
@@ -31,35 +43,75 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref, onMounted } from "vue";
+import { computed, ref as vueRef, onMounted } from "vue";
+import {
+  storage,
+  getDocs,
+  usersCollection,
+  updateDoc,
+  doc,
+} from "../firebase/config";
+import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
+
 export default {
   setup() {
     const store = useStore();
-    const profileImage = computed(() => store.state.img);
+    const profileImage = computed(() => store.state.userImage);
     const profileInfos = computed(() => store.state.userData);
-    const firstName = ref(profileInfos.firstName);
-    const lastName = ref(profileInfos.lastName);
-    const userName = ref(profileInfos.userName);
-    const userEmail = ref(profileInfos.email);
 
-    // Wait for profileInfos to be available
-    onMounted(() => {
-      if (profileInfos.value) {
-        firstName.value = profileInfos.value.firstName || "";
-        lastName.value = profileInfos.value.lastName || "";
-        userName.value = profileInfos.value.userName || "";
-        userEmail.value = profileInfos.value.email || "";
-      }
-    });
+    const handleSubmit = () => {
+      const userEmail = store.state.user.email;
+
+      // first get doc before updating it
+      getDocs(usersCollection)
+        .then((snapshot) => {
+          let users = [];
+          snapshot.docs.forEach((doc) => {
+            users.push({ ...doc.data(), id: doc.id });
+          });
+          const filteredUser = users.filter((user) => user.email === userEmail);
+          console.log(filteredUser[0].id);
+
+          // updating doc
+          const docRef = doc(usersCollection, filteredUser[0].id);
+          updateDoc(docRef, {
+            firstName: `${profileInfos.value.firstName}`,
+            lastName: `${profileInfos.value.lastName}`,
+            userName: `${profileInfos.value.userName}`,
+          });
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
 
     return {
       profileImage,
       profileInfos,
-      firstName,
-      lastName,
-      userName,
-      userEmail,
+      user: computed(() => store.state.user),
+      authIsReady: computed(() => store.state.authIsReady),
+
+      handleSubmit,
     };
+  },
+
+  methods: {
+    uploadProfileImage: function () {
+      const userId = this.$store.state.user.uid;
+      const storageRef = ref(storage, `image/${userId}.jpg`);
+      const imageFile = this.$refs.profilePic.files[0];
+
+      uploadBytes(storageRef, imageFile)
+        .then(async (snapshot) => {
+          console.log("Image uploaded successfully.");
+          getDownloadURL(ref(storage, `image/${userId}.jpg`)).then(
+            (download_url) => this.$store.commit("setUserImage", download_url)
+          );
+        })
+        .catch((error) => {
+          console.error("Error uploading image:", error);
+        });
+    },
   },
 };
 </script>
@@ -108,6 +160,7 @@ form {
   border-radius: 50%;
   border: 1px solid #fdb924;
   margin-left: 5rem;
+  object-fit: cover;
 }
 
 label {

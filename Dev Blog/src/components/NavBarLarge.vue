@@ -72,13 +72,16 @@
             aria-labelledby="dropdownMenuLink"
           >
             <div class="info">
-              <img src="/Logo.png" alt="" />
+              <img :src="profileImage" alt="" />
               <div class="details">
-                <h6>
-                  {{ profileInfos.firstName }} {{ profileInfos.lastName }}
-                </h6>
-                <p>{{ profileInfos.userName }}</p>
-                <p>{{ user.email }}</p>
+                <div v-if="authIsReady && user && profileInfos">
+                  <h6 v-if="profileInfos">
+                    {{ profileInfos.firstName }} {{ profileInfos.lastName }}
+                  </h6>
+                  <p>{{ profileInfos.userName }}</p>
+                  <p>{{ user.email }}</p>
+                </div>
+                <div v-else>hi</div>
               </div>
             </div>
             <RouterLink
@@ -103,14 +106,17 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 
 import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
-    const profileImage = computed(() => store.state.img);
+    const profileImage = computed(() => store.state.userImage);
     const profileInfos = computed(() => store.state.userData);
+    // const firstName = profileInfos.firstName;
+    // const lastName = profileInfos.lastName;
+    // const userName = profileInfos.userName;
 
     const handleClick = () => {
       store.dispatch("signout");
@@ -119,6 +125,9 @@ export default {
     return {
       profileImage,
       profileInfos,
+      // firstName,
+      // lastName,
+      // userName,
       handleClick,
       user: computed(() => store.state.user),
       authIsReady: computed(() => store.state.authIsReady),
@@ -159,6 +168,7 @@ img {
   width: 50px;
   border-radius: 50%;
   border: 1px solid #00000075;
+  object-fit: cover;
 }
 
 .dropdown-toggle:hover {

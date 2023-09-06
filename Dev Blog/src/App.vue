@@ -30,20 +30,31 @@
 </template>
 
 <script>
-import { ref } from "vue";
 import SideBar from "./components/SideBar.vue";
 import NavBarLarge from "./components/NavBarLarge.vue";
 import Footer from "./components/Footer.vue";
+import { useStore } from "vuex";
+import { onMounted, ref as vueRef } from "vue";
+import { storage } from "./firebase/config";
+import { ref, getDownloadURL } from "firebase/storage";
 
 export default {
   name: "App",
   components: { SideBar, NavBarLarge, Footer },
   setup() {
-    const isSidebarCollapsed = ref(false);
+    const isSidebarCollapsed = vueRef(false);
+    const store = useStore();
 
     function toggleSidebar() {
       isSidebarCollapsed.value = !isSidebarCollapsed.value;
     }
+
+    // onMounted(() => {
+    //   const userId = store.state.user.uid;
+    //   getDownloadURL(ref(storage, `image/${userId}.jpg`)).then((download_url) =>
+    //     store.commit("setUserImage", download_url)
+    //   );
+    // });
 
     return {
       isSidebarCollapsed,

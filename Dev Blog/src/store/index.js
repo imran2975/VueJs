@@ -3,13 +3,16 @@ import { createStore } from "vuex";
 //firebase imports
 import {
   auth,
-  getDocuments,
   getDocs,
   addUser,
   query,
   where,
   usersCollection,
+  storage,
 } from "../firebase/config";
+
+import { ref, getDownloadURL } from "firebase/storage";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -22,7 +25,7 @@ const store = createStore({
     user: null,
     userData: null,
     authIsReady: false,
-    img: "Logo.png",
+    userImage: null,
     posts: [
       {
         id: 1,
@@ -74,6 +77,9 @@ const store = createStore({
     setUserData(state, payload) {
       state.userData = payload;
     },
+    setUserImage(state, imageUrl) {
+      state.userImage = imageUrl;
+    },
   },
   actions: {
     async signup(context, { email, password, firstName, lastName, userName }) {
@@ -123,24 +129,8 @@ const unsubscribe = onAuthStateChanged(auth, async (user) => {
   store.commit("setAuthIsReady", true);
   store.commit("setUser", user);
   unsubscribe();
-  getDocuments();
-  // if (user) {
-  //   filterUser(user.email)
-  //     .then((userData) => {
-  //       store.commit("setUserData", userData); // Assuming you have a mutation called setUserData
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching user data:", error);
-  //     });
-  // }
 
   if (user) {
-    // User is signed in
-
-    // Get the UID of the authenticated user
-
-    // Create a reference to the "users" collection
-
     // Query Firestore to get the document for the current user based on UID
     const userQuery = query(usersCollection, where("email", "==", user.email));
 
@@ -152,6 +142,11 @@ const unsubscribe = onAuthStateChanged(auth, async (user) => {
         console.log("User Data:", userData);
         // You can access specific fields using userData.fieldName
         store.commit("setUserData", userData);
+
+        const userId = store.state.user.uid;
+        getDownloadURL(ref(storage, `image/${userId}.jpg`)).then(
+          (download_url) => store.commit("setUserImage", download_url)
+        );
       } else {
         console.log("No user document found for the current user.");
       }
@@ -162,7 +157,5 @@ const unsubscribe = onAuthStateChanged(auth, async (user) => {
     // User is signed out
     console.log("User is signed out.");
   }
-  console.log(store.state.userData);
 });
-
 export default store;

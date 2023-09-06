@@ -1,12 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getStorage, getDownloadURL } from "firebase/storage";
 import {
   getFirestore,
   collection,
   getDocs,
   addDoc,
+  doc,
   query,
   where,
+  updateDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -31,19 +34,6 @@ const db = getFirestore();
 const usersCollection = collection(db, "users");
 
 // get collection data
-const getDocuments = () => {
-  getDocs(usersCollection)
-    .then((snapshot) => {
-      let users = [];
-      snapshot.docs.forEach((user) => {
-        users.push({ ...user.data(), id: user.id });
-      });
-      console.log(users);
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
 
 // adding Document
 const addUser = async (data) => {
@@ -55,30 +45,29 @@ const addUser = async (data) => {
   }
 };
 
-// const filterUser = async (userEmail) => {
-//   const userQuery = query(usersCollection, where("email", "==", userEmail));
-//   try {
-//     const querySnapshot = await getDocs(userQuery);
-//     if (!querySnapshot.empty) {
-//       // The query returned at least one document
-//       const userData = querySnapshot.docs[0].data();
-//       console.log("User Data:", userData);
-//       // You can access specific fields using userData.fieldName
-//     } else {
-//       console.log("No user document found for the current user.");
-//     }
-//   } catch (error) {
-//     console.error("Error getting user document:", error);
-//   }
-// };
+// initializing firebase storage
+const storage = getStorage(app);
+// const storageRef = ref(storage);
+
+// const imageRef = ref(storage, "images");
+// const sparkyRef = ref(storage, "images/imran.jpg");
+
+// uploadBytes(sparkyRef, file).then((snapshot) => {
+//   console.log("hi");
+// });
+
+// uploadBytes();
 
 export {
   auth,
   db,
   usersCollection,
-  getDocuments,
   addUser,
   query,
   where,
   getDocs,
+  storage,
+  getDownloadURL,
+  updateDoc,
+  doc,
 };

@@ -6,6 +6,7 @@ import ContactUs from "../views/ContactUs.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import Profile from "../views/Profile.vue";
+import ViewPost from "../views/ViewPost.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
       path: "/profile",
       name: "profile",
       component: Profile,
+    },
+    {
+      path: "/view-post",
+      name: "post",
+      component: ViewPost,
     },
   ],
 });

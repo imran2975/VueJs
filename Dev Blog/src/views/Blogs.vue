@@ -16,8 +16,10 @@
             </p>
           </div>
         </div>
-        <RouterLink to="/blogs" v-if="user">
-          <button class="btn btn-primary">Continue reading...</button>
+        <RouterLink to="/view-post" v-if="user">
+          <button class="btn btn-primary" @click="getPost(post.id)">
+            Continue reading...
+          </button>
         </RouterLink>
         <RouterLink to="/sign-in" v-if="!user">
           <button class="btn btn-primary">Sign In to read</button>
@@ -38,7 +40,13 @@ export default {
     const store = useStore();
     const posts = computed(() => store.state.posts);
 
-    return { posts, user: computed(() => store.state.user) };
+    const getPost = (postId) => {
+      const postArray = posts.value;
+      const filteredPost = postArray.filter((p) => p.id === postId);
+      console.log(filteredPost[0]);
+    };
+
+    return { posts, getPost, user: computed(() => store.state.user) };
   },
 };
 </script>

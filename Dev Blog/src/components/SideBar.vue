@@ -7,7 +7,7 @@
       <img :src="profileImage" alt="" v-if="user" />
     </RouterLink>
 
-    <p class="profileName text-white">
+    <p class="profileName text-white" v-if="user && profileInfos">
       Welcome {{ profileInfos.firstName }} {{ profileInfos.lastName }}
     </p>
     <RouterLink to="/profile">
@@ -75,7 +75,7 @@ import { useStore } from "vuex";
 export default {
   setup(props, { emit }) {
     const store = useStore();
-    const profileImage = computed(() => store.state.img);
+    const profileImage = computed(() => store.state.userImage);
     const profileInfos = computed(() => store.state.userData);
 
     const handleClick = () => {
@@ -136,6 +136,7 @@ img {
   height: 10rem;
   border-radius: 50%;
   margin: 0 0 1rem 1em;
+  object-fit: cover;
 }
 
 /* .profileName {
