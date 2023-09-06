@@ -15,7 +15,7 @@
     </RouterLink>
 
     <!-- if user not logged in -->
-    <img src="/empty-image.png" alt="" v-if="!user" />
+    <img src="/placeholder.png" alt="" v-if="!user" />
     <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
       <button class="btn btn-warning">
         LOGIN/REGISTER
@@ -135,6 +135,7 @@ img {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+  border: 2px solid #fdb924;
   margin: 0 0 1rem 1em;
   object-fit: cover;
 }

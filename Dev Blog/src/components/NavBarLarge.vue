@@ -73,6 +73,7 @@
           >
             <div class="info">
               <img :src="profileImage" alt="" />
+              <img src="/placeholder.png" alt="" v-if="!authIsReady" />
               <div class="details">
                 <div v-if="authIsReady && user && profileInfos">
                   <h6 v-if="profileInfos">
