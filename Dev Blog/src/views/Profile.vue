@@ -186,5 +186,18 @@ button {
   form {
     width: 90%;
   }
+
+  .view {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 576px) {
+  .profile-img input {
+    margin-left: 8rem;
+  }
+  .profile-img img {
+    margin-left: 10rem;
+  }
 }
 </style>
