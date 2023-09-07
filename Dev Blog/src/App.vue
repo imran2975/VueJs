@@ -16,6 +16,7 @@
         :isCollapsed="isSidebarCollapsed"
         class="side-bar"
         @sidebar-toggle="toggleSidebar"
+        :sidebarToggle="toggleSidebar"
       />
       <RouterView id="content" />
     </div>
@@ -35,8 +36,6 @@ import NavBarLarge from "./components/NavBarLarge.vue";
 import Footer from "./components/Footer.vue";
 import { useStore } from "vuex";
 import { onMounted, ref as vueRef } from "vue";
-import { storage } from "./firebase/config";
-import { ref, getDownloadURL } from "firebase/storage";
 
 export default {
   name: "App",
@@ -48,13 +47,6 @@ export default {
     function toggleSidebar() {
       isSidebarCollapsed.value = !isSidebarCollapsed.value;
     }
-
-    // onMounted(() => {
-    //   const userId = store.state.user.uid;
-    //   getDownloadURL(ref(storage, `image/${userId}.jpg`)).then((download_url) =>
-    //     store.commit("setUserImage", download_url)
-    //   );
-    // });
 
     return {
       isSidebarCollapsed,

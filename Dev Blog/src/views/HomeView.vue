@@ -127,6 +127,9 @@ export default {
     const store = useStore();
     console.log(store.state.user);
 
+    const refresh = () => {
+      window.location.reload();
+    };
     return { user: computed(() => store.state.user) };
   },
 };

@@ -32,12 +32,16 @@ const store = createStore({
         img: "user4.jpg",
         author: "Imran",
         title: "How to create a simple login page using Html & Css",
+        content:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
       },
       {
         id: 2,
         img: "user5.jpg",
         author: "Ameer",
         title: "Simple Vue Project",
+        content:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
       },
       {
         id: 3,
@@ -45,26 +49,35 @@ const store = createStore({
         author: "Mahmud",
         title:
           "How to create a simple login page using React and firebase auth",
+        content:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
       },
       {
         id: 4,
         img: "user9.jpg",
         author: "Johnson",
         title: "How to create an E-comerce web app using Html & Css",
+        content:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
       },
       {
         id: 5,
         img: "user10.jpg",
         author: "Fati",
         title: "How to create a simple login page using Html & Css",
+        content:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
       },
       {
         id: 6,
         img: "user14.jpg",
         author: "Khadija",
         title: "How to create a simple chat app using Html, Css & Javascript",
+        content:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
       },
     ],
+    viewPost: {},
   },
   mutations: {
     setUser(state, payload) {
@@ -79,6 +92,9 @@ const store = createStore({
     },
     setUserImage(state, imageUrl) {
       state.userImage = imageUrl;
+    },
+    setViewPost(state, payload) {
+      state.viewPost = payload;
     },
   },
   actions: {
@@ -121,6 +137,17 @@ const store = createStore({
       console.log("signout action");
       await signOut(auth);
       context.commit("setUser", null);
+    },
+    async filterPost(context, postId) {
+      const postArray = store.state.posts;
+      const filteredPost = postArray.find((p) => p.id === postId); // Use find() instead of filter()
+
+      if (filteredPost) {
+        context.commit("setViewPost", filteredPost);
+        console.log(filteredPost);
+      } else {
+        console.error("Post not found");
+      }
     },
   },
 });

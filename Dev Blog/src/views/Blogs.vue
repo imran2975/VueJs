@@ -10,9 +10,7 @@
           <div class="cont">
             <h2 class="card-title">{{ post.title }}</h2>
             <p class="card-text text-muted">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              cupiditate commodi dolorum nesciunt id deleniti saepe magnam
-              voluptatibus necessitatibus culpa?
+              {{ post.content }}
             </p>
           </div>
         </div>
@@ -35,15 +33,17 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 
 export default {
-  name: "HomeView",
+  name: "Blogs",
   setup() {
     const store = useStore();
     const posts = computed(() => store.state.posts);
 
     const getPost = (postId) => {
-      const postArray = posts.value;
-      const filteredPost = postArray.filter((p) => p.id === postId);
-      console.log(filteredPost[0]);
+      try {
+        store.dispatch("filterPost", postId);
+      } catch (err) {
+        console.log(err.message);
+      }
     };
 
     return { posts, getPost, user: computed(() => store.state.user) };

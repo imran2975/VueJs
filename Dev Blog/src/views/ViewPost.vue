@@ -1,18 +1,59 @@
 <template>
-  <div class="view">
-    <img src="/Logo.png" alt="" />
-    <h2>HI</h2>
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam,
-      dolorem ipsa autem dicta ab consequuntur deserunt aliquam incidunt vero?
-      Expedita architecto incidunt optio doloremque temporibus cumque
-      necessitatibus labore consequatur perspiciatis.
-    </p>
-  </div>
+  <main>
+    <div class="wrapper">
+      <h1>{{ post.title }}</h1>
+      <!-- for the span tag containing post author i mght use it to show author's profile -->
+      <p>
+        Posted by <span class="text-primary">{{ post.author }}</span> on
+        September 07, 2023
+      </p>
+      <img :src="post.img" alt="" />
+
+      <p>
+        {{ post.content }}
+      </p>
+      <div class="post-">
+        <!-- in the future i might make this functionable by editting and deleting in the component with vuex aid but only firebase  -->
+        <button class="btn btn-primary">Edit Post</button>
+        <button class="btn btn-danger">Edit Post</button>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+    const post = store.state.viewPost;
+
+    return { post };
+  },
+};
 </script>
 
-<style></style>
+<style scoped>
+main {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.wrapper * {
+  width: 100%;
+}
+
+span {
+  font-style: italic;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 0.5rem;
+}
+</style>

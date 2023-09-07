@@ -115,9 +115,6 @@ export default {
     const store = useStore();
     const profileImage = computed(() => store.state.userImage);
     const profileInfos = computed(() => store.state.userData);
-    // const firstName = profileInfos.firstName;
-    // const lastName = profileInfos.lastName;
-    // const userName = profileInfos.userName;
 
     const handleClick = () => {
       store.dispatch("signout");
@@ -126,9 +123,7 @@ export default {
     return {
       profileImage,
       profileInfos,
-      // firstName,
-      // lastName,
-      // userName,
+
       handleClick,
       user: computed(() => store.state.user),
       authIsReady: computed(() => store.state.authIsReady),

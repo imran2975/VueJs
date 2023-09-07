@@ -3,9 +3,16 @@
     <form action="">
       <div class="profile-info">
         <img :src="profileImage" alt="" />
-        <h2>Imran Abubakar</h2>
+        <h2>{{ userInfos.firstName }} {{ userInfos.lastName }}</h2>
       </div>
-      <input type="text" name="" id="post-title" placeholder="Heading..." />
+      <input
+        type="text"
+        name=""
+        id="post-title"
+        placeholder="Heading..."
+        required
+        v-model="postTitle"
+      />
       <textarea
         name="create-post"
         id="create-post"
@@ -13,6 +20,7 @@
         rows="10"
         placeholder="What's on your mind?"
         required
+        v-model="postContent"
       ></textarea>
       <div class="post-cover">
         <label for="">Select Cover Image</label>
@@ -30,9 +38,13 @@ import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
-    const profileImage = computed(() => store.state.img);
+    const userInfos = computed(() => store.state.userData);
+    const profileImage = computed(() => store.state.userImage);
+    const postTitle = ref("");
+    const postContent = ref("");
+    const postCoverImage = ref("");
 
-    return { profileImage };
+    return { profileImage, userInfos, postTitle, postContent, postCoverImage };
   },
 };
 </script>

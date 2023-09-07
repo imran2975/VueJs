@@ -142,6 +142,7 @@ form {
   padding: 1rem;
   border-radius: 0 2rem 0 2rem;
   box-shadow: 5px 5px 10px #000;
+  overflow: hidden;
 }
 
 .form-details {
