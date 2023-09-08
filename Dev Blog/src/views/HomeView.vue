@@ -120,16 +120,17 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref as vueRef } from "vue";
+import { computed, ref as vueRef, onMount } from "vue";
 
 export default {
   setup() {
     const store = useStore();
     console.log(store.state.user);
 
-    const refresh = () => {
-      window.location.reload();
-    };
+    
+    onMount(()=>{
+      window.location.reload()
+    })
     return { user: computed(() => store.state.user) };
   },
 };
