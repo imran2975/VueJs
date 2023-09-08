@@ -56,11 +56,14 @@ import {
   storage,
 } from "../firebase/config";
 import { ref as fireRef, getDownloadURL, uploadBytes } from "firebase/storage";
+import { useRouter } from "vue-router";
 
 import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
+    const router = useRouter();
+
     const userInfos = computed(() => store.state.userData);
     const profileImage = computed(() => store.state.userImage);
     const postTitle = ref("");
@@ -89,14 +92,15 @@ export default {
     //   store.dispatch("createPost", data, imageFile);
     // };
 
-    const handleSubmit = () => {
-      store.dispatch("createPost", {
+    const handleSubmit = async () => {
+      await store.dispatch("createPost", {
         title: postTitle.value,
         author: `${store.state.userData.firstName} ${store.state.userData.lastName}`,
         content: postContent.value,
         authorEmail: store.state.user.email,
         id: coverImageId.value,
       });
+      router.push("/blogs");
     };
 
     return {
