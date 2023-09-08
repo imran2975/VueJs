@@ -120,7 +120,7 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref as vueRef, onMounted } from "vue";
+import { computed, ref as vueRef } from "vue";
 
 export default {
   setup() {
@@ -128,9 +128,9 @@ export default {
     console.log(store.state.user);
 
     
-    onMounted(()=>{
-      window.location.reload()
-    })
+   // onMounted(()=>{
+     // window.location.reload()
+   // })
     return { user: computed(() => store.state.user) };
   },
 };
