@@ -29,8 +29,10 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import { onSnapshot } from "firebase/firestore";
+import { postCollection } from "../firebase/config";
 
 export default {
   name: "Blogs",
@@ -46,12 +48,26 @@ export default {
       }
     };
 
+    onMounted(() => {
+      onSnapshot(postCollection, (snapshot) => {
+        let posts = [];
+        snapshot.docs.forEach((post) => {
+          posts.push({ ...post.data() });
+        });
+        store.commit("setPosts", posts);
+        console.log(posts);
+      });
+    });
+
     return { posts, getPost, user: computed(() => store.state.user) };
   },
 };
 </script>
 
 <style scoped>
+.card {
+  width: 100vw;
+}
 .card-contents {
   display: flex;
   gap: 1rem;

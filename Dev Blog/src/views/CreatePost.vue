@@ -1,9 +1,11 @@
 <template>
   <div class="hi">
-    <form action="">
+    <form @submit.prevent="uploadPostCover">
       <div class="profile-info">
         <img :src="profileImage" alt="" />
-        <h2>{{ userInfos.firstName }} {{ userInfos.lastName }}</h2>
+        <h2 v-if="userInfos">
+          {{ userInfos.firstName }} {{ userInfos.lastName }}
+        </h2>
       </div>
       <input
         type="text"
@@ -24,7 +26,14 @@
       ></textarea>
       <div class="post-cover">
         <label for="">Select Cover Image</label>
-        <input type="file" accept="image/*" id="image-input" required />
+        <input
+          type="file"
+          name="image"
+          id="imageInput"
+          accept="image/jpeg, image/png"
+          ref="postCoverImage"
+          required
+        />
       </div>
       <button class="post-btn">POST</button>
     </form>
@@ -33,6 +42,20 @@
 
 <script>
 import { computed, ref } from "vue";
+import {
+  auth,
+  getDocs,
+  addUser,
+  addPost,
+  updateDoc,
+  doc,
+  query,
+  where,
+  usersCollection,
+  postCollection,
+  storage,
+} from "../firebase/config";
+import { ref as fireRef, getDownloadURL, uploadBytes } from "firebase/storage";
 
 import { useStore } from "vuex";
 export default {
@@ -42,9 +65,93 @@ export default {
     const profileImage = computed(() => store.state.userImage);
     const postTitle = ref("");
     const postContent = ref("");
-    const postCoverImage = ref("");
+    const coverImageId = ref(randomId(20));
 
-    return { profileImage, userInfos, postTitle, postContent, postCoverImage };
+    function randomId(length) {
+      if (length <= 0) {
+        throw new Error("Length must be greater than 0");
+      }
+      if (length > 20) {
+        throw new Error("Length cannot exceed 20");
+      }
+      // Calculate the minimum and maximum values for the desired length
+      const min = Math.pow(10, length - 1);
+      const max = Math.pow(10, length) - 1;
+      // Generate a random integer within the specified range
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      // Format the number to have exactly 'length' digits by adding leading zeros
+      const formattedNumber = String(randomNumber).padStart(length, "0");
+      return formattedNumber;
+    }
+
+    // const uploadPostCover = (data) => {
+    //   const imageFile = document.getElementById("image-input").files[0];
+    //   store.dispatch("createPost", data, imageFile);
+    // };
+
+    const handleSubmit = () => {
+      store.dispatch("createPost", {
+        title: postTitle.value,
+        author: `${store.state.userData.firstName} ${store.state.userData.lastName}`,
+        content: postContent.value,
+        authorEmail: store.state.user.email,
+        id: coverImageId.value,
+      });
+    };
+
+    return {
+      profileImage,
+      userInfos,
+      postTitle,
+      postContent,
+      handleSubmit,
+      randomId,
+      coverImageId,
+    };
+  },
+
+  methods: {
+    uploadPostCover: function () {
+      this.handleSubmit();
+      const imageFile = this.$refs.postCoverImage.files[0];
+      const storageRef = fireRef(
+        storage,
+        `postCovers/${this.coverImageId}.jpg`
+      );
+      uploadBytes(storageRef, imageFile)
+        .then(async (snapshot) => {
+          getDownloadURL(
+            fireRef(storage, `postCovers/${this.coverImageId}.jpg`)
+          ).then((download_url) => {
+            getDocs(postCollection)
+              .then((snapshot) => {
+                let posts = [];
+                snapshot.docs.forEach((doc) => {
+                  posts.push({ ...doc.data(), postId: doc.id });
+                });
+                const filteredPost = posts.filter(
+                  (post) => post.id === this.coverImageId
+                );
+                console.log(filteredPost[0].id, download_url);
+
+                // context.commit("setUpdateNewPost", {
+                //   postId: filteredPost[0].id,
+                //   img: download_url,
+                // });
+                // updating doc
+                const docRef = doc(postCollection, filteredPost[0].postId);
+                updateDoc(docRef, {
+                  img: download_url,
+                });
+              })
+              .catch((err) => {
+                console.log(err.message);
+              });
+          });
+          console.log("Post Cover Uploaded");
+        })
+        .catch((err) => console.log(err.message));
+    },
   },
 };
 </script>

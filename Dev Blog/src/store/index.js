@@ -5,13 +5,17 @@ import {
   auth,
   getDocs,
   addUser,
+  addPost,
+  updateDoc,
+  doc,
   query,
   where,
   usersCollection,
+  postCollection,
   storage,
 } from "../firebase/config";
 
-import { ref, getDownloadURL } from "firebase/storage";
+import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 
 import {
   createUserWithEmailAndPassword,
@@ -26,57 +30,58 @@ const store = createStore({
     userData: null,
     authIsReady: false,
     userImage: null,
-    posts: [
-      {
-        id: 1,
-        img: "user4.jpg",
-        author: "Imran",
-        title: "How to create a simple login page using Html & Css",
-        content:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-      },
-      {
-        id: 2,
-        img: "user5.jpg",
-        author: "Ameer",
-        title: "Simple Vue Project",
-        content:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-      },
-      {
-        id: 3,
-        img: "user6.jpg",
-        author: "Mahmud",
-        title:
-          "How to create a simple login page using React and firebase auth",
-        content:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-      },
-      {
-        id: 4,
-        img: "user9.jpg",
-        author: "Johnson",
-        title: "How to create an E-comerce web app using Html & Css",
-        content:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-      },
-      {
-        id: 5,
-        img: "user10.jpg",
-        author: "Fati",
-        title: "How to create a simple login page using Html & Css",
-        content:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-      },
-      {
-        id: 6,
-        img: "user14.jpg",
-        author: "Khadija",
-        title: "How to create a simple chat app using Html, Css & Javascript",
-        content:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-      },
-    ],
+    posts: null,
+    // posts: [
+    //   {
+    //     id: 1,
+    //     img: "user4.jpg",
+    //     author: "Imran",
+    //     title: "How to create a simple login page using Html & Css",
+    //     content:
+    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
+    //   },
+    //   {
+    //     id: 2,
+    //     img: "user5.jpg",
+    //     author: "Ameer",
+    //     title: "Simple Vue Project",
+    //     content:
+    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
+    //   },
+    //   {
+    //     id: 3,
+    //     img: "user6.jpg",
+    //     author: "Mahmud",
+    //     title:
+    //       "How to create a simple login page using React and firebase auth",
+    //     content:
+    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
+    //   },
+    //   {
+    //     id: 4,
+    //     img: "user9.jpg",
+    //     author: "Johnson",
+    //     title: "How to create an E-comerce web app using Html & Css",
+    //     content:
+    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
+    //   },
+    //   {
+    //     id: 5,
+    //     img: "user10.jpg",
+    //     author: "Fati",
+    //     title: "How to create a simple login page using Html & Css",
+    //     content:
+    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
+    //   },
+    //   {
+    //     id: 6,
+    //     img: "user14.jpg",
+    //     author: "Khadija",
+    //     title: "How to create a simple chat app using Html, Css & Javascript",
+    //     content:
+    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
+    //   },
+    // ],
     viewPost: {},
   },
   mutations: {
@@ -95,6 +100,10 @@ const store = createStore({
     },
     setViewPost(state, payload) {
       state.viewPost = payload;
+    },
+    setPosts(state, payload) {
+      state.posts = payload;
+      console.log("Post added", state.posts);
     },
   },
   actions: {
@@ -138,6 +147,45 @@ const store = createStore({
       await signOut(auth);
       context.commit("setUser", null);
     },
+
+    async createPost(context, data) {
+      const storageRef = ref(storage, `postCovers/${data.id}.jpg`);
+      addPost(data);
+      // uploadBytes(storageRef, imageFile)
+      //   .then(async (snapshot) => {
+      //     getDownloadURL(ref(storage, `postCovers/${data.id}.jpg`)).then(
+      //       (download_url) => {
+      //         getDocs(postCollection)
+      //           .then((snapshot) => {
+      //             let posts = [];
+      //             snapshot.docs.forEach((doc) => {
+      //               posts.push({ ...doc.data(), postId: doc.id });
+      //             });
+      //             const filteredPost = posts.filter(
+      //               (post) => post.id === data.id
+      //             );
+      //             console.log(filteredPost[0].id, download_url);
+
+      //             // context.commit("setUpdateNewPost", {
+      //             //   postId: filteredPost[0].id,
+      //             //   img: download_url,
+      //             // });
+      //             // updating doc
+      //             const docRef = doc(postCollection, filteredPost[0].postId);
+      //             updateDoc(docRef, {
+      //               img: download_url,
+      //             });
+      //           })
+      //           .catch((err) => {
+      //             console.log(err.message);
+      //           });
+      //       }
+      //     );
+      //     console.log("Post Cover Uploaded");
+      //   })
+      //   .catch((err) => console.log(err.message));
+    },
+
     async filterPost(context, postId) {
       const postArray = store.state.posts;
       const filteredPost = postArray.find((p) => p.id === postId); // Use find() instead of filter()
