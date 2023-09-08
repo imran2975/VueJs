@@ -92,13 +92,13 @@ export default {
     //   store.dispatch("createPost", data, imageFile);
     // };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (refId) => {
       await store.dispatch("createPost", {
         title: postTitle.value,
         author: `${store.state.userData.firstName} ${store.state.userData.lastName}`,
         content: postContent.value,
         authorEmail: store.state.user.email,
-        id: coverImageId.value,
+        id: refId,
       });
       router.push("/blogs");
     };
@@ -116,7 +116,7 @@ export default {
 
   methods: {
     uploadPostCover: function () {
-      this.handleSubmit();
+      this.handleSubmit(this.coverImageId);
       const imageFile = this.$refs.postCoverImage.files[0];
       const storageRef = fireRef(
         storage,
