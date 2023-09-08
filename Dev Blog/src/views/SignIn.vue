@@ -27,7 +27,7 @@
           required
         />
       </div>
-      <a href="/"><button class="btn btn-warning">Sign In</button></a>
+       <button class="btn btn-warning">Sign In</button>
 
       <div v-if="error">{{ error }}</div>
       <div class="check-forgot-password">
