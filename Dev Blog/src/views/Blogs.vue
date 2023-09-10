@@ -17,12 +17,10 @@
         <RouterLink
           :to="{
             name: 'view-post',
-            params: { postId: post.postId },
+            params: { postId: post.postId, coverImageRef: post.coverImageRef },
           }"
         >
-          <button class="btn btn-primary" @click="getPost(post.coverImageRef)">
-            Continue reading...
-          </button>
+          <button class="btn btn-primary">Continue reading...</button>
         </RouterLink>
 
         <RouterLink to="/sign-in" v-if="!user">

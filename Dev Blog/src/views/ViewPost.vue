@@ -81,6 +81,24 @@ export default {
 
     const deletePost = () => {
       deleteDoc(docRef).then(() => {
+        // Create a reference to the file to delete
+        const imageLocation = computed(() => route.params.coverImageRef);
+        const imageRef = fireRef(
+          storage,
+          `postCovers/${imageLocation.value}.jpg`
+        );
+
+        // Delete the file
+        deleteObject(imageRef)
+          .then(() => {
+            // File deleted successfully
+            console.log("Deleted");
+          })
+          .catch((error) => {
+            // Uh-oh, an error occurred!
+            console.log(error);
+          });
+
         router.push("/blogs");
       });
     };

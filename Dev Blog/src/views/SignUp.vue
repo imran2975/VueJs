@@ -87,11 +87,6 @@
             Accept T&C
           </label>
         </div>
-        <div class="forgot-password">
-          <RouterLink to="/forgot-pass" class="forgot"
-            >Forgot Password?</RouterLink
-          >
-        </div>
       </div>
       <div class="signup-needhelp">
         <RouterLink to="/sign-IN" class="links">LOGIN INSTEAD</RouterLink>

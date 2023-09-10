@@ -39,7 +39,7 @@
           </label>
         </div>
         <div class="forgot-password">
-          <RouterLink to="/forgot-pass" class="forgot"
+          <RouterLink to="/reset" class="forgot text-light fa-fade"
             >Forgot Password?</RouterLink
           >
         </div>
@@ -213,7 +213,8 @@ button {
 
 .forgot {
   color: #ffffff94;
-  text-decoration: none;
+  border-bottom: 2px solid #fff;
+  text-shadow: 2px 2px 3px #000;
 }
 
 .links {

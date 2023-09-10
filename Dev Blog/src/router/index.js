@@ -7,6 +7,7 @@ import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import Profile from "../views/Profile.vue";
 import ViewPost from "../views/ViewPost.vue";
+import ResetPassword from "../views/ResetPassword.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,8 +48,15 @@ const router = createRouter({
       name: "profile",
       component: Profile,
     },
+
     {
-      path: "/view-post/:postId",
+      path: "/reset",
+      name: "reset",
+      component: ResetPassword,
+    },
+
+    {
+      path: "/view-post/:postId/:coverImageRef",
       name: "view-post",
       component: ViewPost,
     },
