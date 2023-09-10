@@ -98,7 +98,7 @@ export default {
         author: `${store.state.userData.firstName} ${store.state.userData.lastName}`,
         content: postContent.value,
         authorEmail: store.state.user.email,
-        id: refId,
+        coverImageRef: refId,
       });
       router.push("/blogs");
     };
@@ -134,7 +134,7 @@ export default {
                   posts.push({ ...doc.data(), postId: doc.id });
                 });
                 const filteredPost = posts.filter(
-                  (post) => post.id === this.coverImageId
+                  (post) => post.coverImageRef === this.coverImageId
                 );
                 console.log(filteredPost[0].id, download_url);
 

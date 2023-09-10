@@ -4,7 +4,7 @@
       <div class="card-header">Posted by {{ post.author }}</div>
       <div class="card-body">
         <div class="card-contents">
-          <div class="card-img">
+          <div class="card-img" v-if="post.img">
             <img :src="post.img" alt="" />
           </div>
           <div class="cont">
@@ -14,11 +14,17 @@
             </p>
           </div>
         </div>
-        <RouterLink to="/view-post" v-if="user">
-          <button class="btn btn-primary" @click="getPost(post.id)">
+        <RouterLink
+          :to="{
+            name: 'view-post',
+            params: { postId: post.postId },
+          }"
+        >
+          <button class="btn btn-primary" @click="getPost(post.coverImageRef)">
             Continue reading...
           </button>
         </RouterLink>
+
         <RouterLink to="/sign-in" v-if="!user">
           <button class="btn btn-primary">Sign In to read</button>
         </RouterLink>
@@ -52,10 +58,11 @@ export default {
       onSnapshot(postCollection, (snapshot) => {
         let posts = [];
         snapshot.docs.forEach((post) => {
-          posts.push({ ...post.data() });
+          posts.push({ ...post.data(), postId: post.id });
         });
         store.commit("setPosts", posts);
-        console.log(posts);
+
+        console.log(posts, store.state.viewPost);
       });
     });
 

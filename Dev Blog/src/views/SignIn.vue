@@ -27,7 +27,7 @@
           required
         />
       </div>
-       <button class="btn btn-warning">Sign In</button>
+      <button class="btn btn-warning">Sign In</button>
 
       <div v-if="error">{{ error }}</div>
       <div class="check-forgot-password">
@@ -137,6 +137,14 @@ form {
 .email-field input::placeholder,
 .password-field input::placeholder {
   color: #ffffff94;
+}
+
+/* Style for input fields during autofill */
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff; /* Text color */
+  background: #444343b0 !important; /* Background color */
+  box-shadow: 0 0 0 1000px #444343b0 inset !important;
+  border-radius: 2rem;
 }
 
 #icon {

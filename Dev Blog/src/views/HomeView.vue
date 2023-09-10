@@ -120,17 +120,27 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref as vueRef } from "vue";
+import { computed, ref as vueRef, onMounted, onBeforeMount } from "vue";
 
 export default {
   setup() {
     const store = useStore();
     console.log(store.state.user);
 
-    
-   // onMounted(()=>{
-     // window.location.reload()
-   // })
+    // Create a flag to track if window.location.reload() has been called
+    let isReloaded = true;
+
+    // Define the onMounted hook
+    onBeforeMount(() => {
+      if (!isReloaded) {
+        // Call window.location.reload() only if it hasn't been called before
+        window.location.reload();
+        console.log("Mounted and reloaded");
+        // Set the flag to true after the first reload
+        isReloaded = false;
+      }
+    });
+
     return { user: computed(() => store.state.user) };
   },
 };

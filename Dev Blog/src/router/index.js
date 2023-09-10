@@ -48,8 +48,8 @@ const router = createRouter({
       component: Profile,
     },
     {
-      path: "/view-post",
-      name: "post",
+      path: "/view-post/:postId",
+      name: "view-post",
       component: ViewPost,
     },
   ],

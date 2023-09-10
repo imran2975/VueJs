@@ -188,11 +188,12 @@ const store = createStore({
 
     async filterPost(context, postId) {
       const postArray = store.state.posts;
-      const filteredPost = postArray.find((p) => p.id === postId); // Use find() instead of filter()
+      const filteredPost = await postArray.find(
+        (p) => p.coverImageRef === postId
+      ); // Use find() instead of filter()
 
       if (filteredPost) {
         context.commit("setViewPost", filteredPost);
-        console.log(filteredPost);
       } else {
         console.error("Post not found");
       }
