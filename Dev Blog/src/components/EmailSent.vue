@@ -2,24 +2,20 @@
   <div class="wrapper">
     <h2>Reset Link Sent</h2>
     <marquee>Check inbox</marquee>
+    <button class="btn btn-primary" @click="removePopUp">close</button>
   </div>
 </template>
 
 <script>
 export default {
   setup() {
-    const deletePost = () => {
-      props.removePost();
-    };
-
     const hide = () => {
       props.removePopUp();
     };
 
-    return { deletePost, hide };
+    return { hide };
   },
   props: {
-    removePost: Function,
     removePopUp: Function,
   },
 };
@@ -41,7 +37,10 @@ export default {
 }
 
 marquee {
-  margin-top: 2rem;
+  margin-top: rem;
+}
+button {
+  margin-left: 6rem;
 }
 
 h2 {

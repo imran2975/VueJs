@@ -24,7 +24,12 @@
       <p>
         {{ post.content }}
       </p>
-      <div class="post-control" v-if="user && post.authorEmail === user.email">
+      <div
+        class="post-control"
+        v-if="
+          (user && post.authorEmail === user.email) || post.admin === user.email
+        "
+      >
         <!-- in the future i might make this functionable by editting and deleting in the component with vuex aid but only firebase  -->
         <button
           class="btn btn-primary"

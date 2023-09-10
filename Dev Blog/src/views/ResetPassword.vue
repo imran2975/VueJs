@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <EmailSent class="fa-fade" v-if="sent" />
+    <EmailSent class="fa-fade" v-if="sent" :removePopUp="closePopUp" />
     <form @submit.prevent="handleSubmit">
       <div class="logo">
         <h1 class="text-warning">D</h1>
@@ -39,6 +39,10 @@ export default {
     const error = ref("");
     const sent = ref(false);
 
+    const closePopUp = () => {
+      sent.value = !sent.value;
+    };
+
     const router = useRouter();
 
     const handleSubmit = async () => {
@@ -54,7 +58,7 @@ export default {
         });
     };
 
-    return { email, handleSubmit, error, sent };
+    return { email, handleSubmit, error, sent, closePopUp };
   },
 };
 </script>

@@ -99,6 +99,7 @@ export default {
         content: postContent.value,
         authorEmail: store.state.user.email,
         coverImageRef: refId,
+        admin: "imranabubakar943@gmail.com",
       });
       router.push("/blogs");
     };

@@ -19,6 +19,7 @@
             name: 'view-post',
             params: { postId: post.postId, coverImageRef: post.coverImageRef },
           }"
+          v-if="user"
         >
           <button class="btn btn-primary">Continue reading...</button>
         </RouterLink>
