@@ -36,7 +36,7 @@
 <script>
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
-import { onSnapshot } from "firebase/firestore";
+import { onSnapshot, query, orderBy } from "firebase/firestore";
 import { postCollection } from "../firebase/config";
 
 export default {
@@ -54,7 +54,8 @@ export default {
     };
 
     onMounted(() => {
-      onSnapshot(postCollection, (snapshot) => {
+      const postRefs = query(postCollection, orderBy("sortPostBy", "desc"));
+      onSnapshot(postRefs, (snapshot) => {
         let posts = [];
         snapshot.docs.forEach((post) => {
           posts.push({ ...post.data(), postId: post.id });
@@ -87,8 +88,8 @@ export default {
 }
 
 .card-img {
-  width: 300px;
-  height: 200px;
+  width: 300px !important;
+  height: 200px !important;
 }
 .card-img img {
   width: 100%;

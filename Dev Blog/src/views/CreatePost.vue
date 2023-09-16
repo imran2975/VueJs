@@ -1,5 +1,5 @@
 <template>
-  <div class="hi">
+  <div class="wrapper" v-if="userInfos">
     <form @submit.prevent="uploadPostCover">
       <div class="profile-info">
         <img :src="profileImage" alt="" />
@@ -69,6 +69,32 @@ export default {
     const postTitle = ref("");
     const postContent = ref("");
     const coverImageId = ref(randomId(20));
+    const sortPostBy = new Date().getTime();
+
+    function getCurrentDateTime() {
+      const now = new Date();
+
+      const optionsDate = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+
+      const optionsTime = {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true, // Use 12-hour format
+      };
+
+      const postDate = now.toLocaleString(undefined, optionsDate);
+      const postTime = now.toLocaleString(undefined, optionsTime);
+
+      return { postDate, postTime };
+    }
+
+    const { postDate, postTime } = getCurrentDateTime();
+    console.log("Current Date:", postDate);
+    console.log("Current Time:", postTime);
 
     function randomId(length) {
       if (length <= 0) {
@@ -100,6 +126,11 @@ export default {
         authorEmail: store.state.user.email,
         coverImageRef: refId,
         admin: "imranabubakar943@gmail.com",
+        sortPostBy: sortPostBy,
+        time: postTime,
+        date: postDate,
+        likeCount: [],
+        isLiked: null,
       });
       router.push("/blogs");
     };
@@ -162,7 +193,7 @@ export default {
 </script>
 
 <style scoped>
-.hi {
+.wrapper {
   background: url("/World Map.svg");
 }
 

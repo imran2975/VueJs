@@ -31,57 +31,7 @@ const store = createStore({
     authIsReady: false,
     userImage: null,
     posts: null,
-    // posts: [
-    //   {
-    //     id: 1,
-    //     img: "user4.jpg",
-    //     author: "Imran",
-    //     title: "How to create a simple login page using Html & Css",
-    //     content:
-    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-    //   },
-    //   {
-    //     id: 2,
-    //     img: "user5.jpg",
-    //     author: "Ameer",
-    //     title: "Simple Vue Project",
-    //     content:
-    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-    //   },
-    //   {
-    //     id: 3,
-    //     img: "user6.jpg",
-    //     author: "Mahmud",
-    //     title:
-    //       "How to create a simple login page using React and firebase auth",
-    //     content:
-    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-    //   },
-    //   {
-    //     id: 4,
-    //     img: "user9.jpg",
-    //     author: "Johnson",
-    //     title: "How to create an E-comerce web app using Html & Css",
-    //     content:
-    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-    //   },
-    //   {
-    //     id: 5,
-    //     img: "user10.jpg",
-    //     author: "Fati",
-    //     title: "How to create a simple login page using Html & Css",
-    //     content:
-    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-    //   },
-    //   {
-    //     id: 6,
-    //     img: "user14.jpg",
-    //     author: "Khadija",
-    //     title: "How to create a simple chat app using Html, Css & Javascript",
-    //     content:
-    //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate commodi dolorum nesciunt id deleniti saepe magnam voluptatibus necessitatibus culpa?",
-    //   },
-    // ],
+
     viewPost: {},
   },
   mutations: {

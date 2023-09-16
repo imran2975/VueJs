@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-if="user">
     <Confirm
       class="confirm"
       :removePost="deletePost"
@@ -15,37 +15,84 @@
     <div class="wrapper" v-if="post">
       <h1>{{ post.title }}</h1>
       <!-- for the span tag containing post author i mght use it to show author's profile -->
+      <p>{{ post.date }}</p>
       <p>
-        Posted by <span class="text-primary">{{ post.author }}</span> on
-        September 07, 2023
+        Posted by <span class="text-primary">{{ post.author }}</span> at
+        {{ post.time }}
       </p>
       <img :src="post.img" alt="" v-if="post.img !== ''" />
 
       <p>
         {{ post.content }}
       </p>
-      <div
-        class="post-control"
-        v-if="
-          (user && post.authorEmail === user.email) || post.admin === user.email
-        "
-      >
-        <!-- in the future i might make this functionable by editting and deleting in the component with vuex aid but only firebase  -->
-        <button
-          class="btn btn-primary"
-          @click="toggleIsEditPopUp"
-          :disabled="isEditPopUp"
-        >
-          Edit Post
-        </button>
-        <button
-          class="btn btn-danger"
-          @click="toggleIsPopUp"
-          :disabled="isPopUp"
-        >
-          Delete Post
-        </button>
+      <!-- reactions control start-->
+      <div class="container" id="post-control">
+        <div class="row">
+          <div class="col">
+            <button class="btn" @click="likePost">
+              <span
+                v-if="post.likeCount && post.likeCount.includes(user.email)"
+              >
+                <i class="fas fa-heart"></i>
+              </span>
+              <span v-else>
+                <i class="far fa-heart"></i>
+              </span>
+              {{ post.likeCount ? post.likeCount.length : 0 }}
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn"><i class="fa-regular fa-comment"></i>20</button>
+          </div>
+          <div class="col">
+            <div class="dropup">
+              <button
+                class="btn btn dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li
+                  v-if="
+                    (user && post.authorEmail === user.email) ||
+                    (user && post.admin === user.email)
+                  "
+                >
+                  <p
+                    class="dropdown-item"
+                    @click="toggleIsEditPopUp"
+                    :disabled="isEditPopUp"
+                  >
+                    Edit Post
+                  </p>
+                </li>
+                <li
+                  v-if="
+                    (user && post.authorEmail === user.email) ||
+                    (user && post.admin === user.email)
+                  "
+                >
+                  <p
+                    class="dropdown-item"
+                    @click="toggleIsPopUp"
+                    :disabled="isPopUp"
+                  >
+                    Delete Post
+                  </p>
+                </li>
+                <li>
+                  <p class="dropdown-item">Report post</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- reactions control end -->
     </div>
   </main>
 </template>
@@ -53,7 +100,13 @@
 <script>
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
-import { getDoc, onSnapshot, doc, deleteDoc } from "firebase/firestore";
+import {
+  getDoc,
+  onSnapshot,
+  doc,
+  deleteDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { ref as fireRef, deleteObject } from "firebase/storage";
 import { postCollection, storage } from "../firebase/config";
 import { onMounted, ref, computed } from "vue";
@@ -72,6 +125,7 @@ export default {
     const post = ref({});
     const isPopUp = ref(false);
     const isEditPopUp = ref(false);
+    let isLiked = ref(false);
 
     onMounted(async () => {
       try {
@@ -83,6 +137,46 @@ export default {
         console.error("Error fetching document:", error);
       }
     });
+
+    const likePost = async () => {
+      isLiked.value = !isLiked.value;
+
+      // Step 1: Retrieve the document
+      const documentSnapshot = await getDoc(docRef);
+
+      if (documentSnapshot.exists()) {
+        // Step 2: Modify the array (for example, push the user's email)
+        const data = documentSnapshot.data();
+        const likeCountArray = data.likeCount || []; // Ensure it's an array, initialize if it's undefined
+
+        const email = computed(() => store.state.user.email);
+
+        if (isLiked.value) {
+          // Push the user's email only if they liked the post
+          if (!likeCountArray.includes(email.value)) {
+            likeCountArray.push(email.value);
+          } else {
+            return;
+          }
+        } else {
+          // Remove the user's email if they unliked the post
+          const index = likeCountArray.indexOf(email.value);
+          if (index !== -1) {
+            likeCountArray.splice(index, 1);
+          }
+        }
+
+        // Step 3: Update the document in Firestore with the modified array
+        await updateDoc(docRef, {
+          likeCount: likeCountArray, // Update the likeCount field with the modified array
+          isLiked: isLiked.value,
+        });
+
+        console.log("Like count updated successfully!");
+      } else {
+        console.log("Document does not exist.");
+      }
+    };
 
     const deletePost = () => {
       deleteDoc(docRef).then(() => {
@@ -123,6 +217,8 @@ export default {
       toggleIsEditPopUp,
       isPopUp,
       isEditPopUp,
+      isLiked,
+      likePost,
     };
   },
 };
@@ -130,20 +226,9 @@ export default {
 
 <style scoped>
 main {
-  /* display: flex;
-  justify-content: center; */
   padding: 1rem;
   position: relative;
 }
-
-/* .confirm {
-  position: fixed;
-  top: 40%;
-  left: 0;
-  width: 20rem;
-  box-shadow: 2px 2px 5px #000;
-  padding: 2rem;
-} */
 
 .wrapper {
   width: 100%;
@@ -158,14 +243,22 @@ span {
   font-weight: bold;
 }
 
+.col {
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+}
+
 button {
   margin-top: 0.5rem;
 }
 
 @media (min-width: 576px) {
-  /* .confirm {
-    top: 40%;
-    left: 5%;
-  } */
+  .col button:hover {
+    background: #fdb824ab;
+  }
 }
 </style>

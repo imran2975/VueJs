@@ -40,7 +40,7 @@
           class="nav-link m-2"
           :class="{ active: $route.path === '/a' }"
           v-if="authIsReady"
-          >Portfolio</RouterLink
+          >Study</RouterLink
         >
         <RouterLink
           to="/contact-us"

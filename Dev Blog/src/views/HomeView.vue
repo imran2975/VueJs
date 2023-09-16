@@ -1,118 +1,121 @@
 <template>
-  <div>
-    <div class="tiles reverse big-screen">
-      <div class="column">
-        <h1>WELCOME!</h1>
-        <p>
-          Weekly blog articles with all things programming including HTML, CSS,
-          JavaScript and more. Register today to never miss a post!
-        </p>
-        <RouterLink to="/" class="nav-link m-2">
-          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-        </RouterLink>
+  <div class="wrapper" style="position: relative; top: 0">
+    <div>
+      <!-- use nth-child and animation to display the cover images side by side with the post text  -->
+      <div class="tiles reverse big-screen">
+        <div class="column">
+          <h1>WELCOME!</h1>
+          <p>
+            Weekly blog articles with all things programming including HTML,
+            CSS, JavaScript and more. Register today to never miss a post!
+          </p>
+          <RouterLink to="/" class="nav-link m-2">
+            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+          </RouterLink>
+        </div>
+        <div class="column2">
+          <img src="/test.png" alt="" />
+        </div>
       </div>
-      <div class="column2">
-        <img src="/test.png" alt="" />
-      </div>
-    </div>
-    <div class="tiles reverse small-screen">
-      <div class="column">
-        <h1>WELCOME!</h1>
-        <p>
-          Weekly blog articles with all things programming including HTML, CSS,
-          JavaScript and more. Register today to never miss a post!
-        </p>
+      <div class="tiles reverse small-screen">
+        <div class="column">
+          <h1>WELCOME!</h1>
+          <p>
+            Weekly blog articles with all things programming including HTML,
+            CSS, JavaScript and more. Register today to never miss a post!
+          </p>
 
-        <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
-          <button class="btn btn-warning">
-            LOGIN/REGISTER
-            <i class="fa-solid fa-arrow-right fa-fade"></i>
-          </button>
-        </RouterLink>
-        <RouterLink to="/" class="nav-link m-2" v-if="user">
-          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-        </RouterLink>
+          <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
+            <button class="btn btn-warning">
+              LOGIN/REGISTER
+              <i class="fa-solid fa-arrow-right fa-fade"></i>
+            </button>
+          </RouterLink>
+          <RouterLink to="/" class="nav-link m-2" v-if="user">
+            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+          </RouterLink>
+        </div>
+        <div class="column2">
+          <img src="/test.png" alt="" />
+        </div>
       </div>
-      <div class="column2">
-        <img src="/test.png" alt="" />
+      <div class="tiles">
+        <div class="column2">
+          <img src="/test1.png" alt="" />
+        </div>
+        <div class="column">
+          <h1>Dynamic Page Titles With The Vue Router</h1>
+          <p>In this video we take a look at creatin</p>
+          <RouterLink to="/login" class="nav-link m-2">
+            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+          </RouterLink>
+        </div>
       </div>
-    </div>
-    <div class="tiles">
-      <div class="column2">
-        <img src="/test1.png" alt="" />
+      <div class="tiles reverse">
+        <div class="column">
+          <h1>CSS Transform: SkewY | Create A Slanted/Skewed Div</h1>
+          <p>In this video we take a look at creatin</p>
+          <RouterLink to="/login" class="nav-link m-2">
+            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+          </RouterLink>
+        </div>
+        <div class="column2">
+          <img src="/test.png" alt="" />
+        </div>
       </div>
-      <div class="column">
-        <h1>Dynamic Page Titles With The Vue Router</h1>
-        <p>In this video we take a look at creatin</p>
-        <RouterLink to="/login" class="nav-link m-2">
-          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-        </RouterLink>
-      </div>
-    </div>
-    <div class="tiles reverse">
-      <div class="column">
-        <h1>CSS Transform: SkewY | Create A Slanted/Skewed Div</h1>
-        <p>In this video we take a look at creatin</p>
-        <RouterLink to="/login" class="nav-link m-2">
-          VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-        </RouterLink>
-      </div>
-      <div class="column2">
-        <img src="/test.png" alt="" />
-      </div>
-    </div>
 
-    <div class="tiles post">
-      <div class="more">
-        <h2>View More Recent Blogs</h2>
-        <div class="cards">
-          <div class="card" style="width: 18rem">
-            <img src="/Logo.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="tiles post">
+        <div class="more">
+          <h2>View More Recent Blogs</h2>
+          <div class="cards">
+            <div class="card" style="width: 18rem">
+              <img src="/Logo.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
             </div>
-          </div>
-          <div class="card" style="width: 18rem">
-            <img src="/Logo.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card" style="width: 18rem">
+              <img src="/Logo.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
             </div>
-          </div>
-          <div class="card" style="width: 18rem">
-            <img src="/Logo.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card" style="width: 18rem">
+              <img src="/Logo.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tiles">
-      <h1 class="column">
-        never miss a post. Register for your free account today!
-      </h1>
-      <div class="newsletter">
-        <form>
-          <input type="text" />
-          <button class="btn btn-dark text-white btn-outline-secondary">
-            Subscribe to our newsletter
-          </button>
-        </form>
+      <div class="tiles">
+        <h1 class="column">
+          never miss a post. Register for your free account today!
+        </h1>
+        <div class="newsletter">
+          <form>
+            <input type="text" />
+            <button class="btn btn-dark text-white btn-outline-secondary">
+              Subscribe to our newsletter
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -125,9 +128,12 @@ import { computed, ref as vueRef, onMounted, onBeforeMount } from "vue";
 export default {
   setup() {
     const store = useStore();
+
     console.log(store.state.user);
 
-    return { user: computed(() => store.state.user) };
+    return {
+      user: computed(() => store.state.user),
+    };
   },
 };
 </script>
@@ -137,7 +143,7 @@ h1 {
   text-transform: uppercase;
 }
 
-h2 {
+.tiles h2 {
   margin-left: 1rem;
 }
 .tiles {
@@ -190,7 +196,7 @@ form input {
   border-radius: 20px;
 }
 
-button {
+form button {
   margin-top: 1rem;
   border-radius: 50px;
   padding: 0.5rem;
