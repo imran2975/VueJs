@@ -33,7 +33,7 @@
               <span
                 v-if="post.likeCount && post.likeCount.includes(user.email)"
               >
-                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart text-danger"></i>
               </span>
               <span v-else>
                 <i class="far fa-heart"></i>
@@ -42,7 +42,10 @@
             </button>
           </div>
           <div class="col">
-            <button class="btn"><i class="fa-regular fa-comment"></i>20</button>
+            <button class="btn">
+              <i class="fa-regular fa-comment"></i
+              >{{ commentsArray ? commentsArray.length : 0 }}
+            </button>
           </div>
           <div class="col">
             <div class="dropup">
@@ -67,7 +70,9 @@
                     @click="toggleIsEditPopUp"
                     :disabled="isEditPopUp"
                   >
-                    Edit Post
+                    Edit Post<i
+                      class="fa-solid fa-pen-to-square text-success"
+                    ></i>
                   </p>
                 </li>
                 <li
@@ -81,11 +86,15 @@
                     @click="toggleIsPopUp"
                     :disabled="isPopUp"
                   >
-                    Delete Post
+                    Delete Post<i class="fa-solid fa-trash text-danger"></i>
                   </p>
                 </li>
                 <li>
-                  <p class="dropdown-item">Report post</p>
+                  <p class="dropdown-item">
+                    Report post<i
+                      class="fa-solid fa-triangle-exclamation text-warning"
+                    ></i>
+                  </p>
                 </li>
               </ul>
             </div>
@@ -93,6 +102,98 @@
         </div>
       </div>
       <!-- reactions control end -->
+    </div>
+    <div class="comment-sect">
+      <form @submit.prevent="handleComment">
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="Comment Here"
+          v-model="commentContents"
+        /><button class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- display comments available -->
+    <div class="display-comments">
+      <div class="contents">
+        <table class="table table-striped" v-if="commentsArray">
+          <tbody v-for="comment in commentsArray" :key="comment.sortCommentsBy">
+            <tr>
+              <td><img :src="comment.image" alt="" /></td>
+              <td>
+                <h6
+                  style="
+                    display: flex;
+                    text-wrap: nowrap;
+                    align-items: center;
+                    justify-content: space-between;
+                  "
+                >
+                  {{ comment.firstName }} {{ comment.lastName }}
+                  <div class="dropup">
+                    <button
+                      class="btn btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      <li
+                        v-if="
+                          (user && post.authorEmail === user.email) ||
+                          (user && post.admin === user.email) ||
+                          (user && commentContents.email === user.email)
+                        "
+                      >
+                        <p class="dropdown-item" :disabled="isEditPopUp">
+                          Edit<i
+                            class="fa-solid fa-pen-to-square text-success"
+                          ></i>
+                        </p>
+                      </li>
+                      <li
+                        v-if="
+                          (user && post.authorEmail === user.email) ||
+                          (user && post.admin === user.email) ||
+                          (user && commentContents.email === user.email)
+                        "
+                      >
+                        <p class="dropdown-item" :disabled="isPopUp">
+                          Delete<i class="fa-solid fa-trash text-danger"></i>
+                        </p>
+                      </li>
+                      <li>
+                        <p class="dropdown-item">
+                          Report<i
+                            class="fa-solid fa-triangle-exclamation text-warning"
+                          ></i>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </h6>
+                <p style="opacity: 0.5; margin-top: -1.3rem">
+                  {{ comment.userName }}
+                </p>
+                <p style="margin-top: -1.5rem; opacity: 0.6">
+                  {{ comment.time }} {{ comment.date }}
+                </p>
+                <p>{{ comment.content }}</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
 </template>
@@ -106,9 +207,17 @@ import {
   doc,
   deleteDoc,
   updateDoc,
+  query,
+  orderBy,
+  where,
 } from "firebase/firestore";
 import { ref as fireRef, deleteObject } from "firebase/storage";
-import { postCollection, storage } from "../firebase/config";
+import {
+  postCollection,
+  storage,
+  addComment,
+  commentsCollection,
+} from "../firebase/config";
 import { onMounted, ref, computed } from "vue";
 import Confirm from "../components/Confirm.vue";
 import EditPost from "../components/EditPost.vue";
@@ -127,11 +236,34 @@ export default {
     const isEditPopUp = ref(false);
     let isLiked = ref(false);
 
+    // comments array
+    let commentsArray = ref(null);
+
     onMounted(async () => {
       try {
         onSnapshot(docRef, (snapshot) => {
           post.value = snapshot.data();
           console.log("Data retrieved:", post.value);
+
+          // comments snapshot
+          const postRefs = query(
+            commentsCollection,
+            // where("commentPostId", "<=", `${postId.value}`),
+            orderBy("sortCommentsBy", "desc")
+          );
+          onSnapshot(postRefs, (snapshot) => {
+            let comments = [];
+            snapshot.docs.forEach((comment) => {
+              comments.push({ ...comment.data() });
+            });
+            const filteredComments = comments.filter(
+              (c) => c.commentPostId === postId.value
+            );
+
+            commentsArray.value = filteredComments;
+
+            console.log(commentsArray.value);
+          });
         });
       } catch (error) {
         console.error("Error fetching document:", error);
@@ -209,6 +341,48 @@ export default {
       isEditPopUp.value = !isEditPopUp.value;
     };
 
+    // EveryThing about creating comment
+    const commentContents = ref("");
+    const sortCommentsBy = new Date().getTime();
+    const userInfos = computed(() => store.state.userData);
+    const profileImage = computed(() => store.state.userImage);
+
+    function getCurrentDateTime() {
+      const now = new Date();
+
+      const optionsDate = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+
+      const optionsTime = {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true, // Use 12-hour format
+      };
+
+      const postDate = now.toLocaleString(undefined, optionsDate);
+      const postTime = now.toLocaleString(undefined, optionsTime);
+
+      return { postDate, postTime };
+    }
+    const { postDate, postTime } = getCurrentDateTime();
+
+    const handleComment = async () => {
+      await addComment({
+        commentPostId: postId.value,
+        sortCommentsBy: sortCommentsBy,
+        firstName: userInfos.value?.firstName || "",
+        lastName: userInfos.value?.lastName || "",
+        userName: userInfos.value?.userName || "",
+        image: profileImage.value,
+        content: commentContents.value,
+        date: postDate,
+        time: postTime,
+      });
+    };
+
     return {
       user,
       post,
@@ -219,6 +393,9 @@ export default {
       isEditPopUp,
       isLiked,
       likePost,
+      commentContents,
+      handleComment,
+      commentsArray,
     };
   },
 };
@@ -252,8 +429,53 @@ span {
   align-items: center;
 }
 
+.post-control .fa-pen-to-square {
+  margin-left: -2rem;
+  color: lightgreen;
+}
+
+.post-control .fa-trash {
+  margin-left: -3rem;
+  color: crimson;
+}
+
+.post-control .fa-triangle-exclamation {
+  margin-left: -3rem;
+}
+
+form .fa-pen-to-square,
+form .fa-trash,
+form .fa-triangle-exclamation {
+  margin-left: 10rem;
+}
+
 button {
   margin-top: 0.5rem;
+}
+
+table img {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fdb824ab;
+}
+
+form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+input {
+  outline: none;
+  padding: 0.5rem;
+}
+
+form button {
+  padding: 0.8rem 1.5rem;
+  margin-top: -0.2rem;
 }
 
 @media (min-width: 576px) {

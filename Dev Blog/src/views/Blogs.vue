@@ -1,16 +1,30 @@
 <template>
   <div>
     <div class="card mb-1" v-for="post in posts" :key="post.id">
-      <div class="card-header">Posted by {{ post.author }}</div>
+      <div class="card-header">
+        Posted by {{ post.author }} on {{ post.date }}
+      </div>
       <div class="card-body">
         <div class="card-contents">
           <div class="card-img" v-if="post.img">
-            <img :src="post.img" alt="" />
+            <RouterLink
+              :to="{
+                name: 'view-post',
+                params: {
+                  postId: post.postId,
+                  coverImageRef: post.coverImageRef,
+                },
+              }"
+              v-if="user"
+            >
+              <img :src="post.img" alt="" />
+            </RouterLink>
           </div>
           <div class="cont">
             <h2 class="card-title">{{ post.title }}</h2>
             <p class="card-text text-muted">
-              {{ post.content }}
+              {{ post.content ? post.content.slice(0, 90) : ""
+              }}<span class="fa-fade">.....</span>
             </p>
           </div>
         </div>
@@ -28,7 +42,6 @@
           <button class="btn btn-primary">Sign In to read</button>
         </RouterLink>
       </div>
-      <div class="card-footer text-muted">2 days ago</div>
     </div>
   </div>
 </template>
@@ -45,14 +58,6 @@ export default {
     const store = useStore();
     const posts = computed(() => store.state.posts);
 
-    const getPost = (postId) => {
-      try {
-        store.dispatch("filterPost", postId);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-
     onMounted(() => {
       const postRefs = query(postCollection, orderBy("sortPostBy", "desc"));
       onSnapshot(postRefs, (snapshot) => {
@@ -66,7 +71,7 @@ export default {
       });
     });
 
-    return { posts, getPost, user: computed(() => store.state.user) };
+    return { posts, user: computed(() => store.state.user) };
   },
 };
 </script>

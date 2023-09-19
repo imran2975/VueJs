@@ -33,6 +33,7 @@ const db = getFirestore();
 //collection ref
 const usersCollection = collection(db, "users");
 const postCollection = collection(db, "posts");
+const commentsCollection = collection(db, "comments");
 
 // get collection data
 
@@ -50,6 +51,15 @@ const addPost = async (data) => {
   try {
     const docRef = await addDoc(postCollection, data);
     console.log("Document added with ID: ", docRef.id);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+const addComment = async (data) => {
+  try {
+    const docRef = await addDoc(commentsCollection, data);
+    console.log("comment added with ID: ", docRef.id);
   } catch (err) {
     console.error(err.message);
   }
@@ -73,8 +83,10 @@ export {
   db,
   usersCollection,
   postCollection,
+  commentsCollection,
   addUser,
   addPost,
+  addComment,
   query,
   where,
   getDocs,
