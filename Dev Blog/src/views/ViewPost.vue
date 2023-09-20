@@ -70,9 +70,8 @@
                     @click="toggleIsEditPopUp"
                     :disabled="isEditPopUp"
                   >
-                    Edit Post<i
-                      class="fa-solid fa-pen-to-square text-success"
-                    ></i>
+                    Edit Post
+                    <i class="fa-solid fa-pen-to-square text-success"></i>
                   </p>
                 </li>
                 <li
@@ -111,6 +110,7 @@
           id=""
           placeholder="Comment Here"
           v-model="commentContents"
+          required
         /><button class="btn btn-primary">
           <i class="fa-solid fa-paper-plane"></i>
         </button>
@@ -154,11 +154,11 @@
                           (user && post.admin === user.email) ||
                           (user && commentContents.email === user.email)
                         "
+                        @click="toggleIsEditPopUp"
                       >
                         <p class="dropdown-item" :disabled="isEditPopUp">
-                          Edit<i
-                            class="fa-solid fa-pen-to-square text-success"
-                          ></i>
+                          Edit
+                          <i class="fa-solid fa-pen-to-square text-success"></i>
                         </p>
                       </li>
                       <li
@@ -167,14 +167,16 @@
                           (user && post.admin === user.email) ||
                           (user && commentContents.email === user.email)
                         "
+                        @click="deleteComment(comment.id)"
                       >
                         <p class="dropdown-item" :disabled="isPopUp">
-                          Delete<i class="fa-solid fa-trash text-danger"></i>
+                          Delete <i class="fa-solid fa-trash text-danger"></i>
                         </p>
                       </li>
                       <li>
                         <p class="dropdown-item">
-                          Report<i
+                          Report
+                          <i
                             class="fa-solid fa-triangle-exclamation text-warning"
                           ></i>
                         </p>
@@ -209,7 +211,6 @@ import {
   updateDoc,
   query,
   orderBy,
-  where,
 } from "firebase/firestore";
 import { ref as fireRef, deleteObject } from "firebase/storage";
 import {
@@ -248,13 +249,12 @@ export default {
           // comments snapshot
           const postRefs = query(
             commentsCollection,
-            // where("commentPostId", "<=", `${postId.value}`),
             orderBy("sortCommentsBy", "desc")
           );
           onSnapshot(postRefs, (snapshot) => {
             let comments = [];
             snapshot.docs.forEach((comment) => {
-              comments.push({ ...comment.data() });
+              comments.push({ ...comment.data(), id: comment.id });
             });
             const filteredComments = comments.filter(
               (c) => c.commentPostId === postId.value
@@ -381,6 +381,21 @@ export default {
         date: postDate,
         time: postTime,
       });
+
+      commentContents.value = "";
+    };
+
+    // deleting comment
+    const deleteComment = (id) => {
+      const commentRef = doc(commentsCollection, id);
+      deleteDoc(commentRef)
+        .then(() => {
+          // Create a reference to the file to delete
+          console.log("Comment Removed");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
     };
 
     return {
@@ -396,6 +411,7 @@ export default {
       commentContents,
       handleComment,
       commentsArray,
+      deleteComment,
     };
   },
 };
@@ -435,12 +451,18 @@ span {
 }
 
 .post-control .fa-trash {
-  margin-left: -3rem;
+  margin-left: -7rem !important;
   color: crimson;
 }
 
 .post-control .fa-triangle-exclamation {
   margin-left: -3rem;
+}
+
+.post-control .dropdown-item {
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
 }
 
 form .fa-pen-to-square,

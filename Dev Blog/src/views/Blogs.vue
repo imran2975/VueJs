@@ -83,7 +83,7 @@ export default {
 .card-contents {
   display: flex;
   gap: 1rem;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-bottom: 0.5rem;
   line-height: 2rem;
 }

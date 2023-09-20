@@ -2,108 +2,95 @@
   <div class="wrapper" style="position: relative; top: 0">
     <div>
       <!-- use nth-child and animation to display the cover images side by side with the post text  -->
-      <div class="tiles reverse big-screen">
-        <div class="column">
-          <h1>WELCOME!</h1>
-          <p>
-            Weekly blog articles with all things programming including HTML,
-            CSS, JavaScript and more. Register today to never miss a post!
-          </p>
-          <RouterLink to="/" class="nav-link m-2">
-            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-          </RouterLink>
-        </div>
-        <div class="column2">
-          <img src="/test.png" alt="" />
-        </div>
-      </div>
-      <div class="tiles reverse small-screen">
-        <div class="column">
-          <h1>WELCOME!</h1>
-          <p>
-            Weekly blog articles with all things programming including HTML,
-            CSS, JavaScript and more. Register today to never miss a post!
-          </p>
-
-          <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
-            <button class="btn btn-warning">
-              LOGIN/REGISTER
-              <i class="fa-solid fa-arrow-right fa-fade"></i>
-            </button>
-          </RouterLink>
-          <RouterLink to="/" class="nav-link m-2" v-if="user">
-            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-          </RouterLink>
-        </div>
-        <div class="column2">
-          <img src="/test.png" alt="" />
-        </div>
-      </div>
-      <div class="tiles">
-        <div class="column2">
-          <img src="/test1.png" alt="" />
-        </div>
-        <div class="column">
-          <h1>Dynamic Page Titles With The Vue Router</h1>
-          <p>In this video we take a look at creatin</p>
-          <RouterLink to="/login" class="nav-link m-2">
-            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-          </RouterLink>
-        </div>
-      </div>
-      <div class="tiles reverse">
-        <div class="column">
-          <h1>CSS Transform: SkewY | Create A Slanted/Skewed Div</h1>
-          <p>In this video we take a look at creatin</p>
-          <RouterLink to="/login" class="nav-link m-2">
-            VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-          </RouterLink>
-        </div>
-        <div class="column2">
-          <img src="/test.png" alt="" />
+      <div class="container">
+        <div class="row">
+          <div class="col">Column</div>
+          <div class="col">Column</div>
+          <div class="col">Column</div>
         </div>
       </div>
 
+      <div class="small d-lg-none">
+        <div class="tiles reverse small-screen">
+          <div class="column">
+            <h1>WELCOME!</h1>
+            <p>
+              Weekly blog articles with all things programming including HTML,
+              CSS, JavaScript and more. Register today to never miss a post!
+            </p>
+
+            <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
+              <button class="btn btn-warning">
+                LOGIN/REGISTER
+                <i class="fa-solid fa-arrow-right fa-fade"></i>
+              </button>
+            </RouterLink>
+            <RouterLink to="/" class="nav-link m-2" v-if="user">
+              VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+            </RouterLink>
+          </div>
+          <div class="column2">
+            <img src="/test.png" alt="" />
+          </div>
+        </div>
+
+        <div class="tiles" v-for="blog in blogs" :key="blog.id">
+          <div class="column2">
+            <img :src="blog.img" alt="" />
+          </div>
+          <div class="column" v-if="blogs">
+            <h1>{{ blog.title }}</h1>
+            <p>
+              {{ blog.content ? blog.content.slice(0, 90) : "" }}
+              <span class="fa-fade">....</span>
+            </p>
+            <RouterLink
+              :to="{
+                name: 'view-post',
+                params: {
+                  postId: blog.postId,
+                  coverImageRef: blog.coverImageRef,
+                },
+              }"
+              class="nav-link m-2"
+            >
+              VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+
+      <!-- recent posts -->
       <div class="tiles post">
         <div class="more">
           <h2>View More Recent Blogs</h2>
-          <div class="cards">
+          <div class="cards" v-for="blog in recentBlogs" :key="blog.id">
             <div class="card" style="width: 18rem">
-              <img src="/Logo.png" class="card-img-top" alt="..." />
+              <img :src="blog.img" class="card-img-top" alt="..." />
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">{{ blog.title }}</h5>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  {{ blog.content ? blog.content.slice(0, 90) : "" }}
+                  <span class="fa-fade">....</span>
                 </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card" style="width: 18rem">
-              <img src="/Logo.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card" style="width: 18rem">
-              <img src="/Logo.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <RouterLink
+                  :to="{
+                    name: 'view-post',
+                    params: {
+                      postId: blog.postId,
+                      coverImageRef: blog.coverImageRef,
+                    },
+                  }"
+                  class="btn btn-primary"
+                >
+                  Read more <i class="fa-solid fa-arrow-right fa-fade"></i>
+                </RouterLink>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="tiles">
         <h1 class="column">
           never miss a post. Register for your free account today!
@@ -123,16 +110,57 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref as vueRef, onMounted, onBeforeMount } from "vue";
+import { computed, ref as vueRef, onMounted } from "vue";
+import {
+  onSnapshot,
+  query,
+  doc,
+  orderBy,
+  limit,
+  limitToLast,
+} from "firebase/firestore";
+import { postCollection } from "../firebase/config";
 
 export default {
   setup() {
     const store = useStore();
+    const blogs = vueRef(null);
+    const recentBlogs = vueRef(null);
 
-    console.log(store.state.user);
+    onMounted(() => {
+      const postRefs = query(
+        postCollection,
+        orderBy("sortPostBy", "desc"),
+        limitToLast(3)
+      );
+      onSnapshot(postRefs, (snapshot) => {
+        let posts = [];
+        snapshot.docs.forEach((post) => {
+          posts.push({ ...post.data(), postId: post.id });
+        });
+        blogs.value = posts;
+        console.log(blogs.value);
+      });
+
+      // for displaying recents posts
+      const recentPosts = query(
+        postCollection,
+        orderBy("sortPostBy", "desc"),
+        limit(4)
+      );
+      onSnapshot(recentPosts, (snapshot) => {
+        let posts = [];
+        snapshot.docs.forEach((post) => {
+          posts.push({ ...post.data(), postId: post.id });
+        });
+        recentBlogs.value = posts;
+      });
+    });
 
     return {
       user: computed(() => store.state.user),
+      blogs,
+      recentBlogs,
     };
   },
 };
@@ -224,13 +252,15 @@ form button {
   }
 
   .column2 {
-    width: 100%;
+    width: 100vw;
     height: 30vh;
   }
   .column2 img {
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-top: 2px solid #fdb924;
+    border-bottom: 2px solid #fdb924;
   }
 
   .cards {

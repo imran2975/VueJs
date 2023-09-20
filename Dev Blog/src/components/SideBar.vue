@@ -54,7 +54,7 @@
         class="list-group-item list-group-item-action bg-dark text-white border-0 border-bottom m-1"
         :class="{ active: $route.path === '/product' }"
         @click="sidebarToggle"
-        >Portfolio</RouterLink
+        >Study</RouterLink
       >
       <RouterLink
         to="/contact-us"
