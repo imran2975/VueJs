@@ -139,6 +139,7 @@ export default {
 }
 .navbar {
   box-shadow: 1px 1px 12px #00000075;
+  z-index: 1;
 }
 .nav-link.active {
   color: #fdb924;

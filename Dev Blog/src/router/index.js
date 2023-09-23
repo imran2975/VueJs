@@ -16,51 +16,84 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      meta: {
+        title: "Home", // Set the page title for this route
+      },
     },
     {
       path: "/blogs",
       name: "blogs",
       component: Blogs,
+      meta: {
+        title: "Blog Page", // Set the page title for this route
+      },
     },
     {
       path: "/create-post",
       name: "create-post",
       component: CreatePost,
+      meta: {
+        title: "Create post", // Set the page title for this route
+      },
     },
     {
       path: "/contact-us",
       name: "contact-us",
       component: ContactUs,
+      meta: {
+        title: "ContactUs", // Set the page title for this route
+      },
     },
     {
       path: "/sign-in",
       name: "sign-in",
       component: SignIn,
+      meta: {
+        title: "Welcome back", // Set the page title for this route
+      },
     },
     {
       path: "/sign-up",
       name: "sign-up",
       component: SignUp,
+      meta: {
+        title: "Register", // Set the page title for this route
+      },
     },
 
     {
       path: "/profile",
       name: "profile",
       component: Profile,
+      meta: {
+        title: "Profile", // Set the page title for this route
+      },
     },
 
     {
       path: "/reset",
       name: "reset",
       component: ResetPassword,
+      meta: {
+        title: "Forget password", // Set the page title for this route
+      },
     },
 
     {
       path: "/view-post/:postId/:coverImageRef",
       name: "view-post",
       component: ViewPost,
+      meta: {
+        title: "View post", // Set the page title for this route
+      },
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  // Set the page title based on the route's meta or any other logic
+  document.title = `Dev Blog - ${to.meta.title}`;
+  next();
 });
 
 export default router;

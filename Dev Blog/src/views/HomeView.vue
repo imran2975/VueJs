@@ -1,47 +1,109 @@
 <template>
   <div class="wrapper" style="position: relative; top: 0">
-    <div>
-      <!-- use nth-child and animation to display the cover images side by side with the post text  -->
-      <div class="container">
-        <div class="row">
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
+    <!-- hero slider -->
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="3500">
+          <img src="/hero.jpg" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-md-block">
+            <h5>Welcome To DEV BLOG</h5>
+            <p>
+              Weekly blog articles with all necessary things to aid our school
+              journey including fun, comedy, comics and more. Register today to
+              never miss a post!
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="3500">
+          <img src="/hero2.jpg" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-md-block">
+            <h5>Study Guide and Lecture Notes</h5>
+            <p>
+              Dev Blog aims to provide students with comprehensive study
+              resources and insightful lecture notes, empowering them to excel
+              academically and gain a deeper understanding of their subjects.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="3500">
+          <img src="/hero3.jpg" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-md-block">
+            <h5>Several Quizzes based on your syllabus</h5>
+            <p>
+              "Explore a variety of quizzes tailored to your syllabus, designed
+              to test your knowledge and help you master key concepts
+              effectively. Our quiz collection offers an engaging way to
+              reinforce your understanding of the material."
+            </p>
+          </div>
         </div>
       </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- end hero slider -->
 
-      <div class="small d-lg-none">
-        <div class="tiles reverse small-screen">
-          <div class="column">
-            <h1>WELCOME!</h1>
-            <p>
-              Weekly blog articles with all things programming including HTML,
-              CSS, JavaScript and more. Register today to never miss a post!
-            </p>
+    <div class="container">
+      <div class="row" v-for="blog in blogs" :key="blog.id" data-aos="fade-up">
+        <div class="col">
+          <div class="post-card">
+            <div class="image-container" data-aos-delay="900">
+              <img :src="blog.img" alt="" />
+            </div>
 
-            <RouterLink class="nav-link m-2" to="/sign-in" v-if="!user">
-              <button class="btn btn-warning">
-                LOGIN/REGISTER
-                <i class="fa-solid fa-arrow-right fa-fade"></i>
-              </button>
-            </RouterLink>
-            <RouterLink to="/" class="nav-link m-2" v-if="user">
-              VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
-            </RouterLink>
-          </div>
-          <div class="column2">
-            <img src="/test.png" alt="" />
-          </div>
-        </div>
-
-        <div class="tiles" v-for="blog in blogs" :key="blog.id">
-          <div class="column2">
-            <img :src="blog.img" alt="" />
-          </div>
-          <div class="column" v-if="blogs">
             <h1>{{ blog.title }}</h1>
             <p>
-              {{ blog.content ? blog.content.slice(0, 90) : "" }}
+              By: <span>{{ blog.author }}</span>
+            </p>
+            <p
+              class="contents"
+              style="padding: 1rem"
+              data-aos="zoom-in-right"
+              data-aos-delay="500"
+            >
+              {{ blog.content ? blog.content.slice(0, 190) : "" }}
               <span class="fa-fade">....</span>
             </p>
             <RouterLink
@@ -52,57 +114,31 @@
                   coverImageRef: blog.coverImageRef,
                 },
               }"
-              class="nav-link m-2"
+              class="btn btn-dark"
+              v-if="user"
+              data-aos="fade-down"
             >
-              VIEW THE POST <i class="fa-solid fa-arrow-right fa-fade"></i>
+              Read more <i class="fa-solid fa-arrow-right fa-fade"></i>
+            </RouterLink>
+            <RouterLink to="/sign-in" v-if="!user" data-aos="fade-down">
+              <button class="btn btn-primary">Sign In to read</button>
             </RouterLink>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- recent posts -->
-      <div class="tiles post">
-        <div class="more">
-          <h2>View More Recent Blogs</h2>
-          <div class="cards" v-for="blog in recentBlogs" :key="blog.id">
-            <div class="card" style="width: 18rem">
-              <img :src="blog.img" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">{{ blog.title }}</h5>
-                <p class="card-text">
-                  {{ blog.content ? blog.content.slice(0, 90) : "" }}
-                  <span class="fa-fade">....</span>
-                </p>
-                <RouterLink
-                  :to="{
-                    name: 'view-post',
-                    params: {
-                      postId: blog.postId,
-                      coverImageRef: blog.coverImageRef,
-                    },
-                  }"
-                  class="btn btn-primary"
-                >
-                  Read more <i class="fa-solid fa-arrow-right fa-fade"></i>
-                </RouterLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tiles">
-        <h1 class="column">
-          never miss a post. Register for your free account today!
-        </h1>
-        <div class="newsletter">
-          <form>
-            <input type="text" />
-            <button class="btn btn-dark text-white btn-outline-secondary">
-              Subscribe to our newsletter
-            </button>
-          </form>
-        </div>
+    <div class="tiles">
+      <h1 class="column">
+        Never miss a post. Register for your free account today!
+      </h1>
+      <div class="newsletter">
+        <form @submit.prevent="null">
+          <input type="text" />
+          <button class="btn btn-dark text-white btn-outline-secondary">
+            Subscribe to our newsletter
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -128,11 +164,7 @@ export default {
     const recentBlogs = vueRef(null);
 
     onMounted(() => {
-      const postRefs = query(
-        postCollection,
-        orderBy("sortPostBy", "desc"),
-        limitToLast(3)
-      );
+      const postRefs = query(postCollection, orderBy("sortPostBy", "desc"));
       onSnapshot(postRefs, (snapshot) => {
         let posts = [];
         snapshot.docs.forEach((post) => {
@@ -140,20 +172,6 @@ export default {
         });
         blogs.value = posts;
         console.log(blogs.value);
-      });
-
-      // for displaying recents posts
-      const recentPosts = query(
-        postCollection,
-        orderBy("sortPostBy", "desc"),
-        limit(4)
-      );
-      onSnapshot(recentPosts, (snapshot) => {
-        let posts = [];
-        snapshot.docs.forEach((post) => {
-          posts.push({ ...post.data(), postId: post.id });
-        });
-        recentBlogs.value = posts;
       });
     });
 
@@ -167,8 +185,72 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+.carousel-item {
+  height: 80vh;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  animation: slide-up 2s;
+  background: #00000093;
+  padding: 0.5rem;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(20rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.container {
+  margin: 3rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.col {
+  width: 22.5rem;
+  margin: 1rem 0;
+}
+
+.image-container {
+  width: 100%;
+  height: 25rem;
+  overflow: hidden;
+  border: 1px dotted #000;
+}
+
+.col img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+  transition: all 0.5s;
+}
+
+.col img:hover {
+  transform: scale(2);
+}
+
+.col span {
+  opacity: 0.5;
+  text-transform: capitalize;
+}
+
+.col h1,
+.col button {
   text-transform: uppercase;
+}
+
+@media (min-width: 576px) {
 }
 
 .tiles h2 {
@@ -178,37 +260,11 @@ h1 {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100vh;
 }
 
 .column {
   padding: 1rem;
   width: 40%;
-}
-
-.column2 {
-  width: 60%;
-  height: 100vh;
-}
-
-.column2 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.post {
-  background: #ebebeb;
-  width: 100%;
-  height: 100vh;
-}
-
-.card {
-  margin-left: 1rem;
-}
-
-.cards {
-  display: flex;
 }
 
 .newsletter {
@@ -231,19 +287,9 @@ form button {
 }
 
 @media (max-width: 576px) {
-  .big-screen {
-    display: none;
-  }
-  /*.small-screen {
-    display: block;
-  } */
   .tiles {
     flex-direction: column;
     height: inherit;
-  }
-
-  .reverse {
-    flex-direction: column-reverse;
   }
 
   .column {
@@ -251,38 +297,9 @@ form button {
     width: 100%;
   }
 
-  .column2 {
-    width: 100vw;
-    height: 30vh;
-  }
-  .column2 img {
-    width: 100vw;
-    height: 100%;
-    object-fit: cover;
-    border-top: 2px solid #fdb924;
-    border-bottom: 2px solid #fdb924;
-  }
-
-  .cards {
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-  }
-  .card {
-    margin: 0;
-    margin-bottom: 1rem;
-    width: 100%;
-  }
-
   .newsletter {
     width: 100%;
     padding: 1rem;
-  }
-}
-
-@media (min-width: 576px) {
-  .small-screen {
-    display: none;
   }
 }
 </style>
