@@ -1,0 +1,26 @@
+[
+  {
+    "question": "guess my name",
+    "answer": 0,
+    "options": ["imran", "isah", "haroon"],
+    "selected": null
+  },
+  {
+    "question": "guess my gf name",
+    "answer": 2,
+    "options": ["haja", "amirah", "khadija"],
+    "selected": null
+  },
+  {
+    "question": "guess my mom name",
+    "answer": 2,
+    "options": ["haja", "amirah", "khadija"],
+    "selected": null
+  },
+  {
+    "question": "guess my sch name",
+    "answer": 1,
+    "options": ["bayero", "yumsuk", "abu"],
+    "selected": null
+  }
+]

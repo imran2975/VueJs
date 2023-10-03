@@ -8,6 +8,8 @@ import SignUp from "../views/SignUp.vue";
 import Profile from "../views/Profile.vue";
 import ViewPost from "../views/ViewPost.vue";
 import ResetPassword from "../views/ResetPassword.vue";
+import Study from "../views/Study.vue";
+import Quiz from "../views/Quiz.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -80,11 +82,28 @@ const router = createRouter({
     },
 
     {
+      path: "/study",
+      name: "study",
+      component: Study,
+      meta: {
+        title: "Study", // Set the page title for this route
+      },
+    },
+
+    {
       path: "/view-post/:postId/:coverImageRef",
       name: "view-post",
       component: ViewPost,
       meta: {
         title: "View post", // Set the page title for this route
+      },
+    },
+    {
+      path: "/quiz/:courseCode",
+      name: "quiz",
+      component: Quiz,
+      meta: {
+        title: "Quiz", // Set the page title for this route
       },
     },
   ],

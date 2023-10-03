@@ -4,6 +4,7 @@ import { createStore } from "vuex";
 import {
   auth,
   getDocs,
+  onSnapshot,
   addUser,
   addPost,
   updateDoc,
@@ -70,6 +71,9 @@ const store = createStore({
 
         if (response) {
           context.commit("setUser", response.user);
+          const uid = response.user.uid;
+          addUser({ firstName, lastName, userName, email, uid });
+          console.log(firstName, lastName, userName, email);
         } else {
           throw new Error("could not complete signup");
         }
@@ -77,8 +81,6 @@ const store = createStore({
         console.error("Error during signup:", error);
         throw error;
       }
-      addUser({ firstName, lastName, userName, email });
-      console.log(firstName, lastName, userName, email);
     },
 
     async signin(context, { email, password }) {
@@ -101,39 +103,6 @@ const store = createStore({
     async createPost(context, data) {
       const storageRef = ref(storage, `postCovers/${data.id}.jpg`);
       addPost(data);
-      // uploadBytes(storageRef, imageFile)
-      //   .then(async (snapshot) => {
-      //     getDownloadURL(ref(storage, `postCovers/${data.id}.jpg`)).then(
-      //       (download_url) => {
-      //         getDocs(postCollection)
-      //           .then((snapshot) => {
-      //             let posts = [];
-      //             snapshot.docs.forEach((doc) => {
-      //               posts.push({ ...doc.data(), postId: doc.id });
-      //             });
-      //             const filteredPost = posts.filter(
-      //               (post) => post.id === data.id
-      //             );
-      //             console.log(filteredPost[0].id, download_url);
-
-      //             // context.commit("setUpdateNewPost", {
-      //             //   postId: filteredPost[0].id,
-      //             //   img: download_url,
-      //             // });
-      //             // updating doc
-      //             const docRef = doc(postCollection, filteredPost[0].postId);
-      //             updateDoc(docRef, {
-      //               img: download_url,
-      //             });
-      //           })
-      //           .catch((err) => {
-      //             console.log(err.message);
-      //           });
-      //       }
-      //     );
-      //     console.log("Post Cover Uploaded");
-      //   })
-      //   .catch((err) => console.log(err.message));
     },
 
     async filterPost(context, postId) {
@@ -154,27 +123,28 @@ const store = createStore({
 const unsubscribe = onAuthStateChanged(auth, async (user) => {
   store.commit("setAuthIsReady", true);
   store.commit("setUser", user);
-  unsubscribe();
 
   if (user) {
     // Query Firestore to get the document for the current user based on UID
     const userQuery = query(usersCollection, where("email", "==", user.email));
 
     try {
-      const querySnapshot = await getDocs(userQuery);
-      if (!querySnapshot.empty) {
-        // The query returned at least one document
-        const userData = querySnapshot.docs[0].data();
-        console.log("User Data:", userData);
-        // You can access specific fields using userData.fieldName
-        store.commit("setUserData", userData);
+      if (user) {
+        onSnapshot(userQuery, (snapshot) => {
+          const userData = snapshot.docs[0].data();
+          console.log(userData);
 
-        const userId = store.state.user.uid;
-        getDownloadURL(ref(storage, `image/${userId}.jpg`)).then(
-          (download_url) => store.commit("setUserImage", download_url)
-        );
+          // commit state
+          store.commit("setUserData", userData);
+
+          // download user image if available
+          const userId = store.state.user.uid;
+          getDownloadURL(ref(storage, `image/${userId}.jpg`)).then(
+            (download_url) => store.commit("setUserImage", download_url)
+          );
+        });
       } else {
-        console.log("No user document found for the current user.");
+        console.log("user signed out");
       }
     } catch (error) {
       console.error("Error getting user document:", error);

@@ -10,6 +10,7 @@ import {
   query,
   where,
   updateDoc,
+  onSnapshot,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -90,6 +91,7 @@ export {
   query,
   where,
   getDocs,
+  onSnapshot,
   storage,
   getDownloadURL,
   updateDoc,

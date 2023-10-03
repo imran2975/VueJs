@@ -152,7 +152,7 @@
                         v-if="
                           (user && post.authorEmail === user.email) ||
                           (user && post.admin === user.email) ||
-                          (user && commentContents.email === user.email)
+                          (user && comment.email === user.email)
                         "
                         @click="toggleIsEditPopUp"
                       >
@@ -165,7 +165,7 @@
                         v-if="
                           (user && post.authorEmail === user.email) ||
                           (user && post.admin === user.email) ||
-                          (user && commentContents.email === user.email)
+                          (user && comment.email === user.email)
                         "
                         @click="deleteComment(comment.id)"
                       >
@@ -190,7 +190,7 @@
                 <p style="margin-top: -1.5rem; opacity: 0.6">
                   {{ comment.time }} {{ comment.date }}
                 </p>
-                <p>{{ comment.content }}</p>
+                <p class="text-capitalize">{{ comment.content }}</p>
               </td>
             </tr>
           </tbody>
@@ -373,6 +373,7 @@ export default {
       await addComment({
         commentPostId: postId.value,
         sortCommentsBy: sortCommentsBy,
+        email: userInfos.value?.email || "",
         firstName: userInfos.value?.firstName || "",
         lastName: userInfos.value?.lastName || "",
         userName: userInfos.value?.userName || "",

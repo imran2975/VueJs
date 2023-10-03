@@ -133,7 +133,7 @@ export default {
   width: 20rem;
   position: fixed;
   transition: all 2s;
-  z-index: 1;
+  z-index: 5;
   line-height: 20px;
   transition: margin-left 0.3s ease-in-out;
 }

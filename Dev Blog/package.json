@@ -17,9 +17,11 @@
     "firebase": "^10.3.0",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0",
+    "vuetify": "^3.3.17",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
+    "@mdi/font": "^7.2.96",
     "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.3.5"
   }

@@ -152,18 +152,25 @@ import {
   query,
   doc,
   orderBy,
+  getDocs,
+  updateDoc,
   limit,
   limitToLast,
+  collection,
+  where,
+  writeBatch,
 } from "firebase/firestore";
-import { postCollection } from "../firebase/config";
+import { postCollection, db, commentsCollection } from "../firebase/config";
 
 export default {
   setup() {
     const store = useStore();
+    const user = computed(() => store.state.user);
+    const profileInfos = computed(() => store.state.userData);
     const blogs = vueRef(null);
     const recentBlogs = vueRef(null);
 
-    onMounted(() => {
+    onMounted(async () => {
       const postRefs = query(postCollection, orderBy("sortPostBy", "desc"));
       onSnapshot(postRefs, (snapshot) => {
         let posts = [];
@@ -176,7 +183,7 @@ export default {
     });
 
     return {
-      user: computed(() => store.state.user),
+      user,
       blogs,
       recentBlogs,
     };
@@ -213,6 +220,7 @@ export default {
 .container {
   margin: 3rem 0;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
 }
