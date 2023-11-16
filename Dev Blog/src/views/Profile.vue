@@ -1,5 +1,6 @@
 <template>
-  <div style="position: relative">
+  <div class="wrapper" v-if="user">
+    <!-- <div style="position: relative">
     <div
       class="alert-div"
       style="position: fixed; top: 50%; z-index: 1; width: 100vw"
@@ -89,6 +90,90 @@
         </button>
       </form>
     </div>
+  </div> -->
+    <section class="profile-header bg-blue-grey-darken-4">
+      <div class="profile-images">
+        <div class="cover-image">
+          <img src="/level.jpg" alt="" />
+        </div>
+        <div class="profile-pic">
+          <img :src="profileImage" alt="" />
+        </div>
+      </div>
+      <v-row justify="space-evenly" class="header-row">
+        <v-col>
+          <h1>Imran Abubakar</h1>
+          <p>B.Sc Biochemistry</p>
+        </v-col>
+        <v-col>
+          <v-btn class="text-capitalize bg-primary" prepend-icon="mdi-pencil"
+            >Edit profile</v-btn
+          >
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
+      <v-tabs v-model="tab" color="#607d8b" class="tabs-link">
+        <v-tab value="one" class="text-capitalize">Posts</v-tab>
+        <v-tab value="two" class="text-capitalize">Liked Posts</v-tab>
+        <v-tab value="three" class="text-capitalize">About</v-tab>
+      </v-tabs>
+    </section>
+    <v-window v-model="tab">
+      <v-window-item value="one" class="pa-2 post-tab">
+        <v-row v-if="userPosts">
+          <v-col v-for="post in userPosts" :key="post.id">
+            <v-card class="mx-auto" max-width="344" variant="outlined">
+              <v-img :src="post.img" height="200px" cover></v-img>
+
+              <v-card-title> {{ post.title }} </v-card-title>
+
+              <v-card-subtitle
+                >By: {{ profileInfos.firstName }} {{ profileInfos.lastName }}
+                <p>{{ post.date }} at {{ post.time }}</p>
+              </v-card-subtitle>
+              <v-card-text>
+                {{ post.content ? post.content.slice(0, 100) : "" }}...
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn
+                  router
+                  :to="{
+                    name: 'view-post',
+                    params: {
+                      postId: post.postId,
+                      coverImageRef: post.coverImageRef,
+                    },
+                  }"
+                  class="bg-dark text-white"
+                  >View post</v-btn
+                >
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row v-else>
+          <v-col>
+            <v-card-title class="my-4"
+              >You have not published a post</v-card-title
+            >
+          </v-col>
+        </v-row>
+        <div class="float-pencil">
+          <v-btn
+            icon="mdi-pencil-plus"
+            theme="dark"
+            class="float-btn"
+            router
+            to="/create-post"
+          ></v-btn>
+        </div>
+      </v-window-item>
+
+      <v-window-item value="two"> Two </v-window-item>
+
+      <v-window-item value="three"> Three </v-window-item>
+    </v-window>
   </div>
 </template>
 
@@ -101,19 +186,51 @@ import {
   usersCollection,
   updateDoc,
   doc,
+  postCollection,
 } from "../firebase/config";
+import { orderBy, onSnapshot, query, where } from "firebase/firestore";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
 
 export default {
+  data: () => ({
+    tab: null,
+  }),
   setup() {
     const store = useStore();
     const profileImage = computed(() => store.state.userImage);
     const profileInfos = computed(() => store.state.userData);
+    const userEmail = profileInfos.value ? profileInfos.value.email : "";
     let showAlert = vueRef(false);
+
+    const userPosts = vueRef(null);
+    // const userLikedPosts = vueRef(null);
+
+    onMounted(async () => {
+      const postRefs = query(
+        postCollection,
+        where("authorEmail", "==", userEmail),
+        orderBy("sortPostBy", "desc")
+      );
+      onSnapshot(postRefs, (snapshot) => {
+        let posts = [];
+        snapshot.docs.forEach((post) => {
+          posts.push({ ...post.data(), postId: post.id });
+        });
+        userPosts.value = posts;
+        console.log(userPosts.value);
+      });
+      // onSnapshot(postCollection, (snapshot) => {
+      //   let posts = [];
+      //   snapshot.docs.forEach((post) => {
+      //     posts.push({ ...post.data(), postId: post.id });
+      //   });
+      //   userLikedPosts.value = posts;
+      //   console.log(userLikedPosts.value);
+      // });
+    });
 
     const handleSubmit = () => {
       const userEmail = store.state.user.email;
-
       // first get doc before updating it
       getDocs(usersCollection)
         .then((snapshot) => {
@@ -145,6 +262,7 @@ export default {
       authIsReady: computed(() => store.state.authIsReady),
       showAlert,
       handleSubmit,
+      userPosts,
     };
   },
 
@@ -170,7 +288,7 @@ export default {
 </script>
 
 <style scoped>
-.view {
+/* .view {
   width: 100vw;
   height: 110vh;
   display: flex;
@@ -252,6 +370,73 @@ button {
   }
   .profile-img img {
     margin-left: 10rem;
+  }
+} */
+
+.profile-header {
+  padding: 0 14rem;
+}
+.profile-images {
+  position: relative;
+  padding-bottom: 5rem;
+}
+.cover-image {
+  height: 20rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.cover-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.profile-pic {
+  height: 10rem;
+  width: 10rem;
+  border: solid 5px #607d8b;
+  border-radius: 50%;
+  position: absolute;
+  top: 15rem;
+  left: 5rem;
+}
+.profile-pic img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-row {
+  width: 170%;
+}
+
+.post-tab {
+  min-height: 50vh;
+  background: #ebebeb;
+  position: relative;
+}
+
+.float-pencil {
+  position: fixed;
+  bottom: 4rem;
+  right: 1rem;
+}
+
+@media (max-width: 576px) {
+  .profile-header {
+    padding: 0;
+    text-align: center;
+  }
+  .profile-pic {
+    left: 6rem;
+  }
+  .header-row {
+    display: flex;
+    flex-direction: column;
+    width: 110%;
   }
 }
 </style>
