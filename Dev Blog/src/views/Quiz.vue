@@ -1,11 +1,14 @@
 <template>
   <div class="wrapper bg-blue-grey-darken-4 pt-4">
-    <h1 class="text-center">Biology {{ courseCode }}</h1>
+    <h1 class="text-center">
+      <span class="text-uppercase"> {{ courseCode + ": " }}</span>
+      <span class="text-capitalize">{{ courseTitle }} </span>
+    </h1>
 
     <v-card class="mx-auto bg-blue-grey pa-4" max-width="700">
       <div class="d-flex justify-space-between" v-if="!quizCompleted">
         <h3>{{ getCurrentQuestion.question }}</h3>
-        <span>{{ score }}/{{ questions.length }}</span>
+        <span>{{ questionProgress }}/{{ lecture.length }}</span>
       </div>
 
       <v-list lines="two" class="bg-blue-grey" v-if="!quizCompleted">
@@ -71,13 +74,13 @@
         <div>
           <h2
             class="text-h4 font-weight-black text-orange"
-            v-if="score > questions.length / 2"
+            v-if="score > lecture.length / 2"
           >
             Congratulations!
           </h2>
           <h2
             class="text-h4 font-weight-black text-orange"
-            v-if="score < questions.length / 2"
+            v-if="score < lecture.length / 2"
           >
             OPPS!
           </h2>
@@ -102,6 +105,33 @@
         </div>
       </v-sheet>
     </v-card>
+
+    <v-dialog
+      v-model="selectLecture"
+      width="500"
+      persistent
+      transition="dialog-top-transition"
+    >
+      <v-card class="bg-blue-grey-darken-4">
+        <v-toolbar color="primary" title="Please select lecture"></v-toolbar>
+        <v-card-text>
+          <v-list lines="two" class="bg-blue-grey-darken-4">
+            <v-list-item
+              v-for="lecture in lecturesArray"
+              :key="lecture.start"
+              class="bg-blue-grey my-1"
+              rounded="1"
+              @click="
+                (selectLecture = false),
+                  selectedLecture(lecture.start, lecture.end)
+              "
+            >
+              {{ lecture.title }}
+            </v-list-item>
+          </v-list>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -109,24 +139,73 @@
 import { computed, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import questionData from "../assets/questionData.json";
+import chm2242 from "../questions/level200/second/organic.json";
 
 const route = useRoute();
 const router = useRouter();
+const courseTitle = computed(() => route.params.title);
 const courseCode = computed(() => route.params.courseCode);
+const questionProgress = ref(0);
+
+//modal
+const selectLecture = ref(true);
 
 let questions = ref([]);
 
-if (courseCode.value === "GSP1201") {
+if (courseCode.value == "gsp1201") {
   questions = ref(questionData);
+} else if (courseCode.value === "chm2242") {
+  questions = ref(chm2242);
 } else {
   questions = ref([]);
 }
+
+const lecturesArray = [
+  {
+    title: "Lecture 1",
+    start: 0,
+    end: 100,
+  },
+  {
+    title: "Lecture 2",
+    start: 100,
+    end: 200,
+  },
+  {
+    title: "Lecture 3",
+    start: 200,
+    end: 300,
+  },
+  {
+    title: "Lecture 4",
+    start: 300,
+    end: 400,
+  },
+  {
+    title: "Lecture 5",
+    start: 400,
+    end: 500,
+  },
+  {
+    title: "Lecture 6",
+    start: 500,
+    end: 600,
+  },
+];
+
+// the json files contains bunch of questions of all lectures. each lecture having at least 70 question so the variable will be slicing the array according to the selected lecture
+const lecture = ref([]);
+const selectedLecture = (start, end) => {
+  lecture.value = questions.value.slice(start, end);
+  currentQuestion.value = 0; // Reset the current question index
+  quizCompleted.value = false; // Reset the quiz completion status
+};
 
 const quizCompleted = ref(false);
 const currentQuestion = ref(0);
 const score = computed(() => {
   let value = 0;
-  questions.value.map((q) => {
+  lecture.value.map((q) => {
     if (q.selected != null && q.answer == q.selected) {
       console.log("correct");
       value++;
@@ -136,19 +215,28 @@ const score = computed(() => {
 });
 
 const getCurrentQuestion = computed(() => {
-  let question = questions.value[currentQuestion.value];
-  question.index = currentQuestion.value;
-  return question;
+  if (
+    currentQuestion.value >= 0 &&
+    currentQuestion.value < lecture.value.length
+  ) {
+    let question = lecture.value[currentQuestion.value];
+    question.index = currentQuestion.value;
+    return question;
+  } else {
+    return {};
+  }
 });
 
 const setAnswer = (e) => {
-  questions.value[currentQuestion.value].selected = e.target.value;
+  lecture.value[currentQuestion.value].selected = e.target.value;
   e.target.value = null;
 };
 
 const nextQuestion = () => {
-  if (currentQuestion.value < questions.value.length - 1) {
+  if (currentQuestion.value < lecture.value.length - 1) {
     currentQuestion.value++;
+    questionProgress.value++;
+
     return;
   }
 

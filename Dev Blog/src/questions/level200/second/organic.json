@@ -1,0 +1,1952 @@
+[
+  {
+    "question": "What is the primary characteristic of alcohols?",
+    "answer": 3,
+    "options": ["They contain a carbonyl group", "They have a halogen atom", "They are acidic in nature", "They contain a hydroxyl group", "They are saturated hydrocarbons"],
+    "selected": null
+  },
+  {
+    "question": "How are alcohols classified based on the number of alkyl groups attached to the carbon with the hydroxyl group?",
+    "answer": 0,
+    "options": ["Primary, secondary, and tertiary", "Saturated and unsaturated", "Aliphatic and aromatic", "Cycloalkanes and alkenes", "Isomers and homologues"],
+    "selected": null
+  },
+  {
+    "question": "Which of the following is an example of a primary alcohol?",
+    "answer": 1,
+    "options": ["Isopropanol", "Ethanol", "Tert-butanol", "Butanal", "2-Butanol"],
+    "selected": null
+  },
+  {
+    "question": "What is a key advantage of primary alcohols?",
+    "answer": 2,
+    "options": ["High stability", "Limited reactivity", "Versatile reactivity", "Low availability", "High toxicity"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol is commonly used as a disinfectant and antiseptic?",
+    "answer": 0,
+    "options": ["Secondary alcohol", "Tertiary alcohol", "Primary alcohol", "Aldehyde", "Ketone"],
+    "selected": null
+  },
+  {
+    "question": "What is the chemical formula of methanol?",
+    "answer": 0,
+    "options": ["CH3OH", "C2H5OH", "C3H7OH", "C4H10O", "C5H12O"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol is commonly used as a laboratory reagent?",
+    "answer": 4,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Phenol", "Tert-butanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for isopropanol?",
+    "answer": 1,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the dehydration of an alcohol?",
+    "answer": 2,
+    "options": ["Alkane", "Ketone", "Alkene", "Aldehyde", "Ester"],
+    "selected": null
+  },
+  {
+    "question": "Which functional group is present in alcohols?",
+    "answer": 3,
+    "options": ["Carboxyl group", "Ester group", "Amide group", "Hydroxyl group", "Ketone group"],
+    "selected": null
+  },
+  {
+    "question": "What is the oxidation product of a primary alcohol?",
+    "answer": 4,
+    "options": ["Alkene", "Alkane", "Alcohol", "Aldehyde", "Carboxylic acid"],
+    "selected": null
+  },
+  {
+    "question": "What is the common name for ethyl alcohol?",
+    "answer": 1,
+    "options": ["Methanol", "Ethanol", "Isopropanol", "Methyl alcohol", "Butanol"],
+    "selected": null
+  },
+  {
+    "question": "Which alcohol is commonly found in alcoholic beverages?",
+    "answer": 1,
+    "options": ["Methanol", "Ethanol", "Propanol", "Butanol", "Isopropanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the chemical formula of isopropanol?",
+    "answer": 4,
+    "options": ["C2H5OH", "CH3OH", "C3H7OH", "C4H10O", "C3H8O"],
+    "selected": null
+  },
+  {
+    "question": "Which alcohol is known for its use in cosmetics and skincare products?",
+    "answer": 3,
+    "options": ["Methanol", "Ethanol", "Isopropanol", "Cetyl alcohol", "Butanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the primary function of alcohols in organic synthesis?",
+    "answer": 2,
+    "options": ["To act as catalysts", "To inhibit chemical reactions", "To serve as versatile reagents", "To stabilize reactive intermediates", "To enhance solubility"],
+    "selected": null
+  },
+  {
+    "question": "Which alcohol is commonly used as an industrial solvent and antifreeze?",
+    "answer": 4,
+    "options": ["Methanol", "Ethanol", "Propanol", "Isopropanol", "Ethylene glycol"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the oxidation of a primary alcohol with mild oxidizing agents?",
+    "answer": 3,
+    "options": ["Alkene", "Aldehyde", "Ketone", "Carboxylic acid", "Alkane"],
+    "selected": null
+  },
+  {
+    "question": "Which of the following is a tertiary alcohol?",
+    "answer": 0,
+    "options": ["Tert-butanol", "1-Propanol", "2-Propanol", "Butanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the general formula for a primary alcohol?",
+    "answer": 1,
+    "options": ["R-OH", "R-CH2-OH", "R2-CHOH", "R3-COH", "R-COOR'"],
+    "selected": null
+  },
+  {
+    "question": "Which reaction converts an alcohol into an alkene?",
+    "answer": 0,
+    "options": ["Dehydration", "Oxidation", "Substitution", "Esterification", "Hydration"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the oxidation of a secondary alcohol?",
+    "answer": 2,
+    "options": ["Alkene", "Aldehyde", "Ketone", "Carboxylic acid", "Alkane"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for tert-butanol?",
+    "answer": 4,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "2-Methyl-2-propanol"],
+    "selected": null
+  },
+  {
+    "question": "Which alcohol is commonly used in the production of perfumes and fragrances?",
+    "answer": 3,
+    "options": ["Methanol", "Ethanol", "Isopropanol", "Benzyl alcohol", "Butanol"],
+    "selected": null
+  },
+  {
+    "question": "In which type of reaction does an alcohol react with an acid to form an ester?",
+    "answer": 4,
+    "options": ["Hydrolysis", "Oxidation", "Dehydration", "Reduction", "Esterification"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the oxidation of a tertiary alcohol?",
+    "answer": 4,
+    "options": ["Alkene", "Aldehyde", "Ketone", "Carboxylic acid", "No reaction"],
+    "selected": null
+  },
+  {
+    "question": "Which of the following alcohols is used as a fuel additive in some countries?",
+    "answer": 0,
+    "options": ["Ethanol", "Propanol", "Isopropanol", "Butanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the primary function of antiseptic alcohols in medical settings?",
+    "answer": 2,
+    "options": ["To induce sleep", "To disinfect surfaces", "To disinfect skin and prevent infection", "To treat allergies", "To reduce inflammation"],
+    "selected": null
+  },
+  {
+    "question": "Which of the following alcohols is commonly used as a solvent for essential oils and perfumes?",
+    "answer": 0,
+    "options": ["Ethanol", "Propanol", "Isopropanol", "Butanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the chemical formula of ethanol?",
+    "answer": 0,
+    "options": ["C2H5OH", "CH3OH", "C3H7OH", "C4H10O", "C5H12O"],
+    "selected": null
+  },
+  {
+    "question": "Which alcohol is often used as a preservative in the food and beverage industry?",
+    "answer": 0,
+    "options": ["Ethanol", "Methanol", "Propanol", "Isopropanol", "Butanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the primary product of the oxidation of ethanol?",
+    "answer": 2,
+    "options": ["Alkene", "Aldehyde", "Ketone", "Carboxylic acid", "Alkane"],
+    "selected": null
+  },
+  {
+    "question": "Which of the following alcohols is a common ingredient in hand sanitizers?",
+    "answer": 2,
+    "options": ["Ethanol", "Propanol", "Isopropanol", "Butanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for 1-propanol?",
+    "answer": 0,
+    "options": ["Propanol", "Isopropanol", "Butanol", "Ethanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "In which type of reaction does an alcohol react with a carboxylic acid to form an ester?",
+    "answer": 4,
+    "options": ["Hydrolysis", "Oxidation", "Dehydration", "Reduction", "Esterification"],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-CH2-CH2-OH?",
+    "answer": 0,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for CH3-CH(OH)-CH3?",
+    "answer": 1,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for (CH3)3C-OH?",
+    "answer": 4,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "2-Methyl-2-propanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for CH3-CH2-CH2-CH2-OH?",
+    "answer": 2,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Pentanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-CH(OH)-CH2-CH3?",
+    "answer": 0,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for (CH3)2CHOH?",
+    "answer": 1,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "Isopropanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-CH(OH)-CH2-OH?",
+    "answer": 3,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Propanediol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for (CH3)2CHOHCH2OH?",
+    "answer": 4,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "2-Methyl-1,2-propanediol"],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-CH2-CH(OH)-CH3?",
+    "answer": 2,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Butanediol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC name for (CH3)3CCH2OH?",
+    "answer": 4,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "2-Methyl-2-butanol"],
+    "selected": null
+  },
+  {
+    "question": "Which method is commonly used for the preparation of alcohols from alkyl halides?",
+    "answer": 1,
+    "options": ["Dehydration", "Nucleophilic substitution", "Oxidation", "Esterification", "Hydrolysis"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the reaction between sodium borohydride (NaBH4) and a ketone?",
+    "answer": 0,
+    "options": ["Secondary alcohol", "Tertiary alcohol", "Primary alcohol", "Aldehyde", "Carboxylic acid"],
+    "selected": null
+  },
+  {
+    "question": "Which reagent is commonly used for the reduction of aldehydes and ketones to form primary alcohols?",
+    "answer": 2,
+    "options": ["Sulfuric acid", "Hydrochloric acid", "Sodium borohydride (NaBH4)", "Phosphoric acid", "Potassium permanganate (KMnO4)"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the oxidation of a primary alcohol using potassium dichromate (K2Cr2O7) and sulfuric acid (H2SO4)?",
+    "answer": 4,
+    "options": ["Alkene", "Aldehyde", "Ketone", "Carboxylic acid", "Alkane"],
+    "selected": null
+  },
+  {
+    "question": "Which reaction converts an alcohol into an alkane?",
+    "answer": 4,
+    "options": ["Dehydration", "Oxidation", "Hydrolysis", "Substitution", "Hydrogenation"],
+    "selected": null
+  },
+  {
+    "question": "What type of reaction involves the addition of water to an alkene to form an alcohol?",
+    "answer": 0,
+    "options": ["Hydration", "Dehydration", "Oxidation", "Substitution", "Hydrogenation"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the reaction between an alcohol and a strong acid catalyst, such as sulfuric acid, at elevated temperatures?",
+    "answer": 1,
+    "options": ["Alkane", "Ether", "Alkene", "Ketone", "Aldehyde"],
+    "selected": null
+  },
+  {
+    "question": "What is the primary product of the reaction between an alcohol and a carboxylic acid in the presence of a strong acid catalyst?",
+    "answer": 3,
+    "options": ["Alkane", "Ether", "Alkene", "Ester", "Aldehyde"],
+    "selected": null
+  },
+  {
+    "question": "Which reaction is commonly used for the preparation of ethers from alcohols?",
+    "answer": 4,
+    "options": ["Dehydration", "Hydrolysis", "Oxidation", "Substitution", "Williamson ether synthesis"],
+    "selected": null
+  },
+  {
+    "question": "What is the byproduct of the reaction between an alcohol and a carboxylic acid to form an ester?",
+    "answer": 0,
+    "options": ["Water", "Carbon dioxide", "Hydrogen gas", "Methane", "Ethanol"],
+    "selected": null
+  },
+  {
+    "question": "How are alcohols classified based on the number of hydroxyl (-OH) groups attached to their carbon atoms?",
+    "answer": 2,
+    "options": ["Primary, secondary, and tertiary", "Saturated and unsaturated", "Monohydric, dihydric, and trihydric", "Aliphatic and aromatic", "Isomers and homologues"],
+    "selected": null
+  },
+  {
+    "question": "Which classification of alcohols has one hydroxyl (-OH) group attached to the carbon atom?",
+    "answer": 0,
+    "options": ["Monohydric alcohols", "Dihydric alcohols", "Trihydric alcohols", "Aromatic alcohols", "Aliphatic alcohols"],
+    "selected": null
+  },
+  {
+    "question": "How many hydroxyl (-OH) groups are present in a dihydric alcohol?",
+    "answer": 1,
+    "options": ["Two", "One", "Three", "None", "Varies"],
+    "selected": null
+  },
+  {
+    "question": "What is the classification of an alcohol that has three hydroxyl (-OH) groups attached to its carbon atom?",
+    "answer": 2,
+    "options": ["Monohydric alcohol", "Dihydric alcohol", "Trihydric alcohol", "Aromatic alcohol", "Aliphatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol is often used as a starting material for the synthesis of polyesters and other polymers?",
+    "answer": 1,
+    "options": ["Monohydric alcohol", "Dihydric alcohol", "Trihydric alcohol", "Aromatic alcohol", "Aliphatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "How many hydroxyl (-OH) groups are typically found in monohydric alcohols?",
+    "answer": 0,
+    "options": ["One", "Two", "Three", "None", "Varies"],
+    "selected": null
+  },
+  {
+    "question": "What is the classification of an alcohol that has two hydroxyl (-OH) groups attached to its carbon atom?",
+    "answer": 1,
+    "options": ["Monohydric alcohol", "Dihydric alcohol", "Trihydric alcohol", "Aromatic alcohol", "Aliphatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol is often found in naturally occurring sugars and carbohydrates?",
+    "answer": 2,
+    "options": ["Monohydric alcohol", "Dihydric alcohol", "Trihydric alcohol", "Aromatic alcohol", "Aliphatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "How does the number of hydroxyl (-OH) groups affect the solubility of alcohols in water?",
+    "answer": 0,
+    "options": ["Increases solubility", "Decreases solubility", "No effect on solubility", "Varies", "Forms a precipitate"],
+    "selected": null
+  },
+  {
+    "question": "Which classification of alcohols is characterized by the presence of a hydroxyl (-OH) group bonded to a carbon atom attached to only one other carbon atom?",
+    "answer": 0,
+    "options": ["Primary alcohols", "Secondary alcohols", "Tertiary alcohols", "Aromatic alcohols", "Aliphatic alcohols"],
+    "selected": null
+  },{
+    "question": "What is the classification of an alcohol in which the hydroxyl (-OH) group is bonded to the carbon atom at the end of the carbon chain?",
+    "answer": 2,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Aliphatic alcohol", "Aromatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol has the hydroxyl (-OH) group attached to a carbon atom that is in the middle of the carbon chain?",
+    "answer": 1,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Aliphatic alcohol", "Aromatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "What is the classification of an alcohol in which the hydroxyl (-OH) group is bonded to a carbon atom that is directly attached to three other carbon atoms?",
+    "answer": 0,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Aliphatic alcohol", "Aromatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "In which classification of alcohols does the hydroxyl (-OH) group appear on a carbon atom that is part of an aromatic ring?",
+    "answer": 4,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Aliphatic alcohol", "Aromatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol is often used as a starting material for the synthesis of perfumes and flavor compounds?",
+    "answer": 4,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Aliphatic alcohol", "Aromatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "What is the first step in naming an alcohol using IUPAC nomenclature?",
+    "answer": 1,
+    "options": ["Identify the stereochemistry", "Find the longest carbon chain", "Determine the functional group", "Name the alkane chain first", "Count the number of hydroxyl groups"],
+    "selected": null
+  },
+  {
+    "question": "In IUPAC nomenclature, how are the carbon atoms in the longest chain numbered when naming an alcohol?",
+    "answer": 0,
+    "options": ["Starting from the carbon closest to the hydroxyl group", "Starting from the carbon farthest from the hydroxyl group", "In reverse order", "Randomly", "It doesn't matter"],
+    "selected": null
+  },
+  {
+    "question": "What suffix is added to the alkane name in IUPAC nomenclature to indicate an alcohol?",
+    "answer": 3,
+    "options": ["-ane", "-ene", "-ol", "-yl", "-al"],
+    "selected": null
+  },
+  {
+    "question": "In IUPAC nomenclature, how is the position of the hydroxyl (-OH) group indicated in the name of an alcohol?",
+    "answer": 4,
+    "options": ["By using the letter 'H'", "By using the letter 'O'", "By a numerical prefix", "By a numerical suffix", "By a numerical prefix followed by a dash"],
+    "selected": null
+  },
+  {
+    "question": "Which of the following is true when naming alcohols using IUPAC nomenclature?",
+    "answer": 1,
+    "options": ["The name of the alkane is omitted", "The name of the alkane is always included", "The name of the alkane is replaced with 'hydroxyl'", "The name of the alkane is placed in brackets", "The name of the alkane is placed in parentheses"],
+    "selected": null
+  },
+  {
+    "question": "In IUPAC nomenclature, how are alkyl substituents indicated when naming an alcohol?",
+    "answer": 4,
+    "options": ["Using Roman numerals", "Using Greek letters", "Using subscripts", "Using italics", "Using a prefix followed by a hyphen"],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-CH2-CH2-OH using IUPAC nomenclature?",
+    "answer": 0,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "Methanol"],
+    "selected": null
+  },
+  {
+    "question": "How is the hydroxyl (-OH) group treated in the numbering of carbon atoms for IUPAC nomenclature?",
+    "answer": 0,
+    "options": ["It is given the lowest possible number", "It is given the highest possible number", "It is skipped in numbering", "It is indicated using a letter", "It is numbered based on alphabetical order"],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for (CH3)2CHOH using IUPAC nomenclature?",
+    "answer": 1,
+    "options": ["1-Propanol", "2-Propanol", "Butanol", "Ethanol", "Isopropanol"],
+    "selected": null
+  },
+  {
+    "question": "In IUPAC nomenclature, which part of the alcohol name is placed in front of the alkane name?",
+    "answer": 4,
+    "options": ["The numerical position of the hydroxyl group", "The letter 'H' to indicate the hydroxyl group", "The name of the alkane substituent", "The numerical position of the alkane", "The numerical position of the hydroxyl group followed by a dash"],
+    "selected": null
+  },
+  {
+    "question": "What is the general formula for alcohols?",
+    "answer": 1,
+    "options": ["CnH2n", "CnH2n+1OH", "CnHnO", "CnH2n-1OH", "CnH2n+2OH"],
+    "selected": null
+  },
+  {
+    "question": "Which physical state is typically exhibited by lower-molecular-weight alcohols at room temperature?",
+    "answer": 2,
+    "options": ["Solid", "Gas", "Liquid", "Plasma", "Superfluid"],
+    "selected": null
+  },
+  {
+    "question": "What is the primary factor that influences the boiling point of alcohols?",
+    "answer": 0,
+    "options": ["Molecular weight and hydrogen bonding", "Chain length", "Degree of unsaturation", "Presence of aromatic rings", "Stereochemistry"],
+    "selected": null
+  },
+  {
+    "question": "How does the presence of hydrogen bonding affect the physical properties of alcohols?",
+    "answer": 3,
+    "options": ["It decreases the boiling point", "It increases the volatility", "It reduces the flammability", "It increases the boiling point and solubility", "It makes alcohols colorless"],
+    "selected": null
+  },
+  {
+    "question": "Which property of alcohols makes them capable of forming intermolecular hydrogen bonds?",
+    "answer": 4,
+    "options": ["Low molecular weight", "Low density", "High volatility", "Low reactivity", "Presence of hydroxyl (-OH) groups"],
+    "selected": null
+  },
+  {
+    "question": "What is the color of most simple alcohols in their pure form?",
+    "answer": 1,
+    "options": ["Red", "Colorless", "Blue", "Yellow", "Green"],
+    "selected": null
+  },
+  {
+    "question": "How does the polarity of alcohols compare to that of hydrocarbons?",
+    "answer": 0,
+    "options": ["Alcohols are more polar than hydrocarbons", "Alcohols are less polar than hydrocarbons", "Alcohols and hydrocarbons have similar polarity", "Alcohols are nonpolar", "Alcohols have no polarity"],
+    "selected": null
+  },
+  {
+    "question": "Which functional group is responsible for the acidity of some alcohols?",
+    "answer": 2,
+    "options": ["Hydroxyl (-OH) group", "Alkyl group", "Alcohol group", "Carbonyl group", "Amine group"],
+    "selected": null
+  },
+  {
+    "question": "What property of alcohols allows them to dissolve in both polar and nonpolar solvents?",
+    "answer": 3,
+    "options": ["High density", "Low volatility", "Low boiling point", "Dual solubility", "High reactivity"],
+    "selected": null
+  },
+  {
+    "question": "Which alcohol property makes them effective solvents for a wide range of organic compounds?",
+    "answer": 4,
+    "options": ["Low melting point", "High volatility", "Low boiling point", "Reduced flammability", "Versatile reactivity"],
+    "selected": null
+  },
+  {
+    "question": "What is the characteristic functional group in alcohols?",
+    "answer": 0,
+    "options": ["Hydroxyl (-OH) group", "Carbonyl group", "Amino group", "Ester group", "Alkene group"],
+    "selected": null
+  },
+  {
+    "question": "What type of reaction converts an alcohol into an alkene?",
+    "answer": 3,
+    "options": ["Hydration", "Dehydration", "Oxidation", "Dehydrogenation", "Esterification"],
+    "selected": null
+  },
+  {
+    "question": "Which chemical test is commonly used to detect the presence of alcohols?",
+    "answer": 1,
+    "options": ["Litmus test", "Lucas test", "Fehling's test", "Benedict's test", "Grignard test"],
+    "selected": null
+  },
+  {
+    "question": "What is the general formula of alcohols?",
+    "answer": 4,
+    "options": ["CnHn", "CnH2n+1OH", "CnH2nO", "CnH2n-1OH", "CnH2n+2OH"],
+    "selected": null
+  },
+  {
+    "question": "What is the odor typically associated with lower-molecular-weight alcohols?",
+    "answer": 2,
+    "options": ["Fruity", "Fishy", "Alcoholic", "Minty", "Pungent"],
+    "selected": null
+  },
+  {
+    "question": "What type of alcohols are commonly used as antiseptics and disinfectants?",
+    "answer": 1,
+    "options": ["Primary alcohols", "Secondary alcohols", "Tertiary alcohols", "Aromatic alcohols", "Aliphatic alcohols"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol is characterized by a hydroxyl (-OH) group bonded to a carbon atom attached to only one other carbon atom?",
+    "answer": 0,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Aromatic alcohol", "Aliphatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "What is the product of the oxidation of a primary alcohol?",
+    "answer": 2,
+    "options": ["Alkene", "Aldehyde", "Ketone", "Ester", "Alkane"],
+    "selected": null
+  },
+  {
+    "question": "What is the common name for ethyl alcohol, a type of alcohol found in alcoholic beverages?",
+    "answer": 3,
+    "options": ["Isopropanol", "Methanol", "Butanol", "Ethanol", "Methyl alcohol"],
+    "selected": null
+  },
+  {
+    "question": "Which type of alcohol is typically used as a solvent in the paint and coating industry?",
+    "answer": 4,
+    "options": ["Primary alcohol", "Secondary alcohol", "Tertiary alcohol", "Aromatic alcohol", "Aliphatic alcohol"],
+    "selected": null
+  },
+  {
+    "question": "What is the defining characteristic of ethers in terms of their chemical structure?",
+    "answer": 1,
+    "options": [
+      "Presence of a hydroxyl (-OH) group.",
+      "Presence of an oxygen atom bridging two alkyl or aryl groups.",
+      "Presence of a benzene ring.",
+      "Presence of a double bond."
+    ],
+    "selected": null
+  },
+  {
+    "question": "In the context of ethers, what is meant by 'bridging'?",
+    "answer": 3,
+    "options": [
+      "Formation of strong covalent bonds.",
+      "Formation of hydrogen bonds between oxygen atoms.",
+      "Formation of ionic bonds.",
+      "The oxygen atom connecting two alkyl or aryl groups."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the primary role of ethers in organic chemistry?",
+    "answer": 2,
+    "options": [
+      "To act as strong acids in reactions.",
+      "To serve as catalysts for organic reactions.",
+      "To function as solvents and intermediates in various reactions.",
+      "To form highly stable compounds with metals."
+    ],
+    "selected": null
+  },
+  {
+    "question": "How are ethers typically classified based on the nature of the groups attached to the oxygen atom?",
+    "answer": 0,
+    "options": [
+      "Into simple ethers and mixed ethers.",
+      "Into primary and secondary ethers.",
+      "Based on their color and odor.",
+      "Based on their boiling points."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the common property of ethers that makes them suitable as solvents in various reactions?",
+    "answer": 1,
+    "options": [
+      "Strong acidity.",
+      "Relatively low reactivity.",
+      "High boiling points.",
+      "Ionic nature."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the significance of the oxygen atom in ethers in terms of their chemical behavior?",
+    "answer": 3,
+    "options": [
+      "It imparts a characteristic color to ethers.",
+      "It makes ethers highly acidic.",
+      "It increases their volatility.",
+      "It serves as a bridge between two alkyl or aryl groups."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What distinguishes ethers from alcohols in terms of their chemical structure?",
+    "answer": 1,
+    "options": [
+      "Ethers have a hydroxyl (-OH) group, while alcohols have an oxygen bridge.",
+      "Ethers have an oxygen atom bridging two alkyl or aryl groups, while alcohols have a hydroxyl (-OH) group.",
+      "Ethers have a benzene ring, while alcohols have a double bond.",
+      "Ethers have a double bond, while alcohols have a hydroxyl (-OH) group."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the primary function of the oxygen atom in ethers?",
+    "answer": 3,
+    "options": [
+      "To provide color to the compound.",
+      "To increase reactivity.",
+      "To act as a strong acid.",
+      "To serve as a bridge between two hydrocarbon groups."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Why are ethers considered relatively inert in comparison to some other organic compounds?",
+    "answer": 2,
+    "options": [
+      "Because they have a strong tendency to react with water.",
+      "Because they readily undergo combustion reactions.",
+      "Because they lack highly reactive functional groups and do not easily participate in chemical reactions.",
+      "Because they are highly volatile."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What are the two main classifications of ethers based on the nature of the groups attached to the oxygen atom?",
+    "answer": 0,
+    "options": [
+      "Simple ethers and mixed ethers.",
+      "Primary and secondary ethers.",
+      "Aliphatic and aromatic ethers.",
+      "Polar and nonpolar ethers."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the general definition of ethers?",
+    "answer": 0,
+    "options": [
+      "Compounds with an oxygen atom bridging two alkyl or aryl groups",
+      "Compounds with a double bond between two carbon atoms",
+      "Compounds with a hydroxyl group bonded to a carbon atom",
+      "Compounds with a sulfur atom bridging two alkyl groups",
+      "Compounds with a nitrogen atom bridging two aryl groups"
+    ],
+    "selected": null
+  },
+  {
+    "question": "In Organic Chemistry III, what aspects of ethers will be explored?",
+    "answer": 4,
+    "options": [
+      "Only their classification",
+      "Only their preparation methods",
+      "Their preparation methods, properties, and reaction mechanisms",
+      "Their applications and principles",
+      "Their preparation methods, properties, reaction mechanisms, classifications, types, key points, examples, advantages, disadvantages, applications, and principles"
+    ],
+    "selected": null
+  },
+  {
+    "question": "How are ethers classified based on the nature of the groups attached to the oxygen atom?",
+    "answer": 3,
+    "options": [
+      "Based on their color",
+      "Based on their smell",
+      "Based on their weight",
+      "Based on the nature of the groups attached to the oxygen atom",
+      "Based on their reactivity"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the classification of ethers with two alkyl or aryl groups attached to the oxygen atom?",
+    "answer": 0,
+    "options": [
+      "Simple Ethers",
+      "Complex Ethers",
+      "Advanced Ethers",
+      "Mixed Ethers",
+      "Double Ethers"
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which type of ethers have one alkyl group and one aryl group attached to the oxygen atom?",
+    "answer": 3,
+    "options": [
+      "Simple Ethers",
+      "Complex Ethers",
+      "Advanced Ethers",
+      "Mixed Ethers",
+      "Double Ethers"
+    ],
+    "selected": null
+  },
+  {
+    "question": "Provide an example of a simple ether.",
+    "answer": 1,
+    "options": [
+      "Ethanol",
+      "Dimethyl ether",
+      "Phenol",
+      "Methane",
+      "Benzene"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is an advantage of simple ethers?",
+    "answer": 2,
+    "options": [
+      "High boiling points",
+      "Low flammability",
+      "Good solvents",
+      "High stability",
+      "Low volatility"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is a disadvantage of simple ethers?",
+    "answer": 0,
+    "options": [
+      "High flammability",
+      "Low reactivity",
+      "Low boiling points",
+      "High stability",
+      "Low volatility"
+    ],
+    "selected": null
+  },
+  {
+    "question": "In which industry are simple ethers commonly used as industrial solvents?",
+    "answer": 3,
+    "options": [
+      "Food industry",
+      "Automotive industry",
+      "Textile industry",
+      "Paint and coating industry",
+      "Aerospace industry"
+    ],
+    "selected": null
+  },
+  {
+    "question": "Provide an example of a mixed ether.",
+    "answer": 4,
+    "options": [
+      "Diethyl ether",
+      "Dimethyl ether",
+      "Ethanol",
+      "Phenol",
+      "Methyl phenyl ether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is an advantage of mixed ethers?",
+    "answer": 2,
+    "options": [
+      "Low reactivity",
+      "High flammability",
+      "Versatile reactivity",
+      "Low volatility",
+      "High boiling points"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is a disadvantage of mixed ethers?",
+    "answer": 1,
+    "options": [
+      "Good solvents",
+      "Similar flammability and reactivity issues as simple ethers",
+      "High stability",
+      "Low volatility",
+      "Low boiling points"
+    ],
+    "selected": null
+  },
+  {
+    "question": "In organic synthesis, what is one of the key advantages of mixed ethers?",
+    "answer": 2,
+    "options": [
+      "High volatility",
+      "Low flammability",
+      "Versatile reactivity",
+      "High stability",
+      "Low boiling points"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What will be explored in detail in subsequent lectures regarding ethers?",
+    "answer": 4,
+    "options": [
+      "Only their applications",
+      "Only their classification",
+      "Only their advantages",
+      "Only their disadvantages",
+      "Cleavage of the ether linkage and formation of new compounds"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What type of reaction is crucial to understand in the context of ethers?",
+    "answer": 4,
+    "options": [
+      "Hydration",
+      "Dehydration",
+      "Oxidation",
+      "Dehydrogenation",
+      "Cleavage of the ether linkage and formation of new compounds"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What chemical test is commonly used to detect the presence of ethers?",
+    "answer": 0,
+    "options": [
+      "Ether detection test",
+      "Lucas test",
+      "Fehling's test",
+      "Benedict's test",
+      "Grignard test"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What are the key components of the IUPAC nomenclature for ethers?",
+    "answer": 2,
+    "options": [
+      "Prefixes and suffixes",
+      "Numerical prefixes and suffixes",
+      "Identifying the substituents and using the word 'ether'",
+      "Numerical prefixes only",
+      "Suffixes only"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the IUPAC nomenclature for CH3-O-C2H5?",
+    "answer": 1,
+    "options": [
+      "Dimethyl ether",
+      "Methoxyethyl ether",
+      "Ethylmethyl ether",
+      "Diethyl ether",
+      "Methylmethoxy ether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "How are ethers typically identified in chemical reactions?",
+    "answer": 0,
+    "options": [
+      "By observing an oxygen atom between two hydrocarbon groups",
+      "By their distinctive color",
+      "By their strong odor",
+      "By their high reactivity",
+      "By their ability to dissolve in water"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is a notable characteristic of ethers in terms of their volatility?",
+    "answer": 0,
+    "options": [
+      "They have low boiling points and can be volatile.",
+      "They have high boiling points and are non-volatile.",
+      "They are colorless and odorless.",
+      "They are highly reactive.",
+      "They are excellent conductors of electricity."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is one of the key advantages of ethers in organic synthesis?",
+    "answer": 2,
+    "options": [
+      "High volatility",
+      "Low flammability",
+      "Versatile reactivity",
+      "High stability",
+      "Low boiling points"
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which characteristic makes ethers useful as extraction agents?",
+    "answer": 1,
+    "options": [
+      "High volatility",
+      "Relatively inert nature",
+      "Strong odor",
+      "Low reactivity",
+      "High boiling points"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What safety concern is associated with ethers?",
+    "answer": 0,
+    "options": [
+      "High flammability and potential for explosive peroxides if stored improperly.",
+      "Low reactivity and high stability.",
+      "Strong odor and irritant properties.",
+      "Excellent conductivity of electricity.",
+      "High boiling points and low volatility."
+    ],
+    "selected": null
+  },
+  {
+    "question": "In terms of water solubility, how do many ethers perform?",
+    "answer": 3,
+    "options": [
+      "They are highly soluble in water.",
+      "They are completely insoluble in water.",
+      "Their solubility depends on the specific ether.",
+      "They often have limited water solubility.",
+      "They form azeotropes with water."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which of the following is NOT a common application of ethers?",
+    "answer": 4,
+    "options": [
+      "Industrial solvents",
+      "Starting materials in organic synthesis",
+      "General anesthetics",
+      "Fuel additives",
+      "Rocket propellants"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the primary reason ethers were historically used as general anesthetics?",
+    "answer": 3,
+    "options": [
+      "Low volatility",
+      "High stability",
+      "Non-flammability",
+      "Anesthetic properties",
+      "Strong odor"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What type of reaction is crucial to understand in the context of ethers?",
+    "answer": 4,
+    "options": [
+      "Hydration",
+      "Dehydration",
+      "Oxidation",
+      "Dehydrogenation",
+      "Cleavage of the ether linkage and formation of new compounds"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What chemical test is commonly used to detect the presence of ethers?",
+    "answer": 0,
+    "options": [
+      "Ether detection test",
+      "Lucas test",
+      "Fehling's test",
+      "Benedict's test",
+      "Grignard test"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What are the key components of the IUPAC nomenclature for ethers?",
+    "answer": 2,
+    "options": [
+      "Prefixes and suffixes",
+      "Numerical prefixes and suffixes",
+      "Identifying the substituents and using the word 'ether'",
+      "Numerical prefixes only",
+      "Suffixes only"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is a notable property of ethers in terms of their odor?",
+    "answer": 2,
+    "options": [
+      "They have a sweet, pleasant odor.",
+      "They are odorless.",
+      "They often have a distinctive, strong odor.",
+      "Their odor varies depending on the alkyl groups."
+    ],
+    "selected": null
+  },
+  {
+    "question": "How do ethers typically behave in terms of their solubility in organic solvents?",
+    "answer": 0,
+    "options": [
+      "Ethers are generally soluble in organic solvents.",
+      "Ethers are insoluble in organic solvents.",
+      "Ethers are highly reactive in organic solvents.",
+      "Ethers are volatile in organic solvents."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is a common physical state of ethers at room temperature?",
+    "answer": 3,
+    "options": [
+      "Ethers are typically solid at room temperature.",
+      "Ethers are typically gases at room temperature.",
+      "Ethers are typically supercritical fluids at room temperature.",
+      "Ethers are typically liquids at room temperature."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the primary reason ethers are often used as solvents in organic chemistry laboratories?",
+    "answer": 1,
+    "options": [
+      "Ethers are highly reactive.",
+      "Ethers are relatively inert.",
+      "Ethers have a strong odor.",
+      "Ethers have low boiling points."
+    ],
+    "selected": null
+  },
+  {
+    "question": "How does the flammability of ethers compare to other organic compounds?",
+    "answer": 2,
+    "options": [
+      "Ethers are non-flammable.",
+      "Ethers are less flammable than most organic compounds.",
+      "Ethers are highly flammable.",
+      "Ethers are only flammable in the presence of strong acids."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What property of ethers makes them suitable for some specialized applications such as rocket propellants?",
+    "answer": 0,
+    "options": [
+      "Ethers have high energy content and can serve as fuels or propellants.",
+      "Ethers have low energy content and are chemically inert.",
+      "Ethers have strong odors, making them easy to detect.",
+      "Ethers have low boiling points, making them ideal for vaporization."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the primary reason ethers are sometimes considered hazardous?",
+    "answer": 4,
+    "options": [
+      "They have a strong odor.",
+      "They are non-reactive.",
+      "They have low volatility.",
+      "They have low flammability.",
+      "They can form explosive peroxides if stored improperly."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which property of ethers is particularly important in their use as extraction agents?",
+    "answer": 0,
+    "options": [
+      "Their ability to dissolve a wide range of organic compounds.",
+      "Their strong odor.",
+      "Their high boiling points.",
+      "Their high reactivity."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What happens to ethers' volatility as their molecular weight increases?",
+    "answer": 1,
+    "options": [
+      "Volatility increases with increasing molecular weight.",
+      "Volatility decreases with increasing molecular weight.",
+      "Volatility remains constant regardless of molecular weight.",
+      "Volatility depends on the specific ether structure."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What characteristic of ethers is crucial for their use as starting materials in organic synthesis?",
+    "answer": 3,
+    "options": [
+      "High reactivity",
+      "Low volatility",
+      "High stability",
+      "Versatile reactivity"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What distinguishes simple ethers from mixed ethers?",
+    "answer": 0,
+    "options": [
+      "Simple ethers have two identical or different alkyl or aryl groups bonded to the oxygen atom, while mixed ethers have one alkyl group and one aryl group bonded to the oxygen atom.",
+      "Simple ethers have a lower boiling point than mixed ethers.",
+      "Simple ethers are colorless, while mixed ethers have a distinctive color.",
+      "Simple ethers are highly reactive, while mixed ethers are relatively inert."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Provide an example of a simple ether.",
+    "answer": 1,
+    "options": [
+      "Methyl phenyl ether (CH3-O-Ph)",
+      "Ethyl benzyl ether (C2H5-O-C6H5CH2)",
+      "Dimethyl ether (CH3-O-CH3)",
+      "Diethyl ether (C2H5-O-C2H5)",
+      "Dibutyl ether (C4H9-O-C4H9)"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is a characteristic feature of mixed ethers?",
+    "answer": 2,
+    "options": [
+      "Mixed ethers are non-volatile.",
+      "Mixed ethers have low reactivity.",
+      "Mixed ethers have one alkyl group and one aryl group bonded to the oxygen atom.",
+      "Mixed ethers are always colorless."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which type of ether combines the properties of both alkyl and aryl ethers?",
+    "answer": 1,
+    "options": [
+      "Simple ethers",
+      "Mixed ethers",
+      "Diethyl ethers",
+      "Tertiary ethers",
+      "Polyethers"
+    ],
+    "selected": null
+  },
+  {
+    "question": "Why are mixed ethers considered versatile in terms of reactivity?",
+    "answer": 3,
+    "options": [
+      "Mixed ethers have a strong odor.",
+      "Mixed ethers are highly flammable.",
+      "Mixed ethers are typically colorless.",
+      "Mixed ethers combine the properties of alkyl and aryl ethers, allowing them to participate in a wide range of reactions.",
+      "Mixed ethers have high boiling points."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is a common method for the preparation of simple ethers from alcohols?",
+    "answer": 1,
+    "options": [
+      "Distillation",
+      "Williamson ether synthesis",
+      "Oxidation",
+      "Hydrolysis"
+    ],
+    "selected": null
+  },
+  {
+    "question": "In Williamson ether synthesis, what type of compound is typically used as the reactant to create ethers?",
+    "answer": 3,
+    "options": [
+      "Alcohols",
+      "Carboxylic acids",
+      "Aldehydes",
+      "Alkyl halides"
+    ],
+    "selected": null
+  },
+  {
+    "question": "How does the preparation of mixed ethers differ from that of simple ethers?",
+    "answer": 2,
+    "options": [
+      "Mixed ethers are prepared by distillation.",
+      "Mixed ethers are synthesized through hydrolysis reactions.",
+      "Mixed ethers are formed by reacting an alkyl halide with an aryl compound or vice versa.",
+      "Mixed ethers are prepared using aldehydes."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the purpose of using a strong base like sodium hydride in some ether synthesis reactions?",
+    "answer": 0,
+    "options": [
+      "To deprotonate the alkoxide ion and facilitate the ether formation.",
+      "To increase the flammability of the reaction mixture.",
+      "To neutralize the reaction mixture.",
+      "To prevent peroxide formation."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What role does heating play in the preparation of ethers using the Williamson ether synthesis?",
+    "answer": 1,
+    "options": [
+      "Heating is not necessary in this synthesis.",
+      "Heating promotes the reaction and helps in the formation of ethers.",
+      "Heating is used to evaporate excess solvent.",
+      "Heating prevents the formation of byproducts."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the first step in naming ethers?",
+    "answer": 3,
+    "options": [
+      "Identifying the molecular weight of the ether.",
+      "Listing the substituents in alphabetical order.",
+      "Determining the boiling point of the ether.",
+      "Identifying the alkyl or aryl groups attached to the oxygen atom."
+    ],
+    "selected": null
+  },
+  {
+    "question": "When using numerical prefixes in ether names, what do they indicate?",
+    "answer": 0,
+    "options": [
+      "The number of identical substituents of the same kind.",
+      "The number of oxygen atoms in the ether molecule.",
+      "The molecular weight of the ether.",
+      "The temperature at which the ether boils."
+    ],
+    "selected": null
+  },
+  {
+    "question": "In IUPAC nomenclature, why is it important to list the substituents alphabetically?",
+    "answer": 2,
+    "options": [
+      "It is not necessary to list the substituents alphabetically.",
+      "Alphabetical order is determined by the molecular weight of the substituents.",
+      "Alphabetical order takes precedence when determining the order of substituents in the name.",
+      "Alphabetical order is used for aesthetic reasons only."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-O-CH2CH3?",
+    "answer": 1,
+    "options": [
+      "Methoxymethane",
+      "Methylethyl ether",
+      "Dimethyl ether",
+      "Ethoxymethane"
+    ],
+    "selected": null
+  },
+  {
+    "question": "How are numerical prefixes like 'di-' and 'tri-' used in ether names?",
+    "answer": 0,
+    "options": [
+      "To indicate the number of identical substituents of the same kind.",
+      "To indicate the number of oxygen atoms in the ether molecule.",
+      "To denote the number of different functional groups in the ether.",
+      "To specify the number of carbon atoms in the ether chain."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What should you do if there are multiple identical substituents in an ether molecule when naming it?",
+    "answer": 1,
+    "options": [
+      "Use numerical prefixes to indicate the number of oxygen atoms.",
+      "Use numerical prefixes to indicate the number of identical substituents of the same kind.",
+      "List the substituents alphabetically, ignoring numerical prefixes.",
+      "Use numerical prefixes to indicate the molecular weight of the ether."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-O-C6H5?",
+    "answer": 3,
+    "options": [
+      "Methylbenzene",
+      "Methylphenyl ether",
+      "Phenoxymethane",
+      "Methylphenoxymethane"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the purpose of using numerical prefixes like 'di-' or 'tri-' in ether names?",
+    "answer": 0,
+    "options": [
+      "To indicate the number of identical substituents of the same kind.",
+      "To specify the temperature at which the ether boils.",
+      "To denote the molecular weight of the ether.",
+      "To describe the color of the ether."
+    ],
+    "selected": null
+  },
+  {
+    "question": "In the systematic naming of ethers, what comes after listing the substituents alphabetically?",
+    "answer": 2,
+    "options": [
+      "The molecular weight of the ether.",
+      "The number of oxygen atoms in the ether.",
+      "The word 'ether' is added to the end of the name.",
+      "The temperature at which the ether boils."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What does the name 'ethoxymethane' represent in IUPAC nomenclature?",
+    "answer": 1,
+    "options": [
+      "A compound with two oxygen atoms.",
+      "A compound with an ethyl group and a methyl group bonded to an oxygen atom.",
+      "A compound with a high molecular weight.",
+      "A compound with a strong odor."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the classification of an ether where the oxygen atom is present within an alkyl chain?",
+    "answer": 2,
+    "options": [
+      "Simple ether",
+      "Mixed ether",
+      "Intramolecular ether",
+      "Polyether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "In which type of ether is the oxygen atom located on an aryl group attached to an alkyl chain?",
+    "answer": 3,
+    "options": [
+      "Simple ether",
+      "Mixed ether",
+      "Intramolecular ether",
+      "Aryl ether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What term is used to describe an ether where the oxygen atom is part of a cyclic structure within the molecule?",
+    "answer": 0,
+    "options": [
+      "Cyclic ether",
+      "Mixed ether",
+      "Intramolecular ether",
+      "Aryl ether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which type of ether has the oxygen atom present as a bridge connecting two alkyl groups within the same molecule?",
+    "answer": 2,
+    "options": [
+      "Simple ether",
+      "Mixed ether",
+      "Intramolecular ether",
+      "Aryl ether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "In an aryl ether, where is the oxygen atom typically located?",
+    "answer": 1,
+    "options": [
+      "Within an alkyl chain",
+      "On an aryl group attached to an alkyl chain",
+      "In a cyclic structure",
+      "Connecting two alkyl groups"
+    ],
+    "selected": null
+  },{
+    "question": "What is the classification of an ether that contains two oxygen atoms bridging two alkyl or aryl groups?",
+    "answer": 1,
+    "options": [
+      "Simple ether",
+      "Dialkyl ether",
+      "Mixed ether",
+      "Polyether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which term describes an ether with three or more oxygen atoms bridging multiple alkyl or aryl groups?",
+    "answer": 3,
+    "options": [
+      "Simple ether",
+      "Dialkyl ether",
+      "Mixed ether",
+      "Polyether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "In the classification of ethers, what does 'di-' indicate when used in a compound name?",
+    "answer": 1,
+    "options": [
+      "It indicates the presence of a cyclic structure.",
+      "It signifies the presence of two oxygen atoms or groups bridging alkyl or aryl groups.",
+      "It denotes a mixed ether.",
+      "It indicates a triple bond between oxygen atoms."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which type of ether contains multiple oxygen atoms bridging two or more alkyl or aryl groups?",
+    "answer": 3,
+    "options": [
+      "Simple ether",
+      "Dialkyl ether",
+      "Mixed ether",
+      "Polyether"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for an ether that contains two oxygen atoms bridging two alkyl groups?",
+    "answer": 1,
+    "options": [
+      "Dioxygen ether",
+      "Dialkyl ether",
+      "Mixed ether",
+      "Oxirane"
+    ],
+    "selected": null
+  },{
+    "question": "In IUPAC nomenclature, how are numerical prefixes like 'di-' and 'tri-' used in ether names?",
+    "answer": 0,
+    "options": [
+      "To indicate the number of identical substituents of the same kind.",
+      "To specify the temperature at which the ether boils.",
+      "To denote the molecular weight of the ether.",
+      "To describe the color of the ether."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the first step in naming ethers following IUPAC rules?",
+    "answer": 3,
+    "options": [
+      "Identifying the molecular weight of the ether.",
+      "Listing the substituents in alphabetical order.",
+      "Determining the boiling point of the ether.",
+      "Identifying the alkyl or aryl groups attached to the oxygen atom."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What should you do if there are multiple identical substituents in an ether molecule when naming it?",
+    "answer": 1,
+    "options": [
+      "Use numerical prefixes to indicate the number of oxygen atoms.",
+      "Use numerical prefixes to indicate the number of identical substituents of the same kind.",
+      "List the substituents alphabetically, ignoring numerical prefixes.",
+      "Use numerical prefixes to indicate the molecular weight of the ether."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Why is it important to list the substituents alphabetically in the systematic naming of ethers?",
+    "answer": 2,
+    "options": [
+      "It is not necessary to list the substituents alphabetically.",
+      "Alphabetical order is determined by the molecular weight of the substituents.",
+      "Alphabetical order takes precedence when determining the order of substituents in the name.",
+      "Alphabetical order is used for aesthetic reasons only."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-O-C2H5?",
+    "answer": 1,
+    "options": [
+      "Methoxylethane",
+      "Methylethyl ether",
+      "Dimethyl ether",
+      "Ethoxymethane"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the purpose of using numerical prefixes like 'di-' or 'tri-' in ether names?",
+    "answer": 0,
+    "options": [
+      "To indicate the number of identical substituents of the same kind.",
+      "To specify the temperature at which the ether boils.",
+      "To denote the molecular weight of the ether.",
+      "To describe the color of the ether."
+    ],
+    "selected": null
+  },
+  {
+    "question": "In the systematic naming of ethers, what comes after listing the substituents alphabetically?",
+    "answer": 2,
+    "options": [
+      "The molecular weight of the ether.",
+      "The number of oxygen atoms in the ether.",
+      "The word 'ether' is added to the end of the name.",
+      "The temperature at which the ether boils."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for C3H7-O-C6H5?",
+    "answer": 3,
+    "options": [
+      "Propylbenzene",
+      "Methylphenyl ether",
+      "Benzylpropyl ether",
+      "Propylphenoxymethane"
+    ],
+    "selected": null
+  },
+  {
+    "question": "What does the name 'ethoxymethane' represent in IUPAC nomenclature?",
+    "answer": 1,
+    "options": [
+      "A compound with two oxygen atoms.",
+      "A compound with an ethyl group and a methyl group bonded to an oxygen atom.",
+      "A compound with a high molecular weight.",
+      "A compound with a strong odor."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the systematic name for CH3-O-C4H9?",
+    "answer": 2,
+    "options": [
+      "Methoxybutane",
+      "Methylbutyl ether",
+      "Butylmethoxymethane",
+      "Ethylbutyl ether"
+    ],
+    "selected": null
+  },{
+    "question": "What physical property of ethers makes them useful as solvents in organic reactions?",
+    "answer": 1,
+    "options": [
+      "High reactivity.",
+      "Good solubility for organic compounds.",
+      "Strong acidity.",
+      "Low volatility."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Ethers are known for their relatively low boiling points. What is the reason behind this property?",
+    "answer": 3,
+    "options": [
+      "Ethers contain a high percentage of oxygen atoms.",
+      "Ethers form strong covalent bonds.",
+      "Ethers have a high molecular weight.",
+      "Ethers have weak intermolecular forces between molecules."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the typical odor of ethers, and why is this odor significant?",
+    "answer": 0,
+    "options": [
+      "Ethers often have a sweet, pleasant odor that can be detected even at low concentrations. This odor is significant because it serves as a warning of their presence, especially in laboratory settings.",
+      "Ethers have a foul odor that is often associated with their high reactivity.",
+      "Ethers are odorless, which makes them challenging to detect.",
+      "Ethers have a pungent odor that can cause respiratory irritation."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What are the primary factors that determine the volatility of ethers?",
+    "answer": 2,
+    "options": [
+      "Their color and odor.",
+      "The presence of a hydroxyl (-OH) group.",
+      "The strength of intermolecular forces and molecular weight.",
+      "Their solubility in water."
+    ],
+    "selected": null
+  },
+  {
+    "question": "Which of the following statements about the flammability of ethers is true?",
+    "answer": 0,
+    "options": [
+      "Ethers are highly flammable and can form explosive peroxides if stored improperly.",
+      "Ethers are non-flammable and can be used as fire suppressants.",
+      "Ethers are only flammable at very high temperatures.",
+      "Ethers are completely inert and do not undergo combustion."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What role do ethers play in the formation of explosive peroxides?",
+    "answer": 1,
+    "options": [
+      "Ethers do not contribute to the formation of explosive peroxides.",
+      "Ethers can react with oxygen in the air to form peroxides, which can be explosive when concentrated.",
+      "Ethers can neutralize peroxides in the environment.",
+      "Ethers accelerate the decomposition of peroxides."
+    ],
+    "selected": null
+  },
+  {
+    "question": "How does the reactivity of ethers compare to that of alcohols?",
+    "answer": 3,
+    "options": [
+      "Ethers are more reactive than alcohols.",
+      "Ethers and alcohols have similar reactivity.",
+      "Ethers are less reactive than alcohols.",
+      "Ethers are completely inert and do not react with other compounds."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What type of reactions are ethers commonly involved in?",
+    "answer": 2,
+    "options": [
+      "Combustion reactions.",
+      "Hydrolysis reactions.",
+      "Cleavage of the ether linkage and formation of new compounds.",
+      "Decomposition reactions."
+    ],
+    "selected": null
+  },
+  {
+    "question": "How do ethers typically react when exposed to strong acids or bases?",
+    "answer": 0,
+    "options": [
+      "Ethers can undergo cleavage of the ether linkage and decomposition when exposed to strong acids or bases.",
+      "Ethers remain stable and unreactive when exposed to strong acids or bases.",
+      "Ethers readily dissolve in strong acids and bases.",
+      "Ethers become highly flammable when exposed to strong acids or bases."
+    ],
+    "selected": null
+  },
+  {
+    "question": "What is the primary reason ethers are considered relatively inert in comparison to some other organic compounds?",
+    "answer": 1,
+    "options": [
+      "Their high reactivity.",
+      "The absence of highly reactive functional groups in their structure.",
+      "Their strong acidity.",
+      "Their high volatility."
+    ],
+    "selected": null
+  },{
+    "question": "What distinguishes simple ethers from mixed ethers in terms of the groups attached to the oxygen atom?",
+    "answer": 0,
+    "options": [
+      "Simple ethers have two identical or different alkyl or aryl groups bonded to the oxygen atom, while mixed ethers have one alkyl group and one aryl group attached to the oxygen atom.",
+      "Simple ethers have a hydroxyl (-OH) group, while mixed ethers have an oxygen atom bridging two alkyl or aryl groups.",
+      "Simple ethers have a benzene ring, while mixed ethers have a double bond.",
+      "Simple ethers have a double bond, while mixed ethers have a hydroxyl (-OH) group."
+    ],
+    "selected": null
+  },{
+    "question": "What is the defining structural feature of epoxides?",
+    "answer": 0,
+    "options": [
+        "A three-membered ring containing one oxygen atom and two carbon atoms.",
+        "A four-membered ring containing one oxygen atom and three carbon atoms.",
+        "A five-membered ring containing one nitrogen atom and four carbon atoms.",
+        "A six-membered ring containing one sulfur atom and five carbon atoms."
+    ],
+    "selected": null
+},
+{
+    "question": "Which term is synonymous with epoxides in organic chemistry?",
+    "answer": 1,
+    "options": [
+        "Tetrahydrofuran (THF)",
+        "Oxiranes",
+        "Amines",
+        "Carboxylic acids"
+    ],
+    "selected": null
+},
+{
+    "question": "What is the primary distinguishing feature of the three-membered ring in epoxides?",
+    "answer": 2,
+    "options": [
+        "It contains only one carbon atom bonded to the oxygen atom.",
+        "It is aromatic in nature.",
+        "It contains one oxygen atom and two carbon atoms.",
+        "It has a six-membered ring structure."
+    ],
+    "selected": null
+},
+{
+    "question": "What kind of chemical reactivity is characteristic of epoxides due to their unique ring structure?",
+    "answer": 3,
+    "options": [
+        "High resistance to nucleophilic attacks.",
+        "Stability under all reaction conditions.",
+        "Inertness in organic reactions.",
+        "Distinct chemical reactivity."
+    ],
+    "selected": null
+},
+{
+    "question": "Which of the following is NOT a feature of epoxides' distinct chemical reactivity?",
+    "answer": 1,
+    "options": [
+        "Ring strain due to the three-membered ring structure.",
+        "Nucleophilic susceptibility at the ring's oxygen atom.",
+        "Versatile participation in ring-opening reactions.",
+        "Formation of stable triple bonds."
+    ],
+    "selected": null
+},
+{
+    "question": "Why are epoxides often referred to as oxiranes in organic chemistry?",
+    "answer": 0,
+    "options": [
+        "Because they have a three-membered ring structure containing oxygen.",
+        "Because they are used as solvents in chemical reactions.",
+        "Because they are derived from oxides.",
+        "Because they contain only aromatic groups."
+    ],
+    "selected": null
+},
+{
+    "question": "What role does the epoxide group play in the structure of epoxides?",
+    "answer": 2,
+    "options": [
+        "It forms a double bond with one of the carbon atoms in the ring.",
+        "It acts as an aromatic ring.",
+        "It bridges one oxygen atom and two carbon atoms in the ring.",
+        "It creates a five-membered ring structure."
+    ],
+    "selected": null
+},
+{
+    "question": "What kind of functional groups are commonly found in epoxides?",
+    "answer": 1,
+    "options": [
+        "Carboxylic acids",
+        "Alkyl and aryl groups",
+        "Ketones and aldehydes",
+        "Amides and esters"
+    ],
+    "selected": null
+},
+{
+    "question": "What role does the oxygen atom play in the structure of epoxides?",
+    "answer": 0,
+    "options": [
+        "It bridges two carbon atoms in the three-membered ring.",
+        "It forms a double bond with a carbon atom in the ring.",
+        "It is present in the ring's center.",
+        "It serves as an aromatic substituent."
+    ],
+    "selected": null
+},
+{
+    "question": "What distinguishes the three-membered ring of epoxides from larger cyclic ethers like tetrahydrofuran (THF)?",
+    "answer": 0,
+    "options": [
+        "The presence of one oxygen atom and two carbon atoms.",
+        "The absence of an oxygen atom.",
+        "The aromatic nature of the ring.",
+        "The size of the ring."
+    ],
+    "selected": null
+},
+{
+  "question": "What is the defining structural feature of epoxides?",
+  "answer": 0,
+  "options": [
+      "A three-membered ring containing one oxygen atom and two carbon atoms.",
+      "A four-membered ring containing one oxygen atom and three carbon atoms.",
+      "A five-membered ring containing one nitrogen atom and four carbon atoms.",
+      "A six-membered ring containing one sulfur atom and five carbon atoms."
+  ],
+  "selected": null
+},
+{
+  "question": "How are epoxides classified based on the nature of substituents attached to the three-membered ring?",
+  "answer": 1,
+  "options": [
+      "Aliphatic epoxides have aromatic substituents, while aromatic epoxides have aliphatic substituents.",
+      "Aliphatic epoxides have aliphatic (non-aromatic) groups attached to the ring, while aromatic epoxides have aromatic groups.",
+      "Aliphatic epoxides have double bonds, while aromatic epoxides have triple bonds.",
+      "Aliphatic epoxides have ketone groups, while aromatic epoxides have aldehyde groups."
+  ],
+  "selected": null
+},
+{
+  "question": "Which of the following is an example of an aliphatic epoxide?",
+  "answer": 2,
+  "options": [
+      "Styrene oxide",
+      "Phenyl glycidyl ether",
+      "Ethylene oxide",
+      "Propylene oxide"
+  ],
+  "selected": null
+},
+{
+  "question": "What is a disadvantage associated with certain aromatic epoxides?",
+  "answer": 3,
+  "options": [
+      "High reactivity in the presence of air.",
+      "Limited stability due to ring strain.",
+      "Low solubility in common solvents.",
+      "Inertness in chemical reactions."
+  ],
+  "selected": null
+},
+{
+  "question": "In chemical reactions, how do epoxides commonly participate as intermediates?",
+  "answer": 0,
+  "options": [
+      "By undergoing ring-opening reactions.",
+      "By forming stable triple bonds.",
+      "By transforming into aldehydes.",
+      "By acting as strong acids."
+  ],
+  "selected": null
+},
+{
+  "question": "What is the systematic way to name epoxides with multiple epoxide groups according to IUPAC nomenclature?",
+  "answer": 0,
+  "options": [
+      "By using numerical prefixes (di-, tri-, etc.) to indicate the number of epoxide groups.",
+      "By using alphabetical order of substituents.",
+      "By ignoring the epoxide groups in the name.",
+      "By using the term 'epoxy' only without specifying the number of groups."
+  ],
+  "selected": null
+},
+{
+  "question": "Why are epoxides important in the field of medicinal chemistry and pharmaceuticals?",
+  "answer": 0,
+  "options": [
+      "They serve as intermediates in the synthesis of various pharmaceutical compounds.",
+      "They have potent anesthetic properties.",
+      "They are powerful disinfectants for healthcare purposes.",
+      "They are used as starting materials in the production of vitamins."
+  ],
+  "selected": null
+},
+{
+  "question": "Which environmental consideration is associated with the production and use of certain epoxides?",
+  "answer": 2,
+  "options": [
+      "Reduced energy consumption during production.",
+      "Decreased greenhouse gas emissions.",
+      "Environmental concerns due to the production of specific epoxides.",
+      "Enhanced biodegradability."
+  ],
+  "selected": null
+},
+{
+  "question": "How do epoxides contribute to the polymer industry?",
+  "answer": 0,
+  "options": [
+      "They are crucial in the production of epoxy resins used in adhesives, coatings, and composites.",
+      "They act as catalysts in polymerization reactions.",
+      "They enhance the flexibility of polymers.",
+      "They serve as plasticizers in polymer formulations."
+  ],
+  "selected": null
+},
+{
+  "question": "What role does the term 'epoxy' play in the nomenclature of epoxides?",
+  "answer": 0,
+  "options": [
+      "It indicates the presence of the epoxide functional group in the compound's name.",
+      "It specifies the position of the carbon atoms within the epoxide ring.",
+      "It describes the color of the epoxide compound.",
+      "It signifies the degree of reactivity of the epoxide group."
+  ],
+  "selected": null
+}
+  
+]
+
+

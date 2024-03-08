@@ -46,7 +46,7 @@
                   image="/level.jpg"
                   permanent
                   theme="dark"
-                  height="220"
+                  height="230"
                   class="d-flex flex-column align-item-center"
                 >
                   <h1 class="txt text-capitalize">{{ course.title }}</h1>
@@ -58,13 +58,25 @@
                     </p>
 
                     <v-card-actions class="d-flex justify-space-evenly">
-                      <v-btn border>Study</v-btn>
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'read',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Study</v-btn
+                      >
                       <v-btn
                         border
                         router
                         :to="{
                           name: 'quiz',
                           params: {
+                            title: course.title,
                             courseCode: course.code,
                           },
                         }"
@@ -107,7 +119,7 @@
                   image="/level.jpg"
                   permanent
                   theme="dark"
-                  height="220"
+                  height="230"
                   class="d-flex flex-column align-item-center"
                 >
                   <h1 class="txt text-capitalize">{{ course.title }}</h1>
@@ -119,8 +131,30 @@
                     </p>
 
                     <v-card-actions class="d-flex justify-space-evenly">
-                      <v-btn border>Study</v-btn>
-                      <v-btn border>Take Quiz</v-btn>
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'read',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Study</v-btn
+                      >
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'quiz',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Take Quiz</v-btn
+                      >
                     </v-card-actions>
                   </div>
                 </v-card>
@@ -160,7 +194,7 @@
                   image="/level.jpg"
                   permanent
                   theme="dark"
-                  height="220"
+                  height="230"
                   class="d-flex flex-column align-item-center"
                 >
                   <h1 class="txt text-capitalize">{{ course.title }}</h1>
@@ -172,8 +206,30 @@
                     </p>
 
                     <v-card-actions class="d-flex justify-space-evenly">
-                      <v-btn border>Study</v-btn>
-                      <v-btn border>Take Quiz</v-btn>
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'read',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Study</v-btn
+                      >
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'quiz',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Take Quiz</v-btn
+                      >
                     </v-card-actions>
                   </div>
                 </v-card>
@@ -211,7 +267,7 @@
                   image="/level.jpg"
                   permanent
                   theme="dark"
-                  height="220"
+                  height="230"
                   class="d-flex flex-column align-item-center"
                 >
                   <h1 class="txt text-capitalize">{{ course.title }}</h1>
@@ -223,8 +279,30 @@
                     </p>
 
                     <v-card-actions class="d-flex justify-space-evenly">
-                      <v-btn border>Study</v-btn>
-                      <v-btn border>Take Quiz</v-btn>
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'read',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Study</v-btn
+                      >
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'quiz',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Take Quiz</v-btn
+                      >
                     </v-card-actions>
                   </div>
                 </v-card>
@@ -264,7 +342,7 @@
                   image="/level.jpg"
                   permanent
                   theme="dark"
-                  height="220"
+                  height="230"
                   class="d-flex flex-column align-item-center"
                 >
                   <h1 class="txt text-capitalize">{{ course.title }}</h1>
@@ -276,8 +354,30 @@
                     </p>
 
                     <v-card-actions class="d-flex justify-space-evenly">
-                      <v-btn border>Study</v-btn>
-                      <v-btn border>Take Quiz</v-btn>
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'read',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Study</v-btn
+                      >
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'quiz',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Take Quiz</v-btn
+                      >
                     </v-card-actions>
                   </div>
                 </v-card>
@@ -317,7 +417,7 @@
                   image="/level.jpg"
                   permanent
                   theme="dark"
-                  height="220"
+                  height="230"
                   class="d-flex flex-column align-item-center"
                 >
                   <h1 class="txt text-capitalize">{{ course.title }}</h1>
@@ -329,8 +429,30 @@
                     </p>
 
                     <v-card-actions class="d-flex justify-space-evenly">
-                      <v-btn border>Study</v-btn>
-                      <v-btn border>Take Quiz</v-btn>
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'read',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Study</v-btn
+                      >
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'quiz',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Take Quiz</v-btn
+                      >
                     </v-card-actions>
                   </div>
                 </v-card>
@@ -368,7 +490,7 @@
                   image="/level.jpg"
                   permanent
                   theme="dark"
-                  height="220"
+                  height="230"
                   class="d-flex flex-column align-item-center"
                 >
                   <h1 class="txt text-capitalize">{{ course.title }}</h1>
@@ -380,8 +502,30 @@
                     </p>
 
                     <v-card-actions class="d-flex justify-space-evenly">
-                      <v-btn border>Study</v-btn>
-                      <v-btn border>Take Quiz</v-btn>
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'read',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Study</v-btn
+                      >
+                      <v-btn
+                        border
+                        router
+                        :to="{
+                          name: 'quiz',
+                          params: {
+                            title: course.title,
+                            courseCode: course.code,
+                          },
+                        }"
+                        >Take Quiz</v-btn
+                      >
                     </v-card-actions>
                   </div>
                 </v-card>
@@ -531,58 +675,58 @@ const _400SecondSemester = ref(false);
 //100 level courses
 const _100FirstSemesterCourses = [
   {
-    code: "GSP1201",
+    code: "gsp1201",
     title: "Use Of English",
     description:
       " A course providing a comprehensive review of English language fundamentals, including grammar and communication skills.",
   },
   {
-    code: "CSC1201",
+    code: "csc1201",
     title: "Introduction to Computer Science",
     description:
       "An introductory course exploring computer science concepts, programming, and technology.",
   },
   {
-    code: "PHY1107",
+    code: "phy1107",
     title: "Practical Physics I",
     description:
       "Hands-on experiments and fundamental physics principles exploration.",
   },
   {
-    code: "PHY1211",
+    code: "phy1211",
     title: "Introduction to Mechanics and Waves",
     description: " Study of motion, forces, and wave phenomena.",
   },
   {
-    code: "PHY1231",
+    code: "phy1231",
     title: "introduction to properties of matter",
     description: " Understanding matter at atomic and molecular levels.",
   },
   {
-    code: "BIO1203",
+    code: "bio1203",
     title: "general biology I",
     description:
       "Core biology concepts, including cellular biology and genetics.",
   },
   {
-    code: "BIO1201",
+    code: "bio1201",
     title: "general biology III",
     description:
       "Deeper exploration of biology, covering ecology, physiology, and biodiversity.",
   },
   {
-    code: "MTH1301",
+    code: "mth1301",
     title: "algebra and trigonometry",
     description: " Mastery of algebraic and trigonometric mathematical skills.",
   },
   {
-    code: "CHM1231",
+    code: "chm1231",
     title: "inorganic chemistry I",
     description:
       "Foundations of inorganic chemistry and non-organic compounds.",
   },
   {
-    code: "CHM1251",
+    code: "chm1251",
     title: "physical chemistry I",
     description:
       " Study of chemical reactions, thermodynamics, and molecular behavior.",
@@ -590,55 +734,55 @@ const _100FirstSemesterCourses = [
 ];
 const _100SecondSemesterCourses = [
   {
-    code: "GSP1202",
+    code: "gsp1202",
     title: "foundation of nigerian culture",
     description:
       "A course delving into the cultural heritage and traditions of Nigeria.",
   },
   {
-    code: "GSP1206",
+    code: "gsp1206",
     title: "library skills",
     description:
       "Develop essential skills for effective use of library resources and research.",
   },
   {
-    code: "CHM1242",
+    code: "chm1242",
     title: "organic chemistry I",
     description:
       "Study the fundamental principles of organic chemistry and the properties of carbon-based compounds.",
   },
   {
-    code: "CHM1261",
+    code: "chm1261",
     title: "practical chemistry I",
     description:
       " Hands-on laboratory experiments and applications of chemical concepts.",
   },
   {
-    code: "PHY1108",
+    code: "phy1108",
     title: "practical physics II",
     description:
       " Further exploration of practical physics experiments and concepts.",
   },
   {
-    code: "PHY1222",
+    code: "phy1222",
     title: "introduction to electricity and magnetism",
     description:
       "Study the fundamental principles of electricity and magnetism.",
   },
   {
-    code: "BIO1204",
+    code: "bio1204",
     title: "general biology IV",
     description:
       "Continue the study of biology, focusing on advanced topics in the field.",
   },
   {
-    code: "BIO1202",
+    code: "bio1202",
     title: "general biology II",
     description:
       " Build upon the basics of biology, covering diverse aspects of the subject.",
   },
   {
-    code: "MTH1304",
+    code: "mth1304",
     title: "calculus and it's application",
     description:
       "An exploration of calculus and its real-world applications in various fields.",
@@ -648,19 +792,19 @@ const _100SecondSemesterCourses = [
 // 200 level courses
 const _200FirstSemesterCourses = [
   {
-    code: "BCH2301",
+    code: "bch2301",
     title: "general biochemistry I",
     description:
       "Explore the fundamentals of biochemistry, focusing on biomolecules and their functions in living organisms.",
   },
   {
-    code: "BCH2101",
+    code: "bch2101",
     title: "methods in biochemistry",
     description:
       " Learn essential methods and techniques used in biochemical research and analysis.",
   },
   {
-    code: "BCH2121",
+    code: "bch2121",
     title: "biochemistry lab I",
     description:
       "Engage in hands-on laboratory work, applying biochemistry principles to experiments.",

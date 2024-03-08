@@ -10,6 +10,7 @@ import ViewPost from "../views/ViewPost.vue";
 import ResetPassword from "../views/ResetPassword.vue";
 import Study from "../views/Study.vue";
 import Quiz from "../views/Quiz.vue";
+import Read from "../views/Read.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -99,11 +100,19 @@ const router = createRouter({
       },
     },
     {
-      path: "/quiz/:courseCode",
+      path: "/quiz/:title/:courseCode",
       name: "quiz",
       component: Quiz,
       meta: {
         title: "Quiz", // Set the page title for this route
+      },
+    },
+    {
+      path: "/read/:title/:courseCode",
+      name: "read",
+      component: Read,
+      meta: {
+        title: "Read", // Set the page title for this route
       },
     },
   ],
